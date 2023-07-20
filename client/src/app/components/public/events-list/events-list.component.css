@@ -1,0 +1,18 @@
+/* Estilos para el contenedor del título */
+.title-container {
+    text-align: center; /* Centrar el título horizontalmente */
+    margin-bottom: 20px; /* Agregar un espacio entre el título y la tabla de eventos */
+  }
+  
+  /* Estilos para el título principal */
+  .main-title {
+    font-size: 20px; /* Tamaño de fuente grande utilizando unidades rem */
+    color: #8B4513; /* Color tierra */
+    font-weight: bold; /* Fuente en negrita */
+    text-transform: uppercase; /* Convertir el texto en mayúsculas */
+    background: linear-gradient(to right, #8B4513, #D2B48C); /* Fondo degradado */
+    -webkit-background-clip: text; /* Clip de fondo para mostrar el gradiente solo en el texto */
+    background-clip: text;
+    color: transparent; /* Hacer el texto transparente para que muestre el gradiente */
+  }
+  

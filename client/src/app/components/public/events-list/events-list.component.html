@@ -1,1 +1,20 @@
-<p>events-list works!</p>
+
+<div class="title-container">
+    <h3 class="main-title">Últimos eventos creados en Arenys</h3>
+  </div>
+  
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body" *ngFor="let event of listEvents">
+      <h5 class="card-title">{{ event.title | uppercase }}</h5>
+      <p>Data: {{ event.date }}</p>
+      <p>Hora de inicio: {{ event.startTime }}</p>
+      <p>Hora de fin: {{ event.endTime }}</p>
+      <p>Lugar: {{ event.location }}</p>
+      <p>Descripción: {{ event.description }}</p>
+      <p>Tipo: {{ event.type }}</p>
+      <p>Imagen: {{ event.img }}</p>
+      <a href="#" class="btn btn-primary">Ir al evento</a>
+    </div>
+  </div>
+  
