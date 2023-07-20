@@ -1,5 +1,3 @@
-
-
 export class Event {
     title: string;
     date: string;
