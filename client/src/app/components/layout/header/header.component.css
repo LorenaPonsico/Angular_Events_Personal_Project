@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ajusta esto según tus necesidades */
+    /* background-color: green; */
+    background-image: url('/client/src/assets/evento.jpg');
+
+  }
+
+  body{
+
+    
+
+    background-size: cover;
+    background-position: center;
+  }
+  
