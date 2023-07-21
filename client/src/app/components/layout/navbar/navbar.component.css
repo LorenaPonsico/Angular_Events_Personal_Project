@@ -1,19 +1,17 @@
 .nav-link.btn-primary:hover {
   background-color: #fad390;
-
 }
 
-
 .nav-link:hover {
-    color: green; /* Cambia el color del texto al pasar el cursor */
-  }
-  
+  color: green;
+  /* Cambia el color del texto al pasar el cursor */
+}
 
-  .btn{
-    background-color: #fad390;
-  }
+.btn {
+  background-color: #fad390;
+}
 
-  .nav-link{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
+.nav-link {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 

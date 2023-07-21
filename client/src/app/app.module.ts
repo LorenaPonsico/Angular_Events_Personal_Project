@@ -16,6 +16,7 @@ import { EventDetailsComponent } from './components/user/event-details/event-det
 import { CalendarComponent } from './components/user/calendar/calendar.component';
 import { EventsScheduleComponent } from './components/user/events-schedule/events-schedule.component';
 import { SearchComponent } from './components/user/search/search.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { SearchComponent } from './components/user/search/search.component';
     CalendarComponent,
     EventsScheduleComponent,
     SearchComponent,
+    LayoutComponent,
 
 
   ],

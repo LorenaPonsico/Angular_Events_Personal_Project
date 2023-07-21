@@ -1,19 +1,25 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Ajusta esto según tus necesidades */
-    /* background-color: green; */
-    /* background-image: url('/client/src/assets/evento.jpg'); */
+.container-fluid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-image: url('../../../../assets/evento.jpg');
+  background-size: cover;
+  background-position: center;
+}
 
+.text-background {
+
+  color: #fad390;
+  background-clip: text;
   }
 
-  body{
+h3{
+  font-size: 35px;
+}
 
-    
-
-    background-size: cover;
-    background-position: center;
-  }
-  
+p{
+  font-size: 25px;
+}

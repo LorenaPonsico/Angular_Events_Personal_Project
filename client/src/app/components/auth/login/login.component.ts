@@ -5,7 +5,10 @@ import { first } from 'rxjs/operators';
 
 // import { AccountService } from '@app/services'
 
-@Component({ templateUrl: 'login.component.html' })
+@Component({ selector: 'login-component',
+templateUrl: './login.component.html',
+styleUrls: ['./login.component.css'] })
+
 export class LoginComponent implements OnInit {
     form!: FormGroup;
     loading = false;
@@ -32,20 +35,20 @@ export class LoginComponent implements OnInit {
     }
 
     // convenience getter for easy access to form fields
-    get f() { return this.form.controls; }
+    // get f() { return this.form.controls; }
 
-    onSubmit() {
-        this.submitted = true;
+    // onSubmit() {
+    //     this.submitted = true;
 
         // reset alert on submit
-        this.error = '';
+        // this.error = '';
 
         // stop here if form is invalid
-        if (this.form.invalid) {
-            return;
-        }
+        // if (this.form.invalid) {
+        //     return;
+        // }
 
-        this.loading = true;
+        // this.loading = true;
         // this.accountService.login(this.f.username.value, this.f.password.value)
         //     .pipe(first())
         //     .subscribe({
@@ -59,5 +62,5 @@ export class LoginComponent implements OnInit {
         //             this.loading = false;
         //         }
         //     });
-    }
+    // }
 }
