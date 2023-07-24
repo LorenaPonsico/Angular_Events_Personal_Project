@@ -1,5 +1,6 @@
 const User = require("../models/User");
-
+const bcrypt = require('bcrypt');
+// const jwt = require('jsonwebtoken');
 exports.createUser = async (req, res) => {
 
     try {
@@ -10,6 +11,10 @@ exports.createUser = async (req, res) => {
         await user.save()
         res.send(user)
 
+        // const token = jws.sign({_id: user._id}, 'secretKey')
+        // res.status(200).json({token})
+
+
     } catch (error) {
         console.log(error);
         res.status(500).send('Hubo un error')
@@ -17,11 +22,11 @@ exports.createUser = async (req, res) => {
 }
 
 exports.getUsers = async (req, res) => {
-
     try {
         //mostrar usuarios
         const users = await User.find();
         res.json(users);
+        console.log(users)
 
     } catch (error) {
         console.log(error);
@@ -44,11 +49,16 @@ exports.updateUser = async (req, res) => {
         user.name = name;
         user.surname = surname;
         user.email = email;
-        user.password = password;
+        
         user.phone = phone;
         user.birthDate = birthDate;
         user.img = img;
 
+        const saltRounds = 10; // Número de rondas para el proceso de hasheo
+
+        // Hashear la contraseña antes de guardarla en la base de datos
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
+        user.password = hashedPassword;
 
         user = await User.findOneAndUpdate({ _id: req.params.id }, user, { new: true })
         res.json(user)
@@ -97,3 +107,31 @@ exports.deleteUser = async (req, res) => {
     }
 }
 
+
+exports.signInUser = async (req, res) => {
+    const { email, password } = req.body;
+    
+    try {
+        // Buscar el usuario por su email en la base de datos
+        const user = await User.findOne({ email });
+  
+      if (!user) {
+        return res.status(401).json({ message: 'Credenciales inválidas' });
+      }
+  
+      // Comparar la contraseña proporcionada con la contraseña almacenada en la base de datos
+      const isPasswordValid = await bcrypt.compare(password, user.password);
+    //   const isPasswordValid = password === user.password ? true : false;
+
+      if (!isPasswordValid) {
+        return res.status(401).json({ message: 'Credenciales inválidas' });
+      }
+  
+      // Si las credenciales son válidas, puedes enviar los datos del usuario como respuesta
+      res.status(200).json({ user });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: 'Hubo un error al iniciar sesión' });
+    }
+  };
+  
