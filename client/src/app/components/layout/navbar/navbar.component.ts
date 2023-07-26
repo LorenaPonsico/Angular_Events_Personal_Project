@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from '../../../services/auth-users.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,12 +10,17 @@ export class NavbarComponent implements OnInit {
 
   userLoginOn: boolean = false;
   
-  constructor(){}
+  constructor( private accountService:AccountService ){}
 
   ngOnInit(): void {
+
+    this.accountService?.currentUserLoginOn?.subscribe(
+      {
+      next: (userLoginOn: boolean) => {
+        this.userLoginOn = userLoginOn;
+      }
+    })
     
   }
-
-
   
 }

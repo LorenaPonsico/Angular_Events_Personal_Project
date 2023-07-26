@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
+import { Router} from '@angular/router';
+import { FormBuilder, Validators } from '@angular/forms';
 import { AccountService } from 'src/app/services';
-import { LoginRequest } from 'src/app/services/loginRequest';
-
-// import { AccountService } from '@app/services'
 
 @Component({
     selector: 'login-component',
@@ -14,6 +10,9 @@ import { LoginRequest } from 'src/app/services/loginRequest';
 })
 
 export class LoginComponent implements OnInit {
+
+    loginError: string = ""; 
+
     loginForm = this.formBuilder.group({
         email: ['', [Validators.required, Validators.email]],
         password: ['', Validators.required]
@@ -22,22 +21,12 @@ export class LoginComponent implements OnInit {
 
     constructor(
         private formBuilder: FormBuilder,
-        // private route: ActivatedRoute,
         private router: Router,
         private accountService: AccountService
-        // private accountService: AccountService
-    ) {
-        // redirect to home if already logged in
-        // if (this.accountService.userValue) {
-        //     this.router.navigate(['/']);
-        // }
-    }
+    ) {}
 
     ngOnInit() {
-        // this.form = this.formBuilder.group({
-        //     username: ['', Validators.required],
-        //     password: ['', Validators.required]
-        // });
+      
     }
 
     get email() {
@@ -50,53 +39,28 @@ export class LoginComponent implements OnInit {
 
     login() {
         if (this.loginForm.valid) {
-            this.accountService.login(this.loginForm.value as LoginRequest).subscribe({
+
+            const email = this.loginForm.get("email")?.value;
+            const password = this.loginForm.get("password")?.value;
+            this.accountService.login(email, password).subscribe({
                 next: (userData) => {
-                    console.log(userData);
+                    console.log(userData, "login");
                 },
                 error: (errorData) => {
                     console.error(errorData);
+                    this.loginError = errorData;
                 },
                 complete: () => {
                     console.log('Login Completo')
+                    this.router.navigateByUrl('/panel-control')
+                    this.loginForm.reset()
                 }
             });
-            this.router.navigateByUrl('/inicio')
-            this.loginForm.reset()
+
         }
         else {
             alert('error al ingresar datos')
             this.loginForm.markAllAsTouched()
         }
+        }
     }
-
-    // convenience getter for easy access to form fields
-    // get f() { return this.form.controls; }
-
-    // onSubmit() {
-    //     this.submitted = true;
-
-    // reset alert on submit
-    // this.error = '';
-
-    // stop here if form is invalid
-    // if (this.form.invalid) {
-    //     return;
-    // }
-
-    // this.loading = true;
-    // this.accountService.login(this.f.username.value, this.f.password.value)
-    //     .pipe(first())
-    //     .subscribe({
-    //         next: () => {
-    //             // get return url from query parameters or default to home page
-    //             const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-    //             this.router.navigateByUrl(returnUrl);
-    //         },
-    //         error: error => {
-    //             this.error = error;
-    //             this.loading = false;
-    //         }
-    //     });
-    // }
-}

@@ -1,6 +1,9 @@
-<div class="container">
+<div class="container-fluid">
   <div class="form-container">
     <form [formGroup]="loginForm">
+
+      <p class="text-danger">{{loginError}}</p>
+
       <h4 class="text-center">Iniciar Sesion</h4>
 
       <div class="form-group">
@@ -26,7 +29,7 @@
         <div *ngIf="password.invalid && (password.dirty || password.touched)" class=" text-danger">
 
           <div *ngIf="password.errors?.['required']">
-            El password es obligatorio.
+            La contraseña es obligatoria.
           </div>
         </div>
       </div>

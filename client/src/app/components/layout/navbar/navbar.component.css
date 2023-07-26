@@ -1,17 +1,24 @@
-.nav-link.btn-primary:hover {
-  background-color: #fad390;
-}
 
 .nav-link:hover {
-  color: green;
-  /* Cambia el color del texto al pasar el cursor */
+  color: #fad390;
+  /* Cambia el color al pasar el cursor */
 }
 
-.btn {
-  background-color: #fad390;
+.logo{
+font-size:  30px;
+color: white; 
 }
 
 .nav-link {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white; 
+  font-family:'Courier New', Courier, monospace;
+  font-size: 20px;
+  border-radius: 250px;
+  margin-right: 10px;
 }
 
+.navbar {
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+}
