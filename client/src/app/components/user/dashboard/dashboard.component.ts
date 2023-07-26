@@ -7,21 +7,24 @@ import { User } from 'src/app/models/user';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
 
   userLoginOn: boolean = false;
-  userData?: User;
+  userData?: User[] = [];
 
 
-  constructor( private accountservice: AccountService){}
+  constructor(private accountservice: AccountService) { }
 
   ngOnInit(): void {
-   this.accountservice.currentUserLoginOn ? this.userLoginOn= true: this.userLoginOn = false;
-   debugger
-   this.userData =  this.accountservice.currentUserLoginOn;
-   console.log(this.userData)
+    this.getUsers();
+  }
 
-   
+  getUsers() {
+    this.accountservice.currentUserLoginOn ? this.userLoginOn = true : this.userLoginOn = false;
+    // this.userLoginOn = this.accountservice.currentUserLoginOn;??
+    debugger
+    this.userData = this.accountservice.currentUserLoginOn; // aqui me esta cogiendo los datos del anterior!! REVISAR
+    console.log(this.userData)
   }
 
 }

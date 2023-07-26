@@ -1,18 +1,20 @@
 
 
-
 <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
-  
-<p *ngIf="!userLoginOn"> Usuario No autentificado </p>
-<p *ngIf="userLoginOn"> Usuario Autentificado </p>
-    <div class="card mb-3" *ngIf="userLoginOn">
-      <div class="card-header bg-primary text-white">
-        <h4>Datos Personales del Usuario</h4>
-      </div>
-      <div class="card-body">
-        <p><strong>Nombre:</strong> {{ userData?.name }}</p>
-        <p><strong>Apellido:</strong> {{ userData?.surname }}</p>
-        <p><strong>Email:</strong> {{ userData?.email }}</p>
-      </div>
+  <div class="card mb-3" *ngIf="userLoginOn && userData">
+    <div class="card-header bg-primary text-white">
+      <h4>Datos Personales del Usuario</h4>
+   
+    <div class="card-body" *ngFor="let user of userData">
+      <p><strong>Nombre:</strong> {{ user.name }}</p>
+      <p><strong>Apellido:</strong> {{ user.surname }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
     </div>
   </div>
+  </div>
+</div>
+
+
+
+        <!-- <p *ngIf="!userLoginOn"> Usuario No autentificado </p>
+        <p *ngIf="userLoginOn"> Usuario Autentificado </p> -->
