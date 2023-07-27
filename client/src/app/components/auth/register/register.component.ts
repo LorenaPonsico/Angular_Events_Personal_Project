@@ -70,8 +70,16 @@ export class RegisterComponent {
           this.registerError = errorData;
         },
         complete: () => {
-          console.log('Login Completo')
-          this.router.navigateByUrl('/panel-control')
+          this.accountService.login(email,password).subscribe({
+            next: (userData) => {
+            },
+            error: (errorData) => {
+              console.error(errorData);
+            },
+            complete: () => {
+              this.router.navigateByUrl('/panel-control')
+            }
+          });
           this.registerForm.reset()
         }
       });

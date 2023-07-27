@@ -13,3 +13,11 @@
 body{
   background-color: #fad390;
 }
+
+
+.title {
+  font-size: 24px; /* Tamaño de fuente más grande */
+  font-weight: bold; /* Texto en negrita */
+  margin-bottom: 10px; /* Añadir espacio inferior */
+  color: #333333; /* Cambiar el color del texto */
+}

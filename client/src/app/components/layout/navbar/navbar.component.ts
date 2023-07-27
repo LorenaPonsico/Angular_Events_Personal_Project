@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { AccountService } from '../../../services/auth-users.service';
 import { User } from 'src/app/models/user';
 
@@ -11,24 +11,20 @@ export class NavbarComponent implements OnInit {
 
   userLoginOn: boolean = false;
   user?: User | null;
-  
-  constructor( private accountService:AccountService ){
-    this.accountService.user.subscribe(x => this.user = x);
-  }
-  
-  logout() {
-    this.accountService.logout();
-}
+
+
+  constructor(private accountService: AccountService) {}
 
   ngOnInit(): void {
+    this.accountService.user.subscribe((user) => {
+      this.user = user;
+      this.userLoginOn = !!user; // Convertimos el objeto user en un valor booleano
+    });
+  }
 
-    this.accountService?.currentUserLoginOn?.subscribe(
-      {
-      next: (userLoginOn: boolean) => {
-        this.userLoginOn = userLoginOn;
-      }
-    })
-    
+  logout() {
+    this.accountService.logout();
   }
   
 }
+

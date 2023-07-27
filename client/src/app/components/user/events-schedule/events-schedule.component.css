@@ -1,18 +1,42 @@
 .container-fluid {
-    display: flex;
-    justify-content: center;
-    /* align-items: center; */
-    height: 100vh;
-    background-color: #fad390;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Cambiar a 'min-height' en lugar de 'height' para que el contenedor se ajuste al contenido */
+  background-color: #fad390;
+}
+
   
   .form-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
   }
   
   .btn{
-    background-color: #fad390;
+  background-color: #fad390;
   }
+
+  .nav-link {
+    background-color: #fad390; /* Cambiar el color de fondo del botón */
+    color: #ffffff; /* Cambiar el color del texto del botón */
+    border-radius: 0; /* Redondear las esquinas del botón */
+    margin-right: 5px; /* Añadir un pequeño espacio entre los botones */
+  }
+  
+  .nav-link.active {
+    background-color: #ffffff; /* Cambiar el color de fondo del botón activo */
+    color: #fad390; /* Cambiar el color del texto del botón activo */
+  }
+  
+
+
+  .card {
+    padding: 20px; /* Añadir un relleno interior para separar el contenido de los bordes */
+    border-radius: 10px; /* Redondear las esquinas de la tarjeta */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Agregar una sombra ligera */
+    background-color: #ffffff; /* Cambiar el color de fondo de la tarjeta */
+  }
+  

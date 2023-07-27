@@ -9,7 +9,8 @@
       <h5 class="card-title">{{ event.title | uppercase }}</h5>
       <p>Fecha: {{ event.date }}</p>
       <p>Tipo: {{ event.type }}</p>
-      <a href="#" class="btn btn-primary">Ir al evento</a>
+      <a *ngIf="!userLoginOn" href="#" class="btn btn-primary" routerLink="/registro">Ir al evento</a>
+      <a *ngIf="userLoginOn" href="#" class="btn btn-primary" routerLink="/ver-eventos">Ir al evento</a>
     </div>
   </div>
 </div>

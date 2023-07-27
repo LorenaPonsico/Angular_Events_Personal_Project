@@ -21,10 +21,7 @@ export class DashboardComponent {
 
   getUsers() {
     this.accountservice.currentUserLoginOn ? this.userLoginOn = true : this.userLoginOn = false;
-    // this.userLoginOn = this.accountservice.currentUserLoginOn;??
-    debugger
     this.userData = this.accountservice.currentUserLoginOn; // aqui me esta cogiendo los datos del anterior!! REVISAR
-    console.log(this.userData)
   }
 
 }

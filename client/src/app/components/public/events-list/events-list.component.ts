@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Event } from 'src/app/models/event';
+import { User } from 'src/app/models/user';
+import { AccountService } from 'src/app/services';
 import { EventsService } from 'src/app/services/events.service';
 
 @Component({
@@ -10,11 +12,18 @@ import { EventsService } from 'src/app/services/events.service';
 export class EventsListComponent implements OnInit {
 
   listEvents: Event[] = [];
+  userLoginOn: boolean = false;
+  user?: User | null;
+  
 
-  constructor( private eventsService: EventsService){}
+  constructor( private eventsService: EventsService, private accountService: AccountService){}
 
   ngOnInit(): void {
     this.getEvents();
+    this.accountService.user.subscribe((user) => {
+          this.user = user;
+          this.userLoginOn = !!user; // Convertimos el objeto user en un valor booleano
+        });
   }
 
   getEvents(){
@@ -27,3 +36,18 @@ export class EventsListComponent implements OnInit {
     })
   }
 }
+
+
+
+// userLoginOn: boolean = false;
+// user?: User | null;
+
+
+// constructor(private accountService: AccountService) {}
+
+// ngOnInit(): void {
+//   this.accountService.user.subscribe((user) => {
+//     this.user = user;
+//     this.userLoginOn = !!user; // Convertimos el objeto user en un valor booleano
+//   });
+// }

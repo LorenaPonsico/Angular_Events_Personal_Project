@@ -52,16 +52,7 @@ export class AccountService {
     return this.http.post(`${environment.apiUrl}/api/users/registro`, body)
       .pipe(
         map(() => {
-          // Autologin after successful registration
-          this.login(email, password).subscribe(
-            (user) => {
-              // You can handle any additional logic after the autologin here
-              console.log('Autologin successful!');
-            },
-            (error) => {
-              console.error('Autologin error:', error);
-            }
-          );
+          
         }))
   }
 }

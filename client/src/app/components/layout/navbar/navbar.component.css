@@ -1,6 +1,6 @@
 
 .nav-link:hover {
-  color: #fad390;
+  color: black;
   /* Cambia el color al pasar el cursor */
 }
 
@@ -15,10 +15,23 @@ color: white;
   font-size: 20px;
   border-radius: 250px;
   margin-right: 10px;
+ 
 }
 
 .navbar {
   background-color: transparent;
   box-shadow: none;
   border: none;
+}
+ .btn{
+  background-color: white;
+  color: #fad390;
+ }
+
+ /* Estilos para los botones en la barra de navegación */
+.navbar .nav-link.btn.btn-sm {
+  padding: 1; /* Ajustar el padding para reducir el tamaño del botón */
+  font-size: 15px; /* Ajustar el tamaño de fuente para reducir el tamaño del texto */
+  margin-top: 5px;
+  /* line-height: 1.5; Ajustar la altura de línea para centrar verticalmente el texto */
 }
