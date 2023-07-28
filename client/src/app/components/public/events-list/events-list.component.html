@@ -4,7 +4,7 @@
 
 <div class="card-container">
   <div class="card" style="width: 18rem;" *ngFor="let event of listEvents">
-    <img class="card-image" [style.background-image]="'url(' + event.img + ')'">
+    <img class="card-image" [style.background-image]="'url(' + event + ')'">
     <div class="card-body">
       <h5 class="card-title">{{ event.title | uppercase }}</h5>
       <p>Fecha: {{ event.date }}</p>
