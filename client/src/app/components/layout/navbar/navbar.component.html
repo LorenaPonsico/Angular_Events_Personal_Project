@@ -1,45 +1,51 @@
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container-fluid">
+
     <a class="logo navbar-brand fw-bold" href="#">SYNERA</a>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse  " id="navbarSupportedContent" >
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto "> <!-- Aquí agregamos la clase mx-auto -->
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto "> 
+
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" routerLink="/inicio">INICIO</a>
+          <a class="nav-link " aria-current="page" routerLink="/inicio" (click)="closeNavbar()">INICIO</a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#">COMUNIDAD</a>
+          <a class="nav-link" aria-current="page" href="#" routerLink="/comunity" (click)="closeNavbar()">COMUNIDAD</a>
         </li>
+   
+        
         <li class="nav-item">
-          <a *ngIf="userLoginOn" class="nav-link" aria-current="page" href="#" routerLink="/crear-evento" >CREAR EVENTO</a>
-          <a *ngIf="!userLoginOn" class="nav-link" aria-current="page" href="#" routerLink="/registro" >CREAR EVENTO</a>
+          <a class="nav-link" aria-current="page" href="#" [routerLink]="userLoginOn ? '/crear-evento' : '/registro'" (click)="closeNavbar()">
+            CREAR EVENTO
+          </a>
+        </li>
+        
+
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#" [routerLink]="userLoginOn ? '/ver-eventos' : '/registro'" (click)="closeNavbar()">
+            CALENDARIO EVENTOS
+          </a>
+        </li>
 
       
-        </li>
-        <!-- <li class="nav-item">
-          <a *ngIf="userLoginOn" class="nav-link" aria-current="page" href="#" routerLink="/ver-eventos" >CALENDARIO EVENTOS</a>
-          <a *ngIf="!userLoginOn" class="nav-link" aria-current="page" href="#" routerLink="/registro" >CALENDARIO EVENTOS</a>
-        </li> -->
-        <li class="nav-item">
-          <ng-container *ngIf="userLoginOn; else showRegistrationLink">
-            <a class="nav-link" aria-current="page" href="#" routerLink="/ver-eventos">CALENDARIO EVENTOS</a>
-          </ng-container>
-          <ng-template #showRegistrationLink>
-            <a class="nav-link" aria-current="page" href="#" routerLink="/registro">CALENDARIO EVENTOS</a>
-          </ng-template>
-        </li>
+
         <li *ngIf="userLoginOn"  class="nav-item">
           <a class="nav-link btn " aria-current="page" href="#" (click)="logout()">Cerrar sesion</a>
         </li>
+
       </ul>
       <ul class="navbar-nav row  ">
         <li *ngIf="!userLoginOn" class="nav-item">
-          <a class="nav-link btn btn-sm" aria-current="page" routerLink="/iniciar-sesion">Iniciar Sesion</a>
+          <a class="nav-link btn btn-sm" aria-current="page" routerLink="/iniciar-sesion" (click)="closeNavbar()">Iniciar Sesion</a>
         </li>
         <li *ngIf="!userLoginOn" class="nav-item">
-          <a class="nav-link btn btn-sm" aria-current="page" routerLink="/registro">Regístrarte Ahora</a>
+          <a class="nav-link btn btn-sm" aria-current="page" routerLink="/registro" (click)="closeNavbar()">Regístrarte Ahora</a>
         </li>
       </ul>
     </div>

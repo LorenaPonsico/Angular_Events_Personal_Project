@@ -21,6 +21,12 @@ export class NavbarComponent implements OnInit {
       this.userLoginOn = !!user; // Convertimos el objeto user en un valor booleano
     });
   }
+  closeNavbar(): void {
+    const navbarToggler = document.querySelector('.navbar-toggler') as HTMLElement | null;
+    if (navbarToggler) {
+      navbarToggler.click();
+    }
+  }
 
   logout() {
     this.accountService.logout();
