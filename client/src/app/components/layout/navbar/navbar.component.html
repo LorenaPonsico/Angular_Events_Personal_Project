@@ -18,11 +18,17 @@
 
       
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a *ngIf="userLoginOn" class="nav-link" aria-current="page" href="#" routerLink="/ver-eventos" >CALENDARIO EVENTOS</a>
           <a *ngIf="!userLoginOn" class="nav-link" aria-current="page" href="#" routerLink="/registro" >CALENDARIO EVENTOS</a>
-
-      
+        </li> -->
+        <li class="nav-item">
+          <ng-container *ngIf="userLoginOn; else showRegistrationLink">
+            <a class="nav-link" aria-current="page" href="#" routerLink="/ver-eventos">CALENDARIO EVENTOS</a>
+          </ng-container>
+          <ng-template #showRegistrationLink>
+            <a class="nav-link" aria-current="page" href="#" routerLink="/registro">CALENDARIO EVENTOS</a>
+          </ng-template>
         </li>
         <li *ngIf="userLoginOn"  class="nav-item">
           <a class="nav-link btn " aria-current="page" href="#" (click)="logout()">Cerrar sesion</a>

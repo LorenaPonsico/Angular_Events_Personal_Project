@@ -7,16 +7,16 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { DashboardComponent } from './components/user/dashboard/dashboard.component';
 import { EventCreateComponent } from './components/user/event-create/event-create.component';
 import { EventsScheduleComponent } from './components/user/events-schedule/events-schedule.component';
-// import { AuthGuard } from './helpers';
+import { AuthGuard } from './helpers/auth.guard';
 
 const routes: Routes = [
   { path: 'inicio', component: LayoutComponent },
   { path: 'iniciar-sesion', component: LoginComponent },
   { path: 'registro', component: RegisterComponent },
-  { path: 'panel-control', component: DashboardComponent },
-  { path: 'crear-evento', component: EventCreateComponent },
-  { path: 'editar-evento/:id', component: EventCreateComponent },
-  { path: 'ver-eventos', component: EventsScheduleComponent },
+  { path: 'panel-control', component: DashboardComponent, canActivate: [AuthGuard]  },
+  { path: 'crear-evento', component: EventCreateComponent, canActivate: [AuthGuard]  },
+  { path: 'editar-evento/:id', component: EventCreateComponent, canActivate: [AuthGuard]  },
+  { path: 'ver-eventos', component: EventsScheduleComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '/inicio', pathMatch:'full' } // si el usuario pone en la barra un nombre que no existe, angular redirige a la ruta raiz
 ];
 
