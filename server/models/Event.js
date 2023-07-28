@@ -10,11 +10,11 @@ const EventSchema = mongoose.Schema({
         required: true
     },
     startTime: {
-        type: String,
+        type: Number,
         required: true
     },
     endTime: {
-        type: String,
+        type: Number,
         required: true
     },
     location: {
@@ -27,6 +27,10 @@ const EventSchema = mongoose.Schema({
     },
     type: {
         type: String,
+        required: true
+    },
+    capacity: {
+        type: Number,
         required: true
     },
     img: {

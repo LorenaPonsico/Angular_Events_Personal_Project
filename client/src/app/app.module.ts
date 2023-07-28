@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule,  } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
 
 // import { JwtInterceptor, ErrorInterceptor } from './helpers';
 
-import { AppRoutingModule } from './app-routing.module';
+// Componentes
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
