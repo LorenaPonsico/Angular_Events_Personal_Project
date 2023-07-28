@@ -3,13 +3,14 @@
 
     <a class="logo navbar-brand fw-bold" href="#">SYNERA</a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse  " id="navbarSupportedContent" >
+    <div class="collapse navbar-collapse  " id="navbarSupportedContent">
 
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto "> 
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto ">
 
         <li class="nav-item">
           <a class="nav-link " aria-current="page" routerLink="/inicio" (click)="closeNavbar()">INICIO</a>
@@ -18,51 +19,46 @@
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#" routerLink="/comunity" (click)="closeNavbar()">COMUNIDAD</a>
         </li>
-   
-        
+
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#" [routerLink]="userLoginOn ? '/crear-evento' : '/registro'" (click)="closeNavbar()">
+          <a class="nav-link" aria-current="page" href="#" [routerLink]="userLoginOn ? '/crear-evento' : '/registro'"
+            (click)="closeNavbar()">
             CREAR EVENTO
           </a>
         </li>
-        
 
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#" [routerLink]="userLoginOn ? '/ver-eventos' : '/registro'" (click)="closeNavbar()">
+          <a class="nav-link" aria-current="page" href="#" [routerLink]="userLoginOn ? '/ver-eventos' : '/registro'"
+            (click)="closeNavbar()">
             CALENDARIO EVENTOS
           </a>
         </li>
+      </ul>
 
-      
-
-        <li *ngIf="userLoginOn"  class="nav-item">
-          <a class="nav-link btn " aria-current="page" href="#" (click)="logout()">Cerrar sesion</a>
+      <ul class="navbar-nav row  ">
+        <li *ngIf="userLoginOn" class="nav-item">
+          <a class="nav-link btn btn-sm" aria-current="page" href="#" routerLink="/panel-control"
+            (click)="closeNavbar()">Datos Personales</a>
         </li>
 
+        <li *ngIf="userLoginOn" class="nav-item">
+          <a class="nav-link btn btn-sm " aria-current="page" href="#" (click)="logout()">Cerrar sesion</a>
+        </li>
       </ul>
+
+
       <ul class="navbar-nav row  ">
         <li *ngIf="!userLoginOn" class="nav-item">
-          <a class="nav-link btn btn-sm" aria-current="page" routerLink="/iniciar-sesion" (click)="closeNavbar()">Iniciar Sesion</a>
+          <a class="nav-link btn btn-sm" aria-current="page" routerLink="/iniciar-sesion"
+            (click)="closeNavbar()">Iniciar Sesion</a>
         </li>
+
         <li *ngIf="!userLoginOn" class="nav-item">
-          <a class="nav-link btn btn-sm" aria-current="page" routerLink="/registro" (click)="closeNavbar()">Regístrarte Ahora</a>
+          <a class="nav-link btn btn-sm" aria-current="page" routerLink="/registro" (click)="closeNavbar()">Regístrate
+            Ahora</a>
         </li>
       </ul>
-    </div>
 
+    </div>
   </div>
 </nav>
-
-
-
-
-
-
-
-<!-- buscador -->
-    <!-- <div class="d-flex"> -->
-              <!-- <form class="me-2" role="search">
-                  <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-              </form> -->
-          <!-- </div> -->
