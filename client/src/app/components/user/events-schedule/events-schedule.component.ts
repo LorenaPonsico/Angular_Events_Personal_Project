@@ -3,6 +3,7 @@ import { EventsService } from 'src/app/services/events.service';
 import { AccountService } from '../../../services/auth-users.service';
 import { User } from 'src/app/models/user';
 import { Event } from 'src/app/models/event';
+import { Constants } from 'src/assets/constants';
 
 @Component({
   selector: 'app-events-schedule',
@@ -10,6 +11,13 @@ import { Event } from 'src/app/models/event';
   styleUrls: ['./events-schedule.component.css']
 })
 export class EventsScheduleComponent {
+  art: string = Constants.TYPEEVENTS.ART
+  culture: string = Constants.TYPEEVENTS.CULTURE
+  sport: string = Constants.TYPEEVENTS.SPORT
+  gastronomy: string = Constants.TYPEEVENTS.GASTRONOMY
+  children: string = Constants.TYPEEVENTS.CHILDREN
+  wellness:string = Constants.TYPEEVENTS.WELLNESS
+
   listEvents: Event[] = [];
   userLoginOn: boolean = false;
   user?: User | null;

@@ -2,8 +2,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 70%;
+  /* padding-top: 100px; */
     background-color: #fad390;
+  }
+  .card{
+    margin-top: 100px;
+    margin-bottom: 100px;
+    /* padding-top: 100px; */
   }
   
   .form-container {
