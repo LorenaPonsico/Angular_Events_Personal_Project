@@ -2,41 +2,79 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Cambiar a 'min-height' en lugar de 'height' para que el contenedor se ajuste al contenido */
+  min-height: 100vh;
+  /* Cambiar a 'min-height' en lugar de 'height' para que el contenedor se ajuste al contenido */
   background-color: #fad390;
 }
 
-  
-  .form-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  }
-  
-  .btn{
+.btn {
   background-color: #fad390;
+}
+
+.nav-link {
+  background-color: #fad390;
+  /* Cambiar el color de fondo del botón */
+  color: #ffffff;
+  /* Cambiar el color del texto del botón */
+  border-radius: 0;
+  /* Redondear las esquinas del botón */
+  margin-right: 5px;
+  /* Añadir un pequeño espacio entre los botones */
+}
+
+.nav-link.active {
+  background-color: #ffffff;
+  /* Cambiar el color de fondo del botón activo */
+  color: #fad390;
+  /* Cambiar el color del texto del botón activo */
+}
+
+.card {
+  padding: 20px;
+  /* Añadir un relleno interior para separar el contenido de los bordes */
+  border-radius: 20px;
+  /* Redondear las esquinas de la tarjeta */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* Agregar una sombra ligera */
+  background-color: #f9f9f9;
+  /* Cambiar el color de fondo de la tarjeta */
+}
+
+  /* Estilos para la tarjeta de cada evento */
+  .event-card {
+
+    border: 5px solid #ddd;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
-  .nav-link {
-    background-color: #fad390; /* Cambiar el color de fondo del botón */
-    color: #ffffff; /* Cambiar el color del texto del botón */
-    border-radius: 0; /* Redondear las esquinas del botón */
-    margin-right: 5px; /* Añadir un pequeño espacio entre los botones */
+  /* Estilos para el título del evento */
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
   }
-  
-  .nav-link.active {
-    background-color: #ffffff; /* Cambiar el color de fondo del botón activo */
-    color: #fad390; /* Cambiar el color del texto del botón activo */
-  }
-  
 
-
-  .card {
-    padding: 20px; /* Añadir un relleno interior para separar el contenido de los bordes */
-    border-radius: 10px; /* Redondear las esquinas de la tarjeta */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Agregar una sombra ligera */
-    background-color: #ffffff; /* Cambiar el color de fondo de la tarjeta */
+  /* Estilos para los detalles del evento */
+  .event-details {
+    font-size: 14px;
+    margin-bottom: 3px;
   }
-  
+
+  .btn-event{
+    /* display: flex; */
+align-items: end;
+justify-content: end;
+
+  }

@@ -2,8 +2,8 @@ export class Event { // O INTERFACE MAS FACIL? CLASS + DE JAVA?
     _id?: number;
     title: string;
     date: string;
-    startTime: string;
-    endTime: string;
+    startTime: number;
+    endTime: number;
     capacity: number;
     type: string;
     location: string;
@@ -11,7 +11,7 @@ export class Event { // O INTERFACE MAS FACIL? CLASS + DE JAVA?
     // img?: string;
 
 
-    constructor(title: string, date: string, startTime: string, endTime: string, capacity:number, location:string, description:string, type:string ) {
+    constructor(title: string, date: string, startTime: number, endTime: number, capacity:number, location:string, description:string, type:string ) {
         this.title = title;
         this.date = date;
         this.startTime = startTime;

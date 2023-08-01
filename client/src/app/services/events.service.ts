@@ -10,7 +10,7 @@ export class EventsService {
 
     constructor(private http: HttpClient) { }
 
-    getEvents(): Observable<any> {
+    getEvents(): Observable<any> { // peticiones asincronas
         return this.http.get(this.url);
     }
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Event } from 'src/app/models/event';
 
 @Component({
@@ -12,7 +13,8 @@ export class EventCreateComponent {
   eventForm: FormGroup
 
   constructor(private fb: FormBuilder,
-              private router: Router) {
+              private router: Router,
+              private toastr: ToastrService) {
     this.eventForm = this.fb.group({
       title: ['', Validators.required],
       date: ['', Validators.required],
@@ -38,6 +40,7 @@ export class EventCreateComponent {
       description: this.eventForm.get('description')?.value,
     }
     console.log(EVENT)
+    this.toastr.info('El evento fue creado con exito', 'Evento subido!');
     this.router.navigate(['/ver-eventos'])
   }
 } 
