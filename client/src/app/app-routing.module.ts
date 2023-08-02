@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './helpers/auth.guard';
 
 //componentes
 import { LoginComponent, RegisterComponent } from './components/auth';
@@ -7,10 +8,11 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { DashboardComponent } from './components/user/dashboard/dashboard.component';
 import { EventCreateComponent } from './components/user/event-create/event-create.component';
 import { EventsScheduleComponent } from './components/user/events-schedule/events-schedule.component';
-import { AuthGuard } from './helpers/auth.guard';
+import { CommunityComponent } from './components/public/community/community.component';
 
 const routes: Routes = [
   { path: 'inicio', component: LayoutComponent },
+  { path: 'comunidad', component: CommunityComponent },
   { path: 'iniciar-sesion', component: LoginComponent },
   { path: 'registro', component: RegisterComponent },
   { path: 'panel-control', component: DashboardComponent, canActivate: [AuthGuard]  },

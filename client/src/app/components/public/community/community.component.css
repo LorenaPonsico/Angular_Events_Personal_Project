@@ -1,0 +1,13 @@
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #fad390;
+    
+  }
+
+  .container{
+    margin-top: 200px;
+    margin-bottom: 200px;
+  }

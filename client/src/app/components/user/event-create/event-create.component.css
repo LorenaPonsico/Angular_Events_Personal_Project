@@ -3,7 +3,6 @@
     justify-content: center;
     align-items: center;
     height: 70%;
-  /* padding-top: 100px; */
     background-color: #fad390;
   }
   .card{
@@ -12,13 +11,13 @@
     /* padding-top: 100px; */
   }
   
-  .form-container {
+  /* .form-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  
+   */
   .btn{
     background-color: #fad390;
   }

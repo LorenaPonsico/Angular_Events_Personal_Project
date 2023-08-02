@@ -23,6 +23,7 @@ import { EventsScheduleComponent } from './components/user/events-schedule/event
 import { SearchComponent } from './components/user/search/search.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { DashboardComponent } from './components/user/dashboard/dashboard.component';
+import { CommunityComponent } from './components/public/community/community.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { DashboardComponent } from './components/user/dashboard/dashboard.compon
     EventsScheduleComponent,
     SearchComponent,
     LayoutComponent,
-    DashboardComponent
+    DashboardComponent,
+    CommunityComponent
 
 
   ],

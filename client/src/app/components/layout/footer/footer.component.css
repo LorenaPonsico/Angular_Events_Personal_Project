@@ -1,3 +1,18 @@
 section{
   background-color:   #fad390;
 }
+
+.social-icons {
+  display: flex;
+  gap: 10px; /* Espacio entre los íconos */
+}
+
+.social-icons a {
+  text-decoration: none;
+  color: inherit; /* Utiliza el color del texto heredado */
+  cursor: pointer; /* Muestra el cursor como un puntero al pasar sobre los íconos */
+}
+
+.social-icons i {
+  font-size: 24px; /* Tamaño del ícono */
+}
