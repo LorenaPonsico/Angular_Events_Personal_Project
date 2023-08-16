@@ -1,1 +1,16 @@
-<p>event-details works!</p>
+<div class="container">
+    <p class="title">Detalles del evento:</p>
+    <div class="event-card">
+        <h5 class="card-title">{{ event?.title | uppercase }}</h5>
+        <p class="event-details">Fecha: {{ event?.date }}</p>
+        <p class="event-details">Tipo: {{ event?.type }}</p>
+        <p class="event-details">Hora de inicio: {{ event?.startTime }}</p>
+        <p class="event-details">Hora de fin: {{ event?.endTime }}</p>
+        <p class="event-details">Lugar: {{ event?.location }}</p>
+        <p class="event-details">Capacidad máxima: {{ event?.capacity }}</p>
+        <p class="event-details">Descripción: {{ event?.description }}</p>
+        <!-- <p>Imagen: {{ event.img }}</p> -->
+        <button class="btn btn-event btn-success" [routerLink]="['/ver-eventos']">Volver atras</button>
+        <button class="btn btn-event btn-success" [routerLink]="['/panel-control']">Me apunto!</button>
+    </div>
+</div>

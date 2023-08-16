@@ -9,6 +9,7 @@ import { DashboardComponent } from './components/user/dashboard/dashboard.compon
 import { EventCreateComponent } from './components/user/event-create/event-create.component';
 import { EventsScheduleComponent } from './components/user/events-schedule/events-schedule.component';
 import { CommunityComponent } from './components/public/community/community.component';
+import { EventDetailsComponent } from './components/user/event-details/event-details.component';
 
 const routes: Routes = [
   { path: 'inicio', component: LayoutComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'crear-evento', component: EventCreateComponent, canActivate: [AuthGuard]  },
   { path: 'editar-evento/:id', component: EventCreateComponent, canActivate: [AuthGuard]  },
   { path: 'ver-eventos', component: EventsScheduleComponent, canActivate: [AuthGuard] },
+  { path: 'event/:eventId', component: EventDetailsComponent },
   { path: '**', redirectTo: '/inicio', pathMatch:'full' } // si el usuario pone en la barra un nombre que no existe, angular redirige a la ruta raiz
 ];
 

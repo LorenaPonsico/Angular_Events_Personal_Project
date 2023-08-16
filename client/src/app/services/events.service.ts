@@ -11,21 +11,20 @@ export class EventsService {
 
     constructor(private http: HttpClient) { }
 
-    getEvents(): Observable<any> { // peticiones asincronas
-        return this.http.get(this.url);
+    getEvents(): Observable<Event[]> {
+        return this.http.get<Event[]>(this.url);
     }
 
+    getEventById(eventId: string): Observable<Event> {
+        return this.http.get<Event>(`${this.url}/${eventId}`);
+    }
 
-    deleteEvent(){ }
+    deleteEvent(eventId: string): Observable<any> {
+        return this.http.delete(`${this.url}/${eventId}`);
+    }
 
     createEvent(event: Event): Observable<any>{
         console.log(event)
         return this.http.post(this.url, event)
-        // .pipe(
-        //     map(() => {
-              
-        //     }))
-
-
     }
 }

@@ -1,0 +1,44 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  
+  
+  .btn {
+    background-color: #fad390;
+  }
+  
+
+
+
+.event-card {
+
+    border: 5px solid #ddd;
+    border-radius: 20px;
+    padding: 10px;
+    /* margin-bottom: 20px; */
+    /* margin-top: 20px; */
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
+    margin-bottom: 100px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+
+
+  }
+
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .nav-link.active {
+    background-color: #ffffff;
+    /* Cambiar el color de fondo del botón activo */
+    color: #fad390;
+    /* Cambiar el color del texto del botón activo */
+  }

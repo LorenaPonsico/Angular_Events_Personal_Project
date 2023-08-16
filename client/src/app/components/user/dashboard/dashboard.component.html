@@ -5,11 +5,23 @@
     <div class="card-header bg-primary text-white">
       <h4>Datos Personales del Usuario</h4>
    
-    <div class="card-body" *ngFor="let user of userData">
-      <p><strong>Nombre:</strong> {{ user.name }}</p>
-      <p><strong>Apellido:</strong> {{ user.surname }}</p>
-      <p><strong>Email:</strong> {{ user.email }}</p>
-    </div>
+      <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
+        <div class="card mb-3" *ngIf="userLoginOn && userData">
+          <div class="card-header bg-primary text-white">
+            <h4>Datos Personales del Usuario</h4>
+          </div>
+          <div class="card-body">
+            <!-- <ng-container *ngIf="(user | async) as currentUser"> -->
+              <p><strong>Nombre:</strong> {{ userData }}</p>
+              <!-- <p><strong>Apellido:</strong> {{ currentUser.surname }}</p> -->
+              <!-- <p><strong>Email:</strong> {{ currentUser.email }}</p> -->
+            <!-- </ng-container> -->
+          </div>
+        </div>
+      </div>
+      
+      
+      
   </div>
   </div>
 </div>

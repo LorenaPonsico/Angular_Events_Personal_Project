@@ -24,7 +24,7 @@ import { SearchComponent } from './components/user/search/search.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { DashboardComponent } from './components/user/dashboard/dashboard.component';
 import { CommunityComponent } from './components/public/community/community.component';
-
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 @NgModule({
   declarations: [
@@ -53,6 +53,7 @@ import { CommunityComponent } from './components/public/community/community.comp
     HttpClientModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
+    CarouselModule.forRoot() 
   ],
   providers: [
     // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

@@ -23,6 +23,7 @@ export class EventsScheduleComponent {
   user?: User | null;
   eventsByType: { [type: string]: Event[] } = {}; // Objeto para agrupar eventos por tipo
   // categories: string[] = ['Arte', 'Cultura', 'Deporte', 'Gastronomia', 'Infantil', 'Salud y Bienestar'];
+  
 
 
 
