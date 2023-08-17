@@ -13,8 +13,8 @@ export class AccountService {
 
   private userSubject: BehaviorSubject<User | null>;
   public user: Observable<User | null>;
-  currentUserLoginOn: any;
-  currentUserData: any;
+  currentUserLoginOn: any; //??
+  currentUserData: any;//??
 
   constructor(
     private router: Router,
@@ -28,16 +28,23 @@ export class AccountService {
     return this.userSubject.value;
   }
 
-  login(email: any, password: any) {
+  login(email: any, password: any): Observable<User> {
     const body = { email: email, password: password };
     return this.http.post<User>(`${environment.apiUrl}/api/users/iniciar-sesion`, body)
-      .pipe(map(user => {
-        // store user details and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem('user', JSON.stringify(user));
-        this.userSubject.next(user)
-        return user;
-      }));
+      .pipe(
+        map(user => {
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
+          localStorage.setItem('user', JSON.stringify(user));
+          this.userSubject.next(user)
+          return user;
+        }),
+        catchError((error: HttpErrorResponse) => {
+          // Handle error here (e.g., show an error message)
+          return throwError(error);
+        })
+      );
   }
+  
 
   logout() {
     // remove user from local storage and set current user to null
@@ -46,12 +53,23 @@ export class AccountService {
     this.router.navigate(['/account/login']);
   }
 
-  register(name: any, surname: any, email: any, password: any, phone: any, birthday: any) {
+  register(name: any, surname: any, email: any, password: any, phone: any, birthday: any): Observable<void> {
     const body = { name: name, surname: surname, email: email, password: password, phone: phone, birthDate: birthday }
-    return this.http.post(`${environment.apiUrl}/api/users/registro`, body)
+    return this.http.post<void>(`${environment.apiUrl}/api/users/registro`, body)
       .pipe(
         map(() => {
-          
-        }))
+          // You can navigate to a login page or do something else after successful registration
+        }),
+        catchError((error: HttpErrorResponse) => {
+          // Handle error here (e.g., show an error message)
+          return throwError(error);
+        })
+      );
   }
+  
+
+  updateUser(user: User): Observable<User> {
+    return this.http.put<User>(`${environment.apiUrl}/api/users/${user.id}`, user);
+  }
+  
 }

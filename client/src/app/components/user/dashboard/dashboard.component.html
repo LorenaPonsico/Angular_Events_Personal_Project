@@ -1,32 +1,24 @@
-
-
 <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
-  <div class="card mb-3" *ngIf="userLoginOn && userData">
+  <div class="card mb-3" *ngIf="userData">
+
     <div class="card-header bg-primary text-white">
       <h4>Datos Personales del Usuario</h4>
-   
-      <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
-        <div class="card mb-3" *ngIf="userLoginOn && userData">
-          <div class="card-header bg-primary text-white">
-            <h4>Datos Personales del Usuario</h4>
-          </div>
-          <div class="card-body">
-            <!-- <ng-container *ngIf="(user | async) as currentUser"> -->
-              <p><strong>Nombre:</strong> {{ userData }}</p>
-              <!-- <p><strong>Apellido:</strong> {{ currentUser.surname }}</p> -->
-              <!-- <p><strong>Email:</strong> {{ currentUser.email }}</p> -->
-            <!-- </ng-container> -->
-          </div>
-        </div>
-      </div>
-      
-      
-      
-  </div>
+    </div>
+    <div class="card-body">
+      <p><strong>Nombre:</strong> {{ userDetails?.name | titlecase  }}</p>
+      <p><strong>Apellido:</strong> {{ userDetails?.surname | titlecase}}</p>
+      <p><strong>Email:</strong> {{ userDetails?.email | lowercase  }}</p>
+      <p><strong>Fecha nacimiento:</strong> {{ userDetails?.birthDate }}</p>
+      <p><strong>Telefono de Contacto:</strong> {{ userDetails?.phone }}</p>
+
+ 
+
+
+      <p><strong>Eventos Registrados:</strong></p>
+      <ul>
+        <li *ngFor="let event of userDetails?.event">{{ event.title }}</li>
+      </ul>
+    </div>
   </div>
 </div>
 
-
-
-        <!-- <p *ngIf="!userLoginOn"> Usuario No autentificado </p>
-        <p *ngIf="userLoginOn"> Usuario Autentificado </p> -->

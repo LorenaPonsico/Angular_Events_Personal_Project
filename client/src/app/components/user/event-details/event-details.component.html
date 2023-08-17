@@ -11,6 +11,8 @@
         <p class="event-details">Descripción: {{ event?.description }}</p>
         <!-- <p>Imagen: {{ event.img }}</p> -->
         <button class="btn btn-event btn-success" [routerLink]="['/ver-eventos']">Volver atras</button>
-        <button class="btn btn-event btn-success" [routerLink]="['/panel-control']">Me apunto!</button>
+       
+        <button class="btn btn-event btn-success" (click)="joinEvent()" [routerLink]="['/panel-control']">Me apunto!</button>
+
     </div>
 </div>

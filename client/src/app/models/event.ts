@@ -8,6 +8,7 @@ export class Event { // O INTERFACE MAS FACIL? CLASS + DE JAVA?
     type: string;
     location: string;
     description: string;
+    // users: string[];
     // img?: string;
 
 
@@ -20,6 +21,7 @@ export class Event { // O INTERFACE MAS FACIL? CLASS + DE JAVA?
         this.type = type;
         this.location = location;
         this.description = description;
+        // this.users = [];
         // this.img = img;
     }
 }
