@@ -14,8 +14,13 @@
        
         <button class="btn btn-event btn-success" (click)="joinEvent()" [routerLink]="['/panel-control']">Me apunto!</button>
         <button class="btn btn-event btn-danger" (click)="deleteEvent()">Eliminar Evento</button>
-
-
-
+        <app-confirmation-modal>Hola</app-confirmation-modal>
+        
     </div>
 </div>
+
+<!-- *ngIf="showDeleteConfirmationModal" -->
+<!-- [title]="'Confirmar Eliminación'" -->
+<!-- [message]="'¿Estás segura/o de que deseas eliminar este evento?'" -->
+<!-- (confirm)="deleteEvent()" -->
+<!-- (cancel)="showDeleteConfirmationModal = false" -->

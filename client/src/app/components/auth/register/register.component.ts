@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AccountService } from 'src/app/services';
 
 @Component({
@@ -26,7 +27,9 @@ export class RegisterComponent {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private accountService: AccountService) { }
+    private accountService: AccountService,
+    private toastr: ToastrService
+    ) { }
 
 
   get name() {
@@ -78,6 +81,8 @@ export class RegisterComponent {
             },
             complete: () => {
               this.router.navigateByUrl('/panel-control')
+              this.toastr.info('Sesion iniciada', 'Te has registrado correctamente');
+
             }
           });
           this.registerForm.reset()

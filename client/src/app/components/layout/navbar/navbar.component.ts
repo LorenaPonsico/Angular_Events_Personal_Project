@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { AccountService } from '../../../services/auth-users.service';
 import { User } from 'src/app/models/user';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-navbar',
@@ -14,7 +15,7 @@ export class NavbarComponent implements OnInit {
   // navbarScrolled = false;
 
 
-  constructor(private accountService: AccountService) {}
+  constructor(private accountService: AccountService, private toastr: ToastrService) {}
 
   // @HostListener('window:scroll', [])
   // onWindowScroll() {
@@ -37,6 +38,7 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     this.accountService.logout();
+    // this.toastr.info('Sesion cerrada', 'Has cerrado sesion correctamente');
   }
   
 }

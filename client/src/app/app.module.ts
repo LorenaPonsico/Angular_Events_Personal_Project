@@ -25,6 +25,8 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { DashboardComponent } from './components/user/dashboard/dashboard.component';
 import { CommunityComponent } from './components/public/community/community.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+// import { ModalsComponent } from './components/modals/modals.component';
+import { ConfirmationModalComponent } from './components/modals/confirmation-modal/confirmation-modal.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     SearchComponent,
     LayoutComponent,
     DashboardComponent,
-    CommunityComponent
+    CommunityComponent,
+    ConfirmationModalComponent
 
 
   ],

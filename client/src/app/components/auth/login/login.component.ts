@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AccountService } from 'src/app/services';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'login-component',
@@ -11,7 +12,7 @@ import { AccountService } from 'src/app/services';
 
 export class LoginComponent implements OnInit {
 
-    loginError: string = ""; 
+    loginError: string = "";
 
     loginForm = this.formBuilder.group({
         email: ['', [Validators.required, Validators.email]],
@@ -22,11 +23,12 @@ export class LoginComponent implements OnInit {
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
-        private accountService: AccountService
-    ) {}
+        private accountService: AccountService,
+        private toastr: ToastrService
+    ) { }
 
     ngOnInit() {
-      
+
     }
 
     get email() {
@@ -54,6 +56,8 @@ export class LoginComponent implements OnInit {
                     console.log('Login Completo')
                     this.router.navigateByUrl('/panel-control')
                     this.loginForm.reset()
+                    this.toastr.info('Sesion iniciada', 'Has iniciado sesion correctamente');
+
                 }
             });
 
@@ -62,5 +66,5 @@ export class LoginComponent implements OnInit {
             alert('error al ingresar datos')
             this.loginForm.markAllAsTouched()
         }
-        }
     }
+}
