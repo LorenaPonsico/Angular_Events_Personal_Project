@@ -1,7 +1,7 @@
 import { Event } from './event';
 
 export class User {
-    id: string;
+    _id: string;
     name: string;
     surname?: string;
     email?: string;
@@ -14,7 +14,7 @@ export class User {
 
     constructor( id: string, name: string, surname: string,  email: string,  password: string,    phone: string,   birthDate: string,
     img: string, event: Event[]   ){
-    this.id = id;
+    this._id = id;
     this.name = name;
     this.surname = surname;
     this.email = email;

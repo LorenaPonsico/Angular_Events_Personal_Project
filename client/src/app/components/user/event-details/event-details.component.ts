@@ -16,7 +16,7 @@ export class EventDetailsComponent implements OnInit {
   // user: User[] = [];
 
 
-  constructor(private route: ActivatedRoute, private eventsService: EventsService,   private accountService: AccountService,
+  constructor(private route: ActivatedRoute, private eventsService: EventsService, private accountService: AccountService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -38,19 +38,39 @@ export class EventDetailsComponent implements OnInit {
       }
     );
   }
-  
+
+  deleteEvent(): void {
+    if (this.event?._id) {
+      const eventId = this.event._id.toString(); // Convertir el _id a cadena
+      const eventTitle = this.event.title; // Obtener el título del evento o un valor predeterminado
+      this.eventsService.deleteEvent(eventId).subscribe(
+        () => {
+          console.log('Evento eliminado:', eventTitle);
+          this.router.navigate(['/ver-eventos']); // Redirige a la página de lista de eventos
+        },
+        error => {
+          console.error('Error al eliminar el evento:', error);
+        }
+      );
+    }
+  }
+
+
+
+
   joinEvent(): void {
-    if (this.event?._id) { // Asegurarse de que this.event y this.event.id no sean undefined
-      const currentUser = this.accountService.userValue; // Obtén el usuario actual
-      if (currentUser) {
+    if (this.event?._id) {
+      const currentUser = this.accountService.userValue;
+
+      if (currentUser && currentUser.event) {
         // Asegúrate de que currentUser.event esté inicializado
         currentUser.event = currentUser.event || [];
-        
+
         // Verifica si el evento ya está en el array antes de agregarlo
         if (!currentUser.event.some(ev => ev._id === this.event!._id)) {
           // Agrega el evento al array de eventos del usuario
           currentUser.event.push(this.event!);
-          
+
           this.accountService.updateUser(currentUser).subscribe(
             () => {
               console.log('Evento agregado al usuario:', currentUser);
@@ -66,8 +86,8 @@ export class EventDetailsComponent implements OnInit {
       }
     }
   }
-  
-  
-  
+
+
+
 }
 

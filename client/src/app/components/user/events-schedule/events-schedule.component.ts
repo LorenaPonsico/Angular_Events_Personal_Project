@@ -39,7 +39,7 @@ export class EventsScheduleComponent {
 
   getEvents(){
     this.eventsService.getEvents().subscribe(data => {
-      console.log(data);
+      // console.log(data);
       this.listEvents = data
       this.groupEventsByType(); 
     }, error => {
@@ -52,7 +52,7 @@ export class EventsScheduleComponent {
     this.listEvents.forEach((event: Event) => {
       if (this.eventsByType[event.type]) {
         this.eventsByType[event.type].push(event);
-        console.log(this.eventsByType)
+        // console.log(this.eventsByType)
       } else {
         this.eventsByType[event.type] = [event];
       }

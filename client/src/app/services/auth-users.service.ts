@@ -69,7 +69,8 @@ export class AccountService {
   
 
   updateUser(user: User): Observable<User> {
-    return this.http.put<User>(`${environment.apiUrl}/api/users/${user.id}`, user);
+    console.log(user)
+    return this.http.put<User>(`${environment.apiUrl}/api/users/${user._id}`, user);
   }
   
 }
