@@ -11,7 +11,7 @@ import { LoginRequest } from './loginRequest';
 @Injectable({ providedIn: 'root' })
 export class AccountService {
 
-  private userSubject: BehaviorSubject<User | null>;
+  private userSubject: BehaviorSubject<any | null>;
   public user: Observable<User | null>;
   currentUserLoginOn: any; //??
   currentUserData: any;//??
@@ -24,7 +24,7 @@ export class AccountService {
     this.user = this.userSubject.asObservable();
   }
 
-  public get userValue() {
+  public get objectValue() {
     return this.userSubject.value;
   }
 

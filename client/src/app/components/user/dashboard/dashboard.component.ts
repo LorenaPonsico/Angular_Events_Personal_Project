@@ -22,7 +22,7 @@ export class DashboardComponent {
 
   getUsers() {
     // this.userLoginOn = this.accountService.currentUserLoginOn;
-    this.userData = this.accountService.userValue;
+    this.userData = this.accountService.objectValue;
     // Si userData tiene una propiedad user, puedes acceder a los atributos de user
     if (this.userData && this.userData.user) {
       this.userDetails = this.userData.user;

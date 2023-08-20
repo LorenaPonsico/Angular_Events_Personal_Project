@@ -44,7 +44,7 @@ export class EventDetailsComponent implements OnInit {
   deleteEvent(): void {
     if (this.event?._id) {
       this.showDeleteConfirmationModal = true; // Mostrar el modal de confirmación primero
-  
+
       const eventId = this.event._id.toString(); // Convertir el _id a cadena
       const eventTitle = this.event.title; // Obtener el título del evento o un valor predeterminado
       this.eventsService.deleteEvent(eventId).subscribe(
@@ -59,26 +59,41 @@ export class EventDetailsComponent implements OnInit {
       );
     }
   }
-  
 
+  getCurrentUser = () => {
+    const currentObject = this.accountService.objectValue;
+    const currentUser: User = currentObject.user;
+    return currentUser;
+  }
 
 
   joinEvent(): void {
     if (this.event?._id) {
-      const currentUser = this.accountService.userValue;
+      const currentUser = this.getCurrentUser();
 
-      if (currentUser && currentUser.event) {
+      if (!currentUser.events) {
         // Asegúrate de que currentUser.event esté inicializado
-        currentUser.event = currentUser.event || [];
-
+        currentUser.events = currentUser.events || [];
+        currentUser.events.push(this.event);
+        debugger
+        this.accountService.updateUser(currentUser).subscribe(
+          () => {
+            this.router.navigate(['/panel-control']); // Redirige a la página deseada
+          },
+          error => {
+            console.error('Error al agregar el evento:', error);
+          }
+        );
+      } else {
         // Verifica si el evento ya está en el array antes de agregarlo
-        if (!currentUser.event.some(ev => ev._id === this.event!._id)) {
+        if (!currentUser?.events.some(ev => ev._id === this.event!._id)) {
           // Agrega el evento al array de eventos del usuario
-          currentUser.event.push(this.event!);
+          currentUser.events.push(this.event);
+          debugger
+          console.log("Aquí",currentUser);
 
           this.accountService.updateUser(currentUser).subscribe(
             () => {
-              console.log('Evento agregado al usuario:', currentUser);
               this.router.navigate(['/panel-control']); // Redirige a la página deseada
             },
             error => {
