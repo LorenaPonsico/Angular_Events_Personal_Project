@@ -8,16 +8,8 @@
   .card{
     margin-top: 100px;
     margin-bottom: 100px;
-    /* padding-top: 100px; */
   }
-  
-  /* .form-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-   */
+
   .btn{
     background-color: #fad390;
   }

@@ -27,6 +27,7 @@ import { CommunityComponent } from './components/public/community/community.comp
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 // import { ModalsComponent } from './components/modals/modals.component';
 import { ConfirmationModalComponent } from './components/modals/confirmation-modal/confirmation-modal.component';
+import { NavbarScrollDirective } from './navbar-scroll.directive';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ConfirmationModalComponent } from './components/modals/confirmation-mod
     LayoutComponent,
     DashboardComponent,
     CommunityComponent,
-    ConfirmationModalComponent
+    ConfirmationModalComponent,
+    NavbarScrollDirective
 
 
   ],

@@ -27,4 +27,13 @@ export class EventsService {
         console.log(event)
         return this.http.post(this.url, event)
     }
+
+   // Método para cargar la imagen al backend
+uploadImage(image: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('image', image);
+  
+    const uploadUrl = 'http://localhost:4000/api/'; // Reemplaza con la URL real de carga de imágenes en tu backend
+    return this.http.post<any>(uploadUrl, formData);
+  }
 }

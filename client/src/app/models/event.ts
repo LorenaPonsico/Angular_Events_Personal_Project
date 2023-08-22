@@ -8,6 +8,7 @@ export class Event { // O INTERFACE MAS FACIL? CLASS + DE JAVA?
     type: string;
     location: string;
     description: string;
+    imageURL?: string;
     // users: string[];
     // img?: string;
 

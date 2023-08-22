@@ -2,101 +2,107 @@
   <div class="container mt-5">
     <div class="row">
       <div class=" card col-lg-6 offset-lg-3">
-        <!-- <div class=""> -->
 
-          <div class="card-body">
-            <span class="title float-end mb-2">Crear Evento</span>
 
-            <form class="mt-3" [formGroup]="eventForm" (ngSubmit)="createEvent()">
-              <div class="mb-3">
-                <label>Titulo del Evento</label>
-                <input type="text" formControlName="title" class="form-control" placeholder="">
-                <div class="text-danger"
-                  *ngIf="eventForm.get('title')?.hasError('required') && eventForm.get('title')?.touched">
-                  <span>El titulo es <strong>obligatorio</strong></span>
-                </div>
+        <div class="card-body">
+          <span class="title float-end mb-2">Crear Evento</span>
+
+          <form class="mt-3" [formGroup]="eventForm" (ngSubmit)="createEvent()">
+            <div class="mb-3">
+              <label>Titulo del Evento</label>
+              <input type="text" formControlName="title" class="form-control" placeholder="">
+              <div class="text-danger"
+                *ngIf="eventForm.get('title')?.hasError('required') && eventForm.get('title')?.touched">
+                <span>El titulo es <strong>obligatorio</strong></span>
               </div>
+            </div>
 
-              <div class="mb-3">
-                <label>Fecha </label>
-                <input type="date" formControlName="date" class="form-control" placeholder="name@example.com">
-                <div class="text-danger"
-                  *ngIf="eventForm.get('date')?.hasError('required') && eventForm.get('date')?.touched">
-                  <span>La fecha del evento es <strong>obligatoria</strong></span>
-                </div>
+            <div class="mb-3">
+              <label>Imagen del Evento</label>
+              <input type="file" (change)="handleImageUpload($event)" class="form-control-file">
+            </div>
+
+
+            <div class="mb-3">
+              <label>Fecha </label>
+              <input type="date" formControlName="date" class="form-control" placeholder="name@example.com">
+              <div class="text-danger"
+                *ngIf="eventForm.get('date')?.hasError('required') && eventForm.get('date')?.touched">
+                <span>La fecha del evento es <strong>obligatoria</strong></span>
               </div>
+            </div>
 
-              <div class="mb-3">
-                <label>Hora Inicio</label>
-                <input type="time" formControlName="startTime" class="form-control">
-                <div class="text-danger"
+            <div class="mb-3">
+              <label>Hora Inicio</label>
+              <input type="time" formControlName="startTime" class="form-control">
+              <div class="text-danger"
                 *ngIf="eventForm.get('date')?.hasError('required') && eventForm.get('date')?.touched">
                 <span>La hora de inicio es <strong>obligatoria</strong></span>
               </div>
-              </div>
+            </div>
 
-              <div class="mb-3">
-                <label>Hora fin</label>
-                <input type="time" formControlName="endTime" class="form-control">
-                <div class="text-danger"
+            <div class="mb-3">
+              <label>Hora fin</label>
+              <input type="time" formControlName="endTime" class="form-control">
+              <div class="text-danger"
                 *ngIf="eventForm.get('endTime')?.hasError('required') && eventForm.get('endTime')?.touched">
                 <span>La hora de fin es <strong>obligatoria</strong></span>
               </div>
-              </div>
+            </div>
 
-              <div class="mb-3">
-                <label>Aforo maximo</label>
-                <input type="number" formControlName="capacity" class="form-control" placeholder="">
-                <div class="text-danger"
+            <div class="mb-3">
+              <label>Aforo maximo</label>
+              <input type="number" formControlName="capacity" class="form-control" placeholder="">
+              <div class="text-danger"
                 *ngIf="eventForm.get('capacity')?.hasError('required') && eventForm.get('capacity')?.touched">
                 <span>El aforo maximo es <strong>obligatoria</strong></span>
               </div>
-              </div>
+            </div>
 
-              <div class="mb-3">
-                <label>Categoria</label>
-                <select formControlName="type" class="form-control" >
-                  <option></option>
-                  <option>Artes escenicas y visuales</option>
-                  <option>Cultura</option>
-                  <option>Deporte</option>
-                  <option>Gastronomia</option>
-                  <option>Infantil</option>
-                  <option>Salud y Bienestar</option>
-                </select>
-                <div class="text-danger"
+            <div class="mb-3">
+              <label>Categoria</label>
+              <select formControlName="type" class="form-control">
+                <option></option>
+                <option>Artes escenicas y visuales</option>
+                <option>Cultura</option>
+                <option>Deporte</option>
+                <option>Gastronomia</option>
+                <option>Infantil</option>
+                <option>Salud y Bienestar</option>
+              </select>
+              <div class="text-danger"
                 *ngIf="eventForm.get('type')?.hasError('required') && eventForm.get('type')?.touched">
                 <span>La clasificación del evento es <strong>obligatorio</strong></span>
               </div>
-              </div>
+            </div>
 
-              <div class="mb-3">
-                <label>Localizacion</label>
-                <input type="text" formControlName="location" class="form-control" placeholder="">
-                <div class="text-danger"
+            <div class="mb-3">
+              <label>Localizacion</label>
+              <input type="text" formControlName="location" class="form-control" placeholder="">
+              <div class="text-danger"
                 *ngIf="eventForm.get('location')?.hasError('required') && eventForm.get('location')?.touched">
                 <span>La localizacion es <strong>obligatoria</strong></span>
               </div>
-              </div>
+            </div>
 
-              <div class="mb-3">
-                <label>Descripcion</label>
-                <textarea formControlName="description" class="form-control" rows="3"></textarea>
-                <div class="text-danger"
+            <div class="mb-3">
+              <label>Descripcion</label>
+              <textarea formControlName="description" class="form-control" rows="3"></textarea>
+              <div class="text-danger"
                 *ngIf="eventForm.get('description')?.hasError('required') && eventForm.get('description')?.touched">
                 <span>La descripción es <strong>obligatoria</strong></span>
               </div>
-              </div>
+            </div>
 
-              <button type="submit" [disabled]="eventForm.invalid" class="btn btn-lg float-end">Publicar Evento</button>
+            <button type="submit" [disabled]="eventForm.invalid" class="btn btn-lg float-end">Publicar Evento</button>
 
-            </form>
-          </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
-<!-- </div> -->
+</div>
+
 
 
 

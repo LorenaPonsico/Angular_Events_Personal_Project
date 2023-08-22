@@ -33,9 +33,9 @@ const EventSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    img: {
+    imageURL: {
         type: String,
-        // required: true
+        required: true
     },
     creationDate: {
         type: Date,

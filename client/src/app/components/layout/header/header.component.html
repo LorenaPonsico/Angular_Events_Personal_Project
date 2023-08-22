@@ -1,10 +1,13 @@
 <div class="container-fluid text-center">
-  <h3 class="text-background">Experiencia. Movimiento. Amor.</h3>
-  <p class="text-background">¿Tienes un proyecto en mente? ¿Estás planeando un evento? ¡Compártelo!</p>
   <carousel>
     <slide *ngFor="let image of images">
-      <img [src]="image.url" alt="Slide {{ image.id }}" style="max-width: 100%;">
+      <div class="carousel-slide">
+        <img [src]="image.url" alt="Slide {{ image.id }}" style="max-width: 100%;">
+        <div class="carousel-caption">
+          <h3 class="text-background">Experiencia. Movimiento. Amor.</h3>
+          <p class="text-background">¿Tienes un proyecto en mente? ¿Estás planeando un evento? ¡Compártelo!</p>
+        </div>
+      </div>
     </slide>
   </carousel>
-  
 </div>
