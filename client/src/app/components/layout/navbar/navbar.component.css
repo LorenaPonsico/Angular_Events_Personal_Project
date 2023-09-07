@@ -1,19 +1,22 @@
 .nav-link:hover {
   color: black;
-  /* Cambia el color al pasar el cursor */
+  transform: scale(1.1);
 }
 
 .logo {
-  font-size: 30px;
+  font-size: 25px;
+  padding-left: 20px ;
   color: white;
 }
 
 .nav-link {
   color: white;
   font-family: 'Courier New', Courier, monospace;
-  font-size: 20px;
+  font-size: 18px;
+  transition: transform 0.3s ease; 
   border-radius: 250px;
   margin-right: 10px;
+  display: inline-block; 
 }
 
 .navbar {
@@ -23,23 +26,24 @@
 }
 
 .btn {
-  background-color: white;
-  color: #fad390;
+  /* background-color: white; */
+  color: white;
 }
 
 /* Estilos para los botones en la barra de navegación */
 .navbar .nav-link.btn.btn-sm {
-  padding: 1;
+  padding: 5px;
   /* Ajustar el padding para reducir el tamaño del botón */
   font-size: 15px;
   /* Ajustar el tamaño de fuente para reducir el tamaño del texto */
-  margin-top: 5px;
+  /* margin-top: 5px; */
   /* line-height: 1.5; Ajustar la altura de línea para centrar verticalmente el texto */
 }
 
 
 .navbar-white-bg {
-  background-color: rgba(250, 211, 144, 0.7); /* Ajusta el valor alfa (0.7) según tus preferencias */
+  background-color: rgba(250, 211, 144, 0.7);
+  /* Ajusta el valor alfa (0.7) según tus preferencias */
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
   /* Ajusta según tus preferencias */
 }

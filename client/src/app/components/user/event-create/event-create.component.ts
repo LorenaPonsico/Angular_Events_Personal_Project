@@ -5,6 +5,14 @@ import { ToastrService } from 'ngx-toastr'; // Asegúrate de importar esto
 import { Event } from 'src/app/models/event';
 import { EventsService } from 'src/app/services/events.service';
 
+// interface HtmlInputEvent extends Event{
+//   target: HTMLInputElement & EventTarget;
+// }
+
+interface InputEvent extends Event {
+  target: HTMLInputElement & EventTarget;
+}
+
 @Component({
   selector: 'app-event-create',
   templateUrl: './event-create.component.html',
@@ -12,7 +20,8 @@ import { EventsService } from 'src/app/services/events.service';
 })
 export class EventCreateComponent {
   eventForm: FormGroup;
-  selectedImage: File | null = null;
+  file: File | undefined;
+  photoSelected: string | ArrayBuffer | undefined
 
   constructor(
     private fb: FormBuilder,
@@ -32,9 +41,20 @@ export class EventCreateComponent {
     });
   }
 
-  handleImageUpload(event: any) {
-    this.selectedImage = event.target.files[0];
+  onPhotoSelected(input: HTMLInputElement): void {
+    if (input.files && input.files[0]) {
+      this.file = input.files[0];
+      // Vista previa de imágenes
+      const reader = new FileReader();
+      reader.onload = e => this.photoSelected = reader.result as string;
+  
+      reader.readAsDataURL(this.file);
+    }
   }
+  
+  
+  
+  
 
   createEvent() {
     if (this.eventForm.invalid) {
@@ -52,23 +72,23 @@ export class EventCreateComponent {
       description: this.eventForm.get('description')?.value,
     };
 
-    if (this.selectedImage) {
-      this.eventService.uploadImage(this.selectedImage).subscribe(
-        response => {
-          EVENT.imageURL = response.url; // Asigna la URL de la imagen subida
-          this.saveEvent(EVENT);
-        },
-        error => {
-          console.error(error);
-          this.toastr.error('Error al subir la imagen'); // Utiliza Toastr para mostrar el mensaje de error
-        }
-      );
-    } else {
-      this.saveEvent(EVENT);
-    }
+    // if (this.photoSelected) {
+    //   this.eventService.uploadImage(this.file).subscribe(
+    //     response => {
+    //       EVENT.imageURL = response.url; // Asigna la URL de la imagen subida
+    //       this.saveEvent(EVENT);
+    //     },
+    //     error => {
+    //       console.error(error);
+    //       this.toastr.error('Error al subir la imagen'); // Utiliza Toastr para mostrar el mensaje de error
+    //     }
+    //   );
+    // } else {
+    //   this.saveEvent(EVENT);
+    // }
   }
 
-  private saveEvent(event: Event) {
+  public saveEvent(event: Event) {
     this.eventService.createEvent(event).subscribe(
       () => {
         this.toastr.success('El evento fue creado con éxito', 'Evento subido!'); // Utiliza Toastr para mostrar mensaje de éxito

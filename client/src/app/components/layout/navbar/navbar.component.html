@@ -11,7 +11,7 @@
     <div class="navbar-collapse  " id="navbarSupportedContent">
 
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto ">
-     
+
 
         <li class="nav-item">
           <a class="nav-link " aria-current="page" routerLink="/inicio" (click)="closeNavbar()">INICIO</a>
@@ -39,11 +39,13 @@
       <ul class="navbar-nav row  ">
         <li *ngIf="userLoginOn" class="nav-item">
           <a class="nav-link btn btn-sm" aria-current="page" href="#" routerLink="/panel-control"
-            (click)="closeNavbar()">Datos Personales</a>
+            (click)="closeNavbar()"> <i class="fa-solid fa-person"></i> Datos Personales</a>
         </li>
 
         <li *ngIf="userLoginOn" class="nav-item">
-          <a class="nav-link btn btn-sm " aria-current="page" href="#" (click)="logout()">Cerrar sesion</a>
+          <a class="nav-link btn btn-sm " aria-current="page" href="#" (click)="logout()"> <i
+              class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar sesion
+          </a>
         </li>
       </ul>
 
@@ -51,11 +53,12 @@
       <ul class="navbar-nav row  ">
         <li *ngIf="!userLoginOn" class="nav-item">
           <a class="nav-link btn btn-sm" aria-current="page" routerLink="/iniciar-sesion"
-            (click)="closeNavbar()">Iniciar Sesion</a>
+            (click)="closeNavbar()"> <i
+            class="fa-solid fa-arrow-right-from-bracket"></i> Iniciar Sesion</a>
         </li>
 
         <li *ngIf="!userLoginOn" class="nav-item">
-          <a class="nav-link btn btn-sm" aria-current="page" routerLink="/registro" (click)="closeNavbar()">Regístrate
+          <a class="nav-link btn btn-sm" aria-current="page" routerLink="/registro" (click)="closeNavbar()"> <i class="fa-solid fa-user-plus"></i> Regístrate
             Ahora</a>
         </li>
       </ul>
