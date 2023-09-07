@@ -13,3 +13,21 @@
     align-items: center;
   }
 
+
+
+  .btn {
+    margin: 5px;
+    padding: 10px 20px; /* Ajusta el relleno para el tamaño del botón */
+    background-color: #fad390; /* Color de fondo del botón */
+    border: none; /* Elimina los bordes por defecto */
+    color: white; /* Color del texto en el botón */
+    border-radius: 5px; /* Agrega esquinas redondeadas */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s ease, transform 0.1s ease; /* Transiciones suaves */
+  }
+  
+  .btn:hover {
+    background-color: #fad390; /* Cambia el color de fondo al pasar el cursor */
+    transform: scale(1.05); /* Escala ligeramente el botón al pasar el cursor */
+  }
+  

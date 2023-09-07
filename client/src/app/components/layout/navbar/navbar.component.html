@@ -14,23 +14,23 @@
 
 
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" routerLink="/inicio" (click)="closeNavbar()">INICIO</a>
+          <a class="nav-link " aria-current="page" routerLink="/inicio" (click)="closeNavbar()"> <i class="fa-solid fa-house"></i> INICIO</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#" routerLink="/comunidad" (click)="closeNavbar()">COMUNIDAD</a>
+          <a class="nav-link" aria-current="page" href="#" routerLink="/comunidad" (click)="closeNavbar()"> <i class="fa-solid fa-tower-broadcast"></i> COMUNIDAD</a>
         </li>
 
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#" [routerLink]="userLoginOn ? '/crear-evento' : '/registro'"
-            (click)="closeNavbar()">
+            (click)="closeNavbar()"> <i class="fa-solid fa-plus"></i>
             CREAR EVENTO
           </a>
         </li>
 
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#" [routerLink]="userLoginOn ? '/ver-eventos' : '/registro'"
-            (click)="closeNavbar()">
+            (click)="closeNavbar()"> <i class="fa-solid fa-calendar-days"></i>
             CALENDARIO EVENTOS
           </a>
         </li>

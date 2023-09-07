@@ -21,10 +21,10 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    // birthDate: {
-    //     type: String,
-    //     required: true
-    // },
+    birthDate: {
+        type: String,
+        required: true
+    },
     // img: {
     //     type: String,
     //     required: true

@@ -9,6 +9,10 @@
   color: white;
 }
 
+.logo:hover{
+  color: black;
+}
+
 .nav-link {
   color: white;
   font-family: 'Courier New', Courier, monospace;

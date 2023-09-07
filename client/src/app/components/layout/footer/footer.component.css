@@ -1,5 +1,11 @@
 section{
-  background-color: #FEA47F;
+  background-color: rgba(250, 211, 144, 0.7);
+}
+
+.custom-row {
+  justify-content: center; /* Centra horizontalmente los elementos */
+  margin-left: 250px; /* Margen a la izquierda */
+  margin-right: 10px; /* Margen a la derecha */
 }
 
 .social-icons {
@@ -14,5 +20,13 @@ section{
 }
 
 .social-icons i {
-  font-size: 24px; /* Tamaño del ícono */
+  font-size: 20px; /* Tamaño del ícono */
+}
+
+.social-icons i:hover{
+  transform: scale(1.1);
+}
+
+.vertical-container {
+  padding: 10px;
 }
