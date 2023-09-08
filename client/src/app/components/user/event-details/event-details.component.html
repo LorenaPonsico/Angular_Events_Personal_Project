@@ -1,6 +1,6 @@
 <div class="container">
     <div>
-    <p class="title title-details">Detalles del evento</p>
+    <h5 class="title">Detalles del evento</h5>
     <button class="btn btn-event  " [routerLink]="['/ver-eventos']">Volver a Calendario de Eventos</button>
     </div>
 
@@ -18,11 +18,14 @@
        
        
         <button class="btn btn-event " (click)="deleteEvent()">Eliminar Evento</button>
-        <button class="btn btn-event " (click)="updateEvent()">Modificar Evento</button> 
-        <!-- ACTUALIZAR FORMULARIO -->
+        <button class="btn btn-event " (click)="showEventForm = !showEventForm">Modificar Evento</button> 
+    </div>
+     
 
 <!-- FORMULARIO DE EDICION / CAMBIAR DATOS EVENTO -->
-        <form *ngIf="updatedEvent" [formGroup]="eventForm"  (ngSubmit)="updateEvent()" >
+<div class="event-card">
+    <form *ngIf="showEventForm" [formGroup]="eventForm"  (ngSubmit)="updateEvent()" >
+            <h5 class="title">Modificar detalles de evento</h5>
 
             <div class="form-group">
                 <label for="title">Título:</label>
@@ -68,12 +71,12 @@
             <button type="submit" class="btn btn-primary" [disabled]="!eventForm.valid">Guardar Cambios</button>
         </form>
           
-          
+</div>
        
 
         <app-confirmation-modal>Hola</app-confirmation-modal>
         
-    </div>
+  
     
 </div>
 

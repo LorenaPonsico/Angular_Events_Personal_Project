@@ -18,6 +18,7 @@ export class EventDetailsComponent implements OnInit {
   showDeleteConfirmationModal: boolean = false;
   updatedEvent!: Event;
   eventForm: FormGroup;
+  showEventForm = false; 
 
   constructor(private route: ActivatedRoute, private eventsService: EventsService, private accountService: AccountService,
     private router: Router, private toastr: ToastrService, private fb: FormBuilder) {

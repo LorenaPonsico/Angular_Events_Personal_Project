@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+margin-top: 100px;
 }
 
 .btn {
@@ -14,13 +14,8 @@
   /* Espacio entre los botones */
 }
 
-.title-details{
-  margin: 50px;
-}
 
-/* .btn-out{
- 
-} */
+
 
 
 
@@ -30,17 +25,14 @@
 }
 
 .event-card {
-  text-align: left;
-  max-width: 400px;
-  border: 5px solid #ddd;
-  border-radius: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  background-color: #f9f9f9;
-  margin-top: 100px;
-  margin-bottom: 100px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
-  background-color: #f9f9f9;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+  max-width: 400px; /* Ajusta el ancho según tus necesidades */
+  margin: 0 auto; /* Centra la tarjeta horizontalmente */
 }
 
 .card-title {
@@ -54,4 +46,26 @@
   /* Cambiar el color de fondo del botón activo */
   color: #fad390;
   /* Cambiar el color del texto del botón activo */
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+textarea,
+p,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
 }
