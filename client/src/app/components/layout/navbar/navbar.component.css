@@ -4,7 +4,7 @@
 }
 
 .logo {
-  font-size: 25px;
+  font-size: 30px;
   padding-left: 20px ;
   color: white;
 }
@@ -17,8 +17,9 @@
   color: white;
   font-family: 'Courier New', Courier, monospace;
   font-size: 18px;
+  font-weight: bold; 
   transition: transform 0.3s ease; 
-  border-radius: 250px;
+  /* border-radius: 250px; */
   margin-right: 10px;
   display: inline-block; 
 }
@@ -30,18 +31,13 @@
 }
 
 .btn {
-  /* background-color: white; */
   color: white;
 }
 
-/* Estilos para los botones en la barra de navegación */
+/* Estilos para los botones datos personales y cerrar sesion*/
 .navbar .nav-link.btn.btn-sm {
   padding: 5px;
-  /* Ajustar el padding para reducir el tamaño del botón */
   font-size: 15px;
-  /* Ajustar el tamaño de fuente para reducir el tamaño del texto */
-  /* margin-top: 5px; */
-  /* line-height: 1.5; Ajustar la altura de línea para centrar verticalmente el texto */
 }
 
 

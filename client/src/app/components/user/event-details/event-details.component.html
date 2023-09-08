@@ -1,22 +1,30 @@
 <div class="container">
-    <p class="title">Detalles del evento:</p>
+    <div>
+    <p class="title title-details">Detalles del evento</p>
+    <button class="btn btn-event  " [routerLink]="['/ver-eventos']">Volver atras</button>
+    </div>
+
     <div class="event-card">
-        <h5 class="card-title">{{ event?.title | uppercase }}</h5>
-        <!-- <p class="event-details">Fecha: {{ event?.date | date }}</p> -->
+        <h5 class="title">{{ event?.title | uppercase }}</h5>
+        <button class="btn btn-event btn-me-apunto" (click)="joinEvent()" [routerLink]="['/panel-control']">Me apunto!</button>
         <p class="event-details">Tipo: {{ event?.type }}</p>
+        <p class="event-details">Fecha: {{ event?.date | date }}</p>
         <p class="event-details">Hora de inicio: {{ event?.startTime }}</p>
         <p class="event-details">Hora de fin: {{ event?.endTime }}</p>
         <p class="event-details">Lugar: {{ event?.location | titlecase }}</p>
         <p class="event-details">Capacidad máxima: {{ event?.capacity }}</p>
         <p class="event-details">Descripción: {{ event?.description  }}</p>
         <!-- <p>Imagen: {{ event.img }}</p> -->
-        <button class="btn btn-event btn-success" [routerLink]="['/ver-eventos']">Volver atras</button>
        
-        <button class="btn btn-event btn-success" (click)="joinEvent()" [routerLink]="['/panel-control']">Me apunto!</button>
-        <button class="btn btn-event btn-danger" (click)="deleteEvent()">Eliminar Evento</button>
+       
+        <button class="btn btn-event " (click)="deleteEvent()">Eliminar Evento</button>
+        <button class="btn btn-event " (click)="deleteEvent()">Modificar Evento</button>
+       
+
         <app-confirmation-modal>Hola</app-confirmation-modal>
         
     </div>
+    
 </div>
 
 <!-- *ngIf="showDeleteConfirmationModal" -->

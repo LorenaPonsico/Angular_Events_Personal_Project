@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   images = [
-    { id: 1, url: '../../../../assets/evento.jpg' },
+    // { id: 1, url: '../../../../assets/evento.jpg' },
     { id: 2, url: '../../../../assets/playa1.jpg' },
     { id: 3, url: '../../../../assets/tren.jpg' },
     { id: 3, url: '../../../../assets/brazos.jpg' },

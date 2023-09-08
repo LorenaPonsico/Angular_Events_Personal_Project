@@ -22,7 +22,8 @@
 
       <p><strong>Eventos Registrados:</strong></p>
       <ul>
-        <li *ngFor="let event of userDetails?.events">{{ event.title }}</li>
+        <li *ngFor="let event of userDetails?.events">{{ event.title }} 
+          - Fecha: {{ event.date | date }} - Hora: {{event.startTime}}</li>
       </ul>
     </div>
   </div>
