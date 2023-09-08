@@ -18,7 +18,57 @@
        
        
         <button class="btn btn-event " (click)="deleteEvent()">Eliminar Evento</button>
-        <button class="btn btn-event " (click)="deleteEvent()">Modificar Evento</button>
+        <button class="btn btn-event " (click)="updateEvent()">Modificar Evento</button> 
+        <!-- ACTUALIZAR FORMULARIO -->
+
+<!-- FORMULARIO DE EDICION / CAMBIAR DATOS EVENTO -->
+        <form *ngIf="updatedEvent" [formGroup]="eventForm"  (ngSubmit)="updateEvent()" >
+
+            <div class="form-group">
+                <label for="title">Título:</label>
+                <input type="text" id="title" name="title"  formControlName="title">
+            </div>
+            <div class="form-group">
+                <label for="date">Fecha:</label>
+                <input type="date" id="date" name="date" formControlName="date">
+            </div>
+            <div class="form-group">
+                <label for="startTime">Hora inicio:</label>
+                <input type="time" id="startTime" name="startTime" formControlName="startTime">
+            </div>
+            <div class="form-group">
+                <label for="endTime">Hora de fin:</label>
+                <input type="time" id="endTime" name="endTime"  formControlName="endTime">
+            </div>
+            <div class="form-group">
+                <label for="capacity">Capacidad Máxima:</label>
+                <input type="text" id="capacity" name="capacity"  formControlName="capacity">
+            </div>
+            <div class="form-group">
+                <label for="type">Categoria:</label>
+                <select id="type" name="type" formControlName="type" >
+                    <option></option>
+                    <option>Artes escenicas y visuales</option>
+                    <option>Cultura</option>
+                    <option>Deporte</option>
+                    <option>Gastronomia</option>
+                    <option>Infantil</option>
+                    <option>Salud y Bienestar</option>
+                  </select>
+            </div>
+            <div class="form-group">
+                <label for="location">Lugar:</label>
+                <input type="text" id="location" name="location"  formControlName="location">
+            </div>
+            <div class="form-group">
+                <label for="description">Descripción:</label>
+                <textarea id="description" name="description"  formControlName="description" rows="6"></textarea>
+            </div>
+           
+            <button type="submit" class="btn btn-primary" [disabled]="!eventForm.valid">Guardar Cambios</button>
+        </form>
+          
+          
        
 
         <app-confirmation-modal>Hola</app-confirmation-modal>

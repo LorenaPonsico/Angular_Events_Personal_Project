@@ -33,7 +33,7 @@ exports.updateEvent = async (req, res) => {
 
     try {
         //actualizar evento por id
-        const { title, date, startTime, endTime, location, description, type, img } = req.body;
+        const { title, date, startTime, endTime, capacity, location, description, type, img } = req.body;
         let event = await Event.findById(req.params.id);
 
         if (!event) {
@@ -44,6 +44,7 @@ exports.updateEvent = async (req, res) => {
         event.date = date;
         event.startTime = startTime;
         event.endTime = endTime;
+        event.capacity = capacity;
         event.location = location;
         event.description = description;
         event.type = type;
