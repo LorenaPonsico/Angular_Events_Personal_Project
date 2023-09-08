@@ -33,10 +33,10 @@ const EventSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    imageURL: {
-        type: String,
-        required: true
-    },
+    // imageURL: {
+    //     type: String,
+    //     required: true
+    // },
     creationDate: {
         type: Date,
         default: Date.now()

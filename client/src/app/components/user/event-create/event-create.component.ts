@@ -72,20 +72,8 @@ export class EventCreateComponent {
       description: this.eventForm.get('description')?.value,
     };
 
-    // if (this.photoSelected) {
-    //   this.eventService.uploadImage(this.file).subscribe(
-    //     response => {
-    //       EVENT.imageURL = response.url; // Asigna la URL de la imagen subida
-    //       this.saveEvent(EVENT);
-    //     },
-    //     error => {
-    //       console.error(error);
-    //       this.toastr.error('Error al subir la imagen'); // Utiliza Toastr para mostrar el mensaje de error
-    //     }
-    //   );
-    // } else {
-    //   this.saveEvent(EVENT);
-    // }
+      this.saveEvent(EVENT);
+    
   }
 
   public saveEvent(event: Event) {
