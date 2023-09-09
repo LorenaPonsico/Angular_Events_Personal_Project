@@ -28,7 +28,7 @@
         <div mat-dialog-content>Estas seguro/a que deseas eliminar el evento?
             <div mat-dialog-actions>
                 <button class="btn btn-event" mat-dialog-close>No</button>
-                <button class="btn btn-event " (click)="deleteEvent()">Si</button>
+                <button class="btn btn-event " (click)="deleteEvent()" mat-dialog-close>Si</button>
             </div>
         </div>
     </ng-template>
@@ -37,7 +37,7 @@
 
     <!-- FORMULARIO DE EDICION / CAMBIAR DATOS EVENTO -->
     <div class="event-card">
-        <form *ngIf="showEventForm" [formGroup]="eventForm" (ngSubmit)="updateEvent()">
+        <form *ngIf="showEventForm" [formGroup]="eventForm">
             <h5 class="title">Modificar detalles de evento</h5>
 
             <div class="form-group">
@@ -81,31 +81,22 @@
                 <textarea id="description" name="description" formControlName="description" rows="6"></textarea>
             </div>
 
-            <button class="btn btn-event" (click)="openDialogCustom(template2)" >Guardar Cambios</button>
+            <button class="btn btn-event" (click)="openDialogCustom(template2)">Guardar Cambios</button>
         </form>
 
-           <!-- DIALOG / MODAL  -->
-  
-
-    <ng-template #template2>
-        <div mat-dialog-content>Estas seguro/a que deseas realizar cambios en el evento?
-            <div mat-dialog-actions>
-                <button class="btn btn-event" mat-dialog-close>No</button>
-                <button type="submit" [disabled]="!eventForm.valid" class="btn btn-event">Si</button>
+        <!-- DIALOG / MODAL  -->
+        <ng-template #template2>
+            <div mat-dialog-content>Estas seguro/a que deseas realizar cambios en el evento?
+                <div mat-dialog-actions>
+                    <button class="btn btn-event" mat-dialog-close>No</button>
+                    <button (click)="updateEvent()" [disabled]="!eventForm.valid" class="btn btn-event"
+                        mat-dialog-close>Si</button>
+                </div>
             </div>
-        </div>
-    </ng-template>
+        </ng-template>
 
     </div>
 
 
-
-
-
 </div>
 
-<!-- *ngIf="showDeleteConfirmationModal" -->
-<!-- [title]="'Confirmar Eliminación'" -->
-<!-- [message]="'¿Estás segura/o de que deseas eliminar este evento?'" -->
-<!-- (confirm)="deleteEvent()" -->
-<!-- (cancel)="showDeleteConfirmationModal = false" -->
