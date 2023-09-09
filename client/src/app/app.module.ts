@@ -2,13 +2,17 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
+import { MatDialogModule } from '@angular/material/dialog'; // material de angular DIALOG/MODAL
 
+//libreria angular
+import { ToastrModule } from 'ngx-toastr';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { NavbarScrollDirective } from './navbar-scroll.directive';
 // import { JwtInterceptor, ErrorInterceptor } from './helpers';
 
 // Componentes
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
@@ -24,10 +28,8 @@ import { SearchComponent } from './components/user/search/search.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { DashboardComponent } from './components/user/dashboard/dashboard.component';
 import { CommunityComponent } from './components/public/community/community.component';
-import { CarouselModule } from 'ngx-bootstrap/carousel';
-// import { ModalsComponent } from './components/modals/modals.component';
-import { ConfirmationModalComponent } from './components/modals/confirmation-modal/confirmation-modal.component';
-import { NavbarScrollDirective } from './navbar-scroll.directive';
+import { DialogCustomComponent } from './components/dialog-custom/dialog-custom.component';
+
 
 @NgModule({
   declarations: [
@@ -46,10 +48,8 @@ import { NavbarScrollDirective } from './navbar-scroll.directive';
     LayoutComponent,
     DashboardComponent,
     CommunityComponent,
-    ConfirmationModalComponent,
-    NavbarScrollDirective
-
-
+    NavbarScrollDirective,
+    DialogCustomComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +59,8 @@ import { NavbarScrollDirective } from './navbar-scroll.directive';
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
     CarouselModule.forRoot(),
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
   providers: [
     // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
