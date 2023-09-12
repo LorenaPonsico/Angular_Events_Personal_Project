@@ -7,6 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { environment } from 'src/enviroment';
 import { LoginRequest } from './loginRequest';
+import { Event } from '../models/event';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
@@ -73,4 +74,10 @@ export class AccountService {
     return this.http.put<User>(`${environment.apiUrl}/api/users/${user._id}`, user);
   }
   
+  deleteUser(){
+    //BORRAR USUARIO EN EL SERVICIO
+  }
+  
 }
+
+

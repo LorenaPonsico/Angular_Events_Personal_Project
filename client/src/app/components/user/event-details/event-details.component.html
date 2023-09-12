@@ -36,8 +36,8 @@
 
 
     <!-- FORMULARIO DE EDICION / CAMBIAR DATOS EVENTO -->
+    <form *ngIf="showEventForm" [formGroup]="eventForm">
     <div class="event-card">
-        <form *ngIf="showEventForm" [formGroup]="eventForm">
             <h5 class="title">Modificar detalles de evento</h5>
 
             <div class="form-group">
@@ -82,21 +82,21 @@
             </div>
 
             <button class="btn btn-event" (click)="openDialogCustom(template2)">Guardar Cambios</button>
-        </form>
-
-        <!-- DIALOG / MODAL  -->
-        <ng-template #template2>
-            <div mat-dialog-content>Estas seguro/a que deseas realizar cambios en el evento?
-                <div mat-dialog-actions>
-                    <button class="btn btn-event" mat-dialog-close>No</button>
-                    <button (click)="updateEvent()" [disabled]="!eventForm.valid" class="btn btn-event"
+            
+            <!-- DIALOG / MODAL  -->
+            <ng-template #template2>
+                <div mat-dialog-content>Estas seguro/a que deseas realizar cambios en el evento?
+                    <div mat-dialog-actions>
+                        <button class="btn btn-event" mat-dialog-close>No</button>
+                        <button (click)="updateEvent()" [disabled]="!eventForm.valid" class="btn btn-event"
                         mat-dialog-close>Si</button>
+                    </div>
                 </div>
-            </div>
-        </ng-template>
-
+            </ng-template>
+            
+        </div>
+        
+        
+    </form>
     </div>
-
-
-</div>
 

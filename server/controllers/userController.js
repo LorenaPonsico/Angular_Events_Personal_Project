@@ -27,6 +27,7 @@ exports.createUser = async (req, res) => {
 }
 
 exports.getUsers = async (req, res) => {
+    
     try {
         //mostrar usuarios
         const users = await User.find();

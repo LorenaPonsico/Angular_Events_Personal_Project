@@ -6,26 +6,75 @@
     </div>
 
     <div>
-      <button class="btn">Modificar Datos</button>
-      <button class="btn">Modificar Eventos</button>
+      <button class="btn" (click)="showUserForm = !showUserForm">Modificar Datos</button>
+      <button class="btn" (click)="deleteUser()">Eliminar Usuario</button>
+
     </div>
     
     <div class="card-body">
-      <p><strong>Nombre:</strong> {{ userDetails?.name | titlecase  }}</p>
-      <p><strong>Apellido:</strong> {{ userDetails?.surname | titlecase}}</p>
-      <p><strong>Fecha nacimiento:</strong> {{ userDetails?.birthDate | date }}</p>
-      <p><strong>Telefono de Contacto:</strong> {{ userDetails?.phone }}</p>
-      <p><strong>Email:</strong> {{ userDetails?.email | lowercase  }}</p>
-
-
+      <p><strong>Nombre:</strong> {{ userDetails.name | titlecase  }}</p>
+      <p><strong>Apellido:</strong> {{ userDetails.surname | titlecase}}</p>
+      <p><strong>Fecha nacimiento:</strong> {{ userDetails.birthDate | date }}</p>
+      <p><strong>Telefono de Contacto:</strong> {{ userDetails.phone }}</p>
+      <p><strong>Email:</strong> {{ userDetails.email | lowercase  }}</p>
 
 
       <p><strong>Eventos Registrados:</strong></p>
       <ul>
-        <li *ngFor="let event of userDetails?.events">{{ event.title }} 
-          - Fecha: {{ event.date | date }} - Hora: {{event.startTime}}</li>
+        <li *ngFor="let event of userDetails?.events">{{ event.title | uppercase }} 
+          - Fecha: {{ event.date | date }} - Hora: {{event.startTime}}
+          <button (click)="deleteEvent(event)">X</button></li>
       </ul>
+    
     </div>
+
   </div>
+
+
+    <!-- FORMULARIO DE EDICION / CAMBIAR DATOS EVENTO -->
+    <form *ngIf="showUserForm" [formGroup]="userForm">
+      <div class="event-card">
+              <h5 class="title">Modificar datos Usuario</h5>
+  
+              <div class="form-group">
+                  <label for="name">Nombre:</label>
+                  <input type="text" id="name" name="name" formControlName="name">
+              </div>
+              <div class="form-group">
+                  <label for="surname">Apellido:</label>
+                  <input type="text" id="surname" name="surname" formControlName="surname">
+              </div>
+              <div class="form-group">
+                  <label for="birthDate">Fecha de nacimiento:</label>
+                  <input type="date" id="birthDate" name="birthDate" formControlName="birthDate">
+              </div>
+              <div class="form-group">
+                  <label for="phone">Telefono:</label>
+                  <input type="number" id="phone" name="phone" formControlName="phone">
+              </div>
+              <div class="form-group">
+                  <label for="email">Email:</label>
+                  <input type="text" id="email" name="email" formControlName="email">
+              </div>
+              
+
+  
+              <button class="btn btn-event" (click)="openDialogCustom(template2)">Guardar Cambios</button>
+              
+              <!-- DIALOG / MODAL  -->
+              <ng-template #template2>
+                  <div mat-dialog-content>Estas seguro/a que deseas realizar cambios en el evento?
+                      <div mat-dialog-actions>
+                          <button class="btn btn-event" mat-dialog-close>No</button>
+                          <button (click)="updateUser()" class="btn btn-event"
+                          mat-dialog-close>Si</button>
+                      </div>
+                  </div>
+              </ng-template>
+              
+          </div>
+          
+          
+      </form>
 </div>
 

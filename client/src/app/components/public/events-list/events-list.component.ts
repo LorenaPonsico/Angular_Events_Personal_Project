@@ -23,6 +23,7 @@ export class EventsListComponent implements OnInit {
           this.user = user;
           this.userLoginOn = !!user; // Convertimos el objeto user en un valor booleano
         });
+       
   }
 
   getEvents(){

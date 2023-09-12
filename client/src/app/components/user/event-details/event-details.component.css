@@ -55,7 +55,6 @@ input[type="text"],
 input[type="date"],
 input[type="time"],
 textarea,
-p,
 select {
   width: 100%;
   padding: 10px;

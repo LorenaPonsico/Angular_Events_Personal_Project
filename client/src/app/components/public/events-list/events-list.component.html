@@ -12,7 +12,7 @@
       <!-- <p>Fecha: {{ event.date | date }}</p> -->
       <!-- <p>{{ event.type }}</p> -->
       <a *ngIf="!userLoginOn" href="#" class="btn " routerLink="/registro">Ir al evento</a>
-      <a *ngIf="userLoginOn" href="#" class="btn " routerLink="/event/:eventId">Ir al evento</a>
+      <a *ngIf="userLoginOn" href="#" class="btn " [routerLink]="'/event/' + event._id">Ir al evento</a>
     </div>
   </div>
 </div>

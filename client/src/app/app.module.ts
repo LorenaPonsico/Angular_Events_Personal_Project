@@ -22,9 +22,7 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { EventsListComponent } from './components/public/events-list/events-list.component';
 import { EventCreateComponent } from './components/user/event-create/event-create.component';
 import { EventDetailsComponent } from './components/user/event-details/event-details.component';
-import { CalendarComponent } from './components/user/calendar/calendar.component';
 import { EventsScheduleComponent } from './components/user/events-schedule/events-schedule.component';
-import { SearchComponent } from './components/user/search/search.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { DashboardComponent } from './components/user/dashboard/dashboard.component';
 import { CommunityComponent } from './components/public/community/community.component';
@@ -42,9 +40,7 @@ import { DialogCustomComponent } from './components/dialog-custom/dialog-custom.
     EventsListComponent,
     EventCreateComponent,
     EventDetailsComponent,
-    CalendarComponent,
     EventsScheduleComponent,
-    SearchComponent,
     LayoutComponent,
     DashboardComponent,
     CommunityComponent,
@@ -57,7 +53,7 @@ import { DialogCustomComponent } from './components/dialog-custom/dialog-custom.
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot(), // ToastrModule added
+    ToastrModule.forRoot({ positionClass: 'toast-bottom-right' }), // ToastrModule added 
     CarouselModule.forRoot(),
     FormsModule,
     MatDialogModule

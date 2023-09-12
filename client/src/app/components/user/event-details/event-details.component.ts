@@ -18,7 +18,7 @@ export class EventDetailsComponent implements OnInit {
   event: Event | undefined;
   // showDeleteConfirmationModal: boolean = false;
   updatedEvent!: Event;
-  showEventForm = false;
+  showEventForm: boolean = false;
   eventForm: FormGroup = new FormGroup({
     title: new FormControl(),
     date: new FormControl(),
@@ -48,11 +48,11 @@ export class EventDetailsComponent implements OnInit {
     });
   }
 
-openDialogCustom(template: TemplateRef<any>){
-  this.dialogService.openDialogCustom({
-    template
-  }).afterClosed().subscribe(res=> console.log('Dialog close', res))
-}
+  openDialogCustom(template: TemplateRef<any>) {
+    this.dialogService.openDialogCustom({
+      template
+    }).afterClosed().subscribe(res => console.log('Dialog close', res))
+  }
 
 
   setFormEvent(event: Event) {
@@ -116,7 +116,6 @@ openDialogCustom(template: TemplateRef<any>){
     this.updatedEvent.type = type;
     this.updatedEvent.location = location;
     this.updatedEvent.description = description;
-
 
     if (this.updatedEvent) {
       if (!this.updatedEvent._id) {

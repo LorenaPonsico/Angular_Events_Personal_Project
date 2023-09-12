@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr'; // Asegúrate de importar esto
 import { Event } from 'src/app/models/event';
+import { DialogService } from 'src/app/services/dialog.service';
 import { EventsService } from 'src/app/services/events.service';
 
 // interface HtmlInputEvent extends Event{
@@ -27,7 +28,8 @@ export class EventCreateComponent {
     private fb: FormBuilder,
     private router: Router, // Asegúrate de tener esto
     private toastr: ToastrService, // Asegúrate de tener esto
-    private eventService: EventsService
+    private eventService: EventsService,
+    private dialogService: DialogService
   ) {
     this.eventForm = this.fb.group({
       title: ['', Validators.required],
@@ -41,19 +43,23 @@ export class EventCreateComponent {
     });
   }
 
-  onPhotoSelected(input: HTMLInputElement): void {
-    if (input.files && input.files[0]) {
-      this.file = input.files[0];
-      // Vista previa de imágenes
-      const reader = new FileReader();
-      reader.onload = e => this.photoSelected = reader.result as string;
+  // onPhotoSelected(input: HTMLInputElement): void {
+  //   if (input.files && input.files[0]) {
+  //     this.file = input.files[0];
+  //     // Vista previa de imágenes
+  //     const reader = new FileReader();
+  //     reader.onload = e => this.photoSelected = reader.result as string;
   
-      reader.readAsDataURL(this.file);
-    }
+  //     reader.readAsDataURL(this.file);
+  //   }
+  // }
+  
+  
+  openDialogCustom(template: TemplateRef<any>) {
+    this.dialogService.openDialogCustom({
+      template
+    }).afterClosed().subscribe(res => console.log('Dialog close', res))
   }
-  
-  
-  
   
 
   createEvent() {
