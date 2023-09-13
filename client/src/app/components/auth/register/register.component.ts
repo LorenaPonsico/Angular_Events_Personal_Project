@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, AbstractControl  } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AccountService } from 'src/app/services';
@@ -14,15 +14,28 @@ export class RegisterComponent {
   registerError: string = "";
 
   registerForm = this.formBuilder.group({
-    name: ['', Validators.required],
-    surname: ['', Validators.required],
+    name: ['', [Validators.required, Validators.minLength(3)]],
+    surname: ['', [Validators.required, Validators.minLength(3)]],
     email: ['', [Validators.required, Validators.email]],
-    password: ['', Validators.required],
-    phone: ['', Validators.required],
-    birthday: ['', Validators.required],
-    // img: ['', Validators.required]
+    password: ['', [Validators.required, Validators.minLength(8)]],
+    phone: ['', [Validators.required, Validators.pattern(/^[0-9]{minLength,maxLength}$/)]],
+    birthday: ['', [Validators.required, (control: AbstractControl) => { 
+      const selectedDate = new Date(control.value);
+      const currentDate = new Date();
+      currentDate.setFullYear(currentDate.getFullYear() - 18); // Restar 18 años a la fecha actual
 
+      if (selectedDate > currentDate) {
+        return { edadMinima: true };
+      }
+      return null;
+    }
+  ]
+]
+
+    // img: ['', Validators.required]
   })
+
+  
 
   constructor(
     private formBuilder: FormBuilder,
@@ -50,7 +63,6 @@ export class RegisterComponent {
   get birthday() {
     return this.registerForm.controls.birthday;
   }
-
 
 
   registerUser() {

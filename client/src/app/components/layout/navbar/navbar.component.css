@@ -30,8 +30,8 @@
   border: none;
 }
 
-.btn {
-  color: white;
+.navbar-toggler{
+  background-color: white;
 }
 
 /* Estilos para los botones datos personales y cerrar sesion*/

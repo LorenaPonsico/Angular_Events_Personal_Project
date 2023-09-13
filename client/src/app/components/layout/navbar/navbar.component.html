@@ -4,21 +4,23 @@
     <a class="logo navbar-brand fw-bold" href="#">SYNERA</a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent">
+      aria-controls="navbarSupportedContent" (click)="toggleNavbar()">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="navbar-collapse  " id="navbarSupportedContent">
+    <div class="navbar-collapse collapse" [ngClass]="{'show': !isNavbarCollapsed}" id="navbarSupportedContent">
 
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto ">
 
 
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" routerLink="/inicio" (click)="closeNavbar()"> <i class="fa-solid fa-house"></i> INICIO</a>
+          <a class="nav-link " aria-current="page" routerLink="/inicio" (click)="closeNavbar()"> <i
+              class="fa-solid fa-house"></i> INICIO</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#" routerLink="/comunidad" (click)="closeNavbar()"> <i class="fa-solid fa-tower-broadcast"></i> COMUNIDAD</a>
+          <a class="nav-link" aria-current="page" href="#" routerLink="/comunidad" (click)="closeNavbar()"> <i
+              class="fa-solid fa-tower-broadcast"></i> COMUNIDAD</a>
         </li>
 
         <li class="nav-item">
@@ -43,22 +45,22 @@
         </li>
 
         <li *ngIf="userLoginOn" class="nav-item">
-          <a class="nav-link btn btn-sm " aria-current="page" href="#" (click)="logout()"> <i
-              class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar sesion
-          </a>
+          <a class="nav-link btn btn-sm " aria-current="page" (click)="openDialogCustom(logouttemplate)"> <i
+              class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar sesión </a>
+
         </li>
       </ul>
 
 
       <ul class="navbar-nav row  ">
         <li *ngIf="!userLoginOn" class="nav-item">
-          <a class="nav-link btn btn-sm" aria-current="page" routerLink="/iniciar-sesion"
-            (click)="closeNavbar()"> <i
-            class="fa-solid fa-arrow-right-from-bracket"></i> Iniciar Sesion</a>
+          <a class="nav-link btn btn-sm" aria-current="page" routerLink="/iniciar-sesion" (click)="closeNavbar()"> <i
+              class="fa-solid fa-arrow-right-from-bracket"></i> Iniciar Sesion</a>
         </li>
 
         <li *ngIf="!userLoginOn" class="nav-item">
-          <a class="nav-link btn btn-sm" aria-current="page" routerLink="/registro" (click)="closeNavbar()"> <i class="fa-solid fa-user-plus"></i> Regístrate
+          <a class="nav-link btn btn-sm" aria-current="page" routerLink="/registro" (click)="closeNavbar()"> <i
+              class="fa-solid fa-user-plus"></i> Regístrate
             Ahora</a>
         </li>
       </ul>
@@ -66,3 +68,13 @@
     </div>
   </div>
 </nav>
+
+      <!-- DIALOG / MODAL  -->
+      <ng-template #logouttemplate>
+        <div mat-dialog-content>Estas seguro/a que deseas cerrar sesión?
+          <div mat-dialog-actions>
+            <button class="btn btn-event" mat-dialog-close>No</button>
+            <button (click)="logout()" class="btn btn-event" mat-dialog-close>Si</button>
+          </div>
+        </div>
+      </ng-template>

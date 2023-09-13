@@ -10,24 +10,29 @@
         <label>Nombre</label>
         <input formControlName="name" type="text" class="form-control" id="name" aria-describedby="emailHelp"
           placeholder="Introduce tu nombre">
-          <div *ngIf="name.invalid && (name.dirty || name.touched)" class=" text-danger">
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class=" text-danger">
 
-            <div *ngIf="name.errors?.['required']">
-              El nombre es obligatorio.
-            </div>
+          <div *ngIf="name.errors?.['required']">
+            El nombre es obligatorio.
           </div>
+          <div *ngIf="password.errors?.['minlength']">
+            El nombre debe tener al menos 3 letras.
+          </div>
+        </div>
       </div>
 
       <div class="form-group">
         <label for="exampleInputPassword1">Apellidos</label>
-        <input formControlName="surname" type="text" class="form-control" id="surname"
-          placeholder="Apellidos">
-          <div *ngIf="surname.invalid && (surname.dirty || surname.touched)" class=" text-danger">
+        <input formControlName="surname" type="text" class="form-control" id="surname" placeholder="Apellidos">
+        <div *ngIf="surname.invalid && (surname.dirty || surname.touched)" class=" text-danger">
 
-            <div *ngIf="surname.errors?.['required']">
-              Los apellidos son obligatorios.
-            </div>
+          <div *ngIf="surname.errors?.['required']">
+            Los apellidos son obligatorios.
           </div>
+          <div *ngIf="password.errors?.['minlength']">
+            El apellido debe tener al menos 3 letras.
+          </div>
+        </div>
       </div>
 
       <div class="form-group">
@@ -36,51 +41,60 @@
           aria-describedby="emailHelp" placeholder="Introduce email">
 
         <div *ngIf="email.invalid && (email.dirty || email.touched)" class=" text-danger">
-    
-              <div *ngIf="email.errors?.['required']">
-                El email es obligatorio.
-              </div>
-              <div *ngIf="email.errors?.['email']">
-                El email debe tener un formato válido.
-              </div>
-            </div>
+          <div *ngIf="email.errors?.['required']">
+            El email es obligatorio.
           </div>
-
-        <div class="form-group">
-          <label for="exampleInputPassword1">Contraseña</label>
-          <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1"
-            placeholder="Contraseña">
-            <div *ngIf="password.invalid && (password.dirty || password.touched)" class=" text-danger">
-
-              <div *ngIf="password.errors?.['required']">
-                La contraseña es obligatoria.
-              </div>
-            </div>
+          <div *ngIf="email.errors?.['email']">
+            El email debe tener un formato válido.
+          </div>
         </div>
 
-        <div class="form-group">
-          <label for="exampleInputPhone">Telefono</label>
-          <input formControlName="phone" type="number" class="form-control" id="exampleInputPhone"
-            placeholder="telefono">
-            <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class=" text-danger">
+      </div>
 
-              <div *ngIf="phone.errors?.['required']">
-                El numero de telefonod es obligatorio.
-              </div>
-            </div>
-            
+      <div class="form-group">
+        <label for="exampleInputPassword1">Contraseña</label>
+        <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1"
+          placeholder="Contraseña">
+
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class=" text-danger">
+          <div *ngIf="password.errors?.['required']">
+            La contraseña es obligatoria.
+          </div>
+          <div *ngIf="password.errors?.['minlength']">
+            La contraseña debe tener al menos 8 caracteres.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputPhone">Telefono</label>
+        <input formControlName="phone" type="number" class="form-control" id="exampleInputPhone" placeholder="telefono">
+        <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class=" text-danger">
+
+          <div *ngIf="phone.errors?.['required']">
+            El numero de telefono es obligatorio.
+          </div>
+
+          <div *ngIf="phone.errors?.['pattern']">
+            El numero de telefono debe ser correcto.
+          </div>
+
         </div>
 
         <div class="form-group">
           <label for="exampleInputBirthday">Fecha nacimiento</label>
           <input formControlName="birthday" type="date" class="form-control" id="exampleInputBirthday1"
             placeholder="fecha nacimiento">
-            <div *ngIf="birthday.invalid && (birthday.dirty || birthday.touched)" class=" text-danger">
+          <div *ngIf="birthday.invalid && (birthday.dirty || birthday.touched)" class=" text-danger">
 
-              <div *ngIf="birthday.errors?.['required']">
-                La fecha de nacimiento es obligatoria.
-              </div>
+            <div *ngIf="birthday.errors?.['required']">
+              La fecha de nacimiento es obligatoria.
             </div>
+            <div *ngIf="birthday.errors?.['edadMinima']">
+              La persona debe ser mayor de 18 años.
+            </div>
+          </div>
         </div>
 
 

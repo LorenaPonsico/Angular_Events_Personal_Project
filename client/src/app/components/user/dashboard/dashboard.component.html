@@ -1,15 +1,17 @@
 <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
   <div class="card mb-3" *ngIf="userData">
 
-    <div class="card-header text-white">
-      <h4 class="title">Datos Personales del Usuario</h4>
-    </div>
-
     <div>
       <button class="btn" (click)="showUserForm = !showUserForm">Modificar Datos</button>
       <button class="btn" (click)="deleteUser()">Eliminar Usuario</button>
 
     </div>
+
+    <div class="card-header text-white">
+      <h4 class="title">Datos Personales del Usuario</h4>
+    </div>
+
+  
     
     <div class="card-body">
       <p><strong>Nombre:</strong> {{ userDetails.name | titlecase  }}</p>

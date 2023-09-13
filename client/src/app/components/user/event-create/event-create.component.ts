@@ -1,19 +1,16 @@
 import { Component, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr'; // Asegúrate de importar esto
+import { ToastrService } from 'ngx-toastr'; 
 import { Event } from 'src/app/models/event';
 import { DialogService } from 'src/app/services/dialog.service';
 import { EventsService } from 'src/app/services/events.service';
-
-// interface HtmlInputEvent extends Event{
-//   target: HTMLInputElement & EventTarget;
-// }
+import { AccountService } from 'src/app/services'; // Importa el AccountService aquí
+import { User } from 'src/app/models/user'; 
 
 interface InputEvent extends Event {
   target: HTMLInputElement & EventTarget;
 }
-
 @Component({
   selector: 'app-event-create',
   templateUrl: './event-create.component.html',
@@ -22,14 +19,16 @@ interface InputEvent extends Event {
 export class EventCreateComponent {
   eventForm: FormGroup;
   file: File | undefined;
-  photoSelected: string | ArrayBuffer | undefined
+  // currentUser: User | undefined;
+  // photoSelected: string | ArrayBuffer | undefined
 
   constructor(
     private fb: FormBuilder,
     private router: Router, // Asegúrate de tener esto
     private toastr: ToastrService, // Asegúrate de tener esto
     private eventService: EventsService,
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    private accountService: AccountService
   ) {
     this.eventForm = this.fb.group({
       title: ['', Validators.required],
@@ -79,6 +78,23 @@ export class EventCreateComponent {
     };
 
       this.saveEvent(EVENT);
+
+      // QUIERO QUE LA PERSONA QUE CREA EL EVENTO SE LE AÑADA EL EVENTO DIRECTAMENTE EN SU DASHBOARD (ESTO NO FUNCIONA!!)
+      // this.accountService.updateUser(this.currentUser).subscribe(
+      //   (updatedUser: User | undefined) => {
+      //     if (updatedUser) {
+      //       this.userDetails = updatedUser;
+      //       this.toastr.success('El usuario fue actualizado');
+      //     } else {
+      //       console.error('El usuario no se pudo actualizar');
+      //     }
+      //   },
+      //   (error: any) => {
+      //     console.error('Error al actualizar el usuario:', error);
+      //   }
+      // );
+      
+
     
   }
 
