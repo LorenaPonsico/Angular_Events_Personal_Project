@@ -8,6 +8,7 @@ import { User } from 'src/app/models/user';
 import { AccountService } from 'src/app/services';
 import { DialogService } from 'src/app/services/dialog.service';
 import { EventsService } from 'src/app/services/events.service';
+import { ValidationsService } from 'src/app/services/validations.service';
 
 @Component({
   selector: 'app-event-details',
@@ -16,28 +17,32 @@ import { EventsService } from 'src/app/services/events.service';
 })
 export class EventDetailsComponent implements OnInit {
   event: Event | undefined;
-  // showDeleteConfirmationModal: boolean = false;
   updatedEvent!: Event;
   showEventForm: boolean = false;
-  eventForm: FormGroup = new FormGroup({
-    title: new FormControl(),
-    date: new FormControl(),
-    startTime: new FormControl(),
-    endTime: new FormControl(),
-    capacity: new FormControl(),
-    type: new FormControl(),
-    location: new FormControl(),
-    description: new FormControl(),
-  });
+  eventForm: FormGroup;
+ 
 
   constructor(
     private route: ActivatedRoute,
     private eventsService: EventsService,
     private accountService: AccountService,
+    private fb: FormBuilder,
     private router: Router,
     private toastr: ToastrService,
-    private dialogService: DialogService) { }
-  // private fb: FormBuilder,
+    private dialogService: DialogService,
+    private validationsService: ValidationsService) { 
+
+      this.eventForm = this.fb.group({
+        title: ['', [Validators.required, Validators.minLength(3)]],
+        date: ['', Validators.required],
+        startTime: ['', Validators.required],
+        endTime: ['', Validators.required],
+        capacity: ['', [Validators.required, this.validationsService.nonNegativeNumberValidator]],
+        type: ['', Validators.required],
+        location: ['', [Validators.required, Validators.minLength(3)]],
+        description: ['', [Validators.required, Validators.minLength(3)]],
+      });
+    }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -81,7 +86,6 @@ export class EventDetailsComponent implements OnInit {
 
   deleteEvent(): void {
     if (this.event?._id) {
-      // this.showDeleteConfirmationModal = true; 
 
       const eventId = this.event._id.toString(); // Convertir el _id a cadena
       const eventTitle = this.event.title; // Obtener el título del evento o un valor predeterminado

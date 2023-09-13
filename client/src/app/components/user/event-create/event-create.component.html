@@ -7,15 +7,20 @@
         <div class="card-body">
           <span class="title float-end mb-2">Crear Evento</span>
 
-          <form class="mt-3" [formGroup]="eventForm" >
+          <form class="mt-3" [formGroup]="eventForm">
             <div class="mb-3">
-              <label>Titulo del Evento</label>
-              <input type="text" formControlName="title" class="form-control" placeholder="">
+              <label for="title">Titulo del Evento</label>
+              <input type="text" id="title" formControlName="title" class="form-control">
               <div class="text-danger"
                 *ngIf="eventForm.get('title')?.hasError('required') && eventForm.get('title')?.touched">
                 <span>El titulo es <strong>obligatorio</strong></span>
               </div>
+              <div class="text-danger" *ngIf="eventForm.get('title')?.hasError('minlength')">
+                <span>El titulo debe tener al menos 3 letras.</span>
+              </div>
             </div>
+
+
 
             <!-- <div class="mb-3">
               <label>Imagen del Evento</label>
@@ -27,7 +32,7 @@
 
             <div class="mb-3">
               <label>Fecha </label>
-              <input type="date" formControlName="date" class="form-control" placeholder="name@example.com">
+              <input type="date" formControlName="date" class="form-control">
               <div class="text-danger"
                 *ngIf="eventForm.get('date')?.hasError('required') && eventForm.get('date')?.touched">
                 <span>La fecha del evento es <strong>obligatoria</strong></span>
@@ -53,13 +58,18 @@
             </div>
 
             <div class="mb-3">
-              <label>Aforo maximo</label>
+              <label>Aforo máximo</label>
               <input type="number" formControlName="capacity" class="form-control" placeholder="">
               <div class="text-danger"
                 *ngIf="eventForm.get('capacity')?.hasError('required') && eventForm.get('capacity')?.touched">
-                <span>El aforo maximo es <strong>obligatoria</strong></span>
+                <span>El aforo máximo es <strong>obligatorio</strong></span>
+              </div>
+              <div class="text-danger" *ngIf="eventForm.get('capacity')?.hasError('nonNegativeNumber') && eventForm.get('capacity')?.dirty">
+                <span>El aforo máximo debe ser un número no negativo.</span>
               </div>
             </div>
+            
+
 
             <div class="mb-3">
               <label>Categoria</label>
@@ -85,6 +95,9 @@
                 *ngIf="eventForm.get('location')?.hasError('required') && eventForm.get('location')?.touched">
                 <span>La localizacion es <strong>obligatoria</strong></span>
               </div>
+              <div class="text-danger" *ngIf="eventForm.get('location')?.hasError('minlength')">
+                <span>El titulo debe tener al menos 3 letras.</span>
+              </div>
             </div>
 
             <div class="mb-3">
@@ -94,20 +107,13 @@
                 *ngIf="eventForm.get('description')?.hasError('required') && eventForm.get('description')?.touched">
                 <span>La descripción es <strong>obligatoria</strong></span>
               </div>
+              <div class="text-danger" *ngIf="eventForm.get('description')?.hasError('minlength')">
+                <span>El titulo debe tener al menos 3 letras.</span>
+              </div>
             </div>
 
             <button (click)="openDialogCustom(pushEvent)" type="submit" [disabled]="eventForm.invalid"
               class="btn btn-lg float-end">Publicar Evento</button>
-
-            <!-- DIALOG / MODAL  -->
-            <ng-template #pushEvent>
-              <div mat-dialog-content>Estas seguro/a que deseas publicar el evento?
-                <div mat-dialog-actions>
-                  <button class="btn btn-event" mat-dialog-close>No</button>
-                  <button class="btn btn-event " (click)="createEvent()" mat-dialog-close>Si</button>
-                </div>
-              </div>
-            </ng-template>
 
           </form>
         </div>
@@ -118,15 +124,12 @@
 
 
 
-
-
-<!-- <div class="form-group">
-  <label for="exampleFormControlSelect2">Example multiple select</label>
-  <select multiple class="form-control" id="exampleFormControlSelect2">
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-    <option>5</option>
-  </select>
-</div> -->
+<!-- DIALOG / MODAL  -->
+<ng-template #pushEvent>
+  <div mat-dialog-content>Estas seguro/a que deseas publicar el evento?
+    <div mat-dialog-actions>
+      <button class="btn btn-event" mat-dialog-close>No</button>
+      <button class="btn btn-event " (click)="createEvent()" mat-dialog-close>Si</button>
+    </div>
+  </div>
+</ng-template>

@@ -7,10 +7,11 @@ import { DialogService } from 'src/app/services/dialog.service';
 import { EventsService } from 'src/app/services/events.service';
 import { AccountService } from 'src/app/services'; // Importa el AccountService aquí
 import { User } from 'src/app/models/user'; 
+import { ValidationsService } from 'src/app/services/validations.service';
 
-interface InputEvent extends Event {
-  target: HTMLInputElement & EventTarget;
-}
+// interface InputEvent extends Event {
+//   target: HTMLInputElement & EventTarget;
+// }
 @Component({
   selector: 'app-event-create',
   templateUrl: './event-create.component.html',
@@ -18,8 +19,7 @@ interface InputEvent extends Event {
 })
 export class EventCreateComponent {
   eventForm: FormGroup;
-  file: File | undefined;
-  // currentUser: User | undefined;
+  // file: File | undefined;
   // photoSelected: string | ArrayBuffer | undefined
 
   constructor(
@@ -28,17 +28,18 @@ export class EventCreateComponent {
     private toastr: ToastrService, // Asegúrate de tener esto
     private eventService: EventsService,
     private dialogService: DialogService,
-    private accountService: AccountService
-  ) {
+    private validationsService: ValidationsService,
+    private accountService: AccountService) {
+
     this.eventForm = this.fb.group({
-      title: ['', Validators.required],
+      title: ['', [Validators.required, Validators.minLength(3)]],
       date: ['', Validators.required],
       startTime: ['', Validators.required],
       endTime: ['', Validators.required],
-      capacity: ['', Validators.required],
+      capacity: ['', [Validators.required, this.validationsService.nonNegativeNumberValidator]],
       type: ['', Validators.required],
-      location: ['', Validators.required],
-      description: ['', Validators.required],
+      location: ['', [Validators.required, Validators.minLength(3)]],
+      description: ['', [Validators.required, Validators.minLength(3)]],
     });
   }
 

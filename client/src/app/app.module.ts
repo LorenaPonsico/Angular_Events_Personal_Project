@@ -28,6 +28,8 @@ import { DashboardComponent } from './components/user/dashboard/dashboard.compon
 import { CommunityComponent } from './components/public/community/community.component';
 import { DialogCustomComponent } from './components/dialog-custom/dialog-custom.component';
 
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
 
 @NgModule({
   declarations: [
@@ -56,7 +58,8 @@ import { DialogCustomComponent } from './components/dialog-custom/dialog-custom.
     ToastrModule.forRoot({ positionClass: 'toast-bottom-right' }), // ToastrModule added 
     CarouselModule.forRoot(),
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    BsDatepickerModule.forRoot(),
   ],
   providers: [
     // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

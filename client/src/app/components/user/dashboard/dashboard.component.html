@@ -11,72 +11,107 @@
       <h4 class="title">Datos Personales del Usuario</h4>
     </div>
 
-  
-    
+
+
     <div class="card-body">
-      <p><strong>Nombre:</strong> {{ userDetails.name | titlecase  }}</p>
+      <p><strong>Nombre:</strong> {{ userDetails.name | titlecase }}</p>
       <p><strong>Apellido:</strong> {{ userDetails.surname | titlecase}}</p>
       <p><strong>Fecha nacimiento:</strong> {{ userDetails.birthDate | date }}</p>
       <p><strong>Telefono de Contacto:</strong> {{ userDetails.phone }}</p>
-      <p><strong>Email:</strong> {{ userDetails.email | lowercase  }}</p>
+      <p><strong>Email:</strong> {{ userDetails.email | lowercase }}</p>
 
 
       <p><strong>Eventos Registrados:</strong></p>
       <ul>
-        <li *ngFor="let event of userDetails?.events">{{ event.title | uppercase }} 
+        <li *ngFor="let event of userDetails?.events">{{ event.title | uppercase }}
           - Fecha: {{ event.date | date }} - Hora: {{event.startTime}}
-          <button (click)="deleteEvent(event)">X</button></li>
+          <button (click)="deleteEvent(event)">X</button>
+        </li>
       </ul>
-    
+
     </div>
 
   </div>
 
 
-    <!-- FORMULARIO DE EDICION / CAMBIAR DATOS EVENTO -->
-    <form *ngIf="showUserForm" [formGroup]="userForm">
-      <div class="event-card">
-              <h5 class="title">Modificar datos Usuario</h5>
-  
-              <div class="form-group">
-                  <label for="name">Nombre:</label>
-                  <input type="text" id="name" name="name" formControlName="name">
-              </div>
-              <div class="form-group">
-                  <label for="surname">Apellido:</label>
-                  <input type="text" id="surname" name="surname" formControlName="surname">
-              </div>
-              <div class="form-group">
-                  <label for="birthDate">Fecha de nacimiento:</label>
-                  <input type="date" id="birthDate" name="birthDate" formControlName="birthDate">
-              </div>
-              <div class="form-group">
-                  <label for="phone">Telefono:</label>
-                  <input type="number" id="phone" name="phone" formControlName="phone">
-              </div>
-              <div class="form-group">
-                  <label for="email">Email:</label>
-                  <input type="text" id="email" name="email" formControlName="email">
-              </div>
-              
+  <!-- FORMULARIO DE EDICION / CAMBIAR DATOS EVENTO -->
+  <form *ngIf="showUserForm" [formGroup]="userForm">
+    <div class="event-card">
+      <h5 class="title">Modificar datos Usuario</h5>
 
-  
-              <button class="btn btn-event" (click)="openDialogCustom(template2)">Guardar Cambios</button>
-              
-              <!-- DIALOG / MODAL  -->
-              <ng-template #template2>
-                  <div mat-dialog-content>Estas seguro/a que deseas realizar cambios en el evento?
-                      <div mat-dialog-actions>
-                          <button class="btn btn-event" mat-dialog-close>No</button>
-                          <button (click)="updateUser()" class="btn btn-event"
-                          mat-dialog-close>Si</button>
-                      </div>
-                  </div>
-              </ng-template>
-              
+      <div class="form-group">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" formControlName="name">
+        <div class="text-danger" *ngIf="userForm.get('name')?.hasError('required') && userForm.get('name')?.touched">
+          <span>La nombre es <strong>obligatorio</strong></span>
+        </div>
+        <div class="text-danger" *ngIf="userForm.get('name')?.hasError('minlength')">
+          <span>El nombre debe tener al menos 3 letras.</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="surname">Apellido:</label>
+        <input type="text" id="surname" name="surname" formControlName="surname">
+        <div class="text-danger"
+          *ngIf="userForm.get('surname')?.hasError('required') && userForm.get('surname')?.touched">
+          <span>La nombre es <strong>obligatorio</strong></span>
+        </div>
+        <div class="text-danger" *ngIf="userForm.get('surname')?.hasError('minlength')">
+          <span>El nombre debe tener al menos 3 letras.</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="birthDate">Fecha de nacimiento:</label>
+        <input type="date" id="birthDate" name="birthDate" formControlName="birthDate">
+        <div class="text-danger"
+          *ngIf="userForm.get('birthDate')?.hasError('required') && userForm.get('birthDate')?.touched">
+          <span>La fecha de nacimiento es <strong>obligatoria</strong></span>
+        </div>
+        <div class="text-danger" *ngIf="userForm.get('birthDate')?.hasError('adult')">
+          <span> La persona debe ser mayor de 18 años.</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Telefono:</label>
+        <input type="number" id="phone" name="phone" formControlName="phone">
+        <div class="text-danger" *ngIf="userForm.get('phone')?.hasError('required') && userForm.get('phone')?.touched">
+          <span>La telefono es <strong>obligatorio</strong></span>
+        </div>
+        <div class="text-danger" *ngIf="userForm.get('phone')?.hasError('pattern')">
+          <span> El numero de telefono debe ser correcto.</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" formControlName="email">
+        <div class="text-danger" *ngIf="userForm.get('email')?.hasError('required') && userForm.get('email')?.touched">
+          <span>La email es <strong>obligatorio</strong></span>
+        </div>
+        <div class="text-danger" *ngIf="userForm.get('email')?.hasError('email')">
+          <span> El email debe tener un formato válido.</span>
+        </div>
+      </div>
+
+
+
+      <button class="btn btn-event" (click)="openDialogCustom(template2)">Guardar Cambios</button>
+
+      <!-- DIALOG / MODAL  -->
+      <ng-template #template2>
+        <div mat-dialog-content>Estas seguro/a que deseas realizar cambios en el evento?
+          <div mat-dialog-actions>
+            <button class="btn btn-event" mat-dialog-close>No</button>
+            <button (click)="updateUser()" class="btn btn-event" mat-dialog-close>Si</button>
           </div>
-          
-          
-      </form>
-</div>
+        </div>
+      </ng-template>
 
+    </div>
+
+
+  </form>
+</div>

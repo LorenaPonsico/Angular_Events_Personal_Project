@@ -2,9 +2,11 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { AccountService } from '../../../services/auth-users.service';
 import { User } from 'src/app/models/user';
 import { ToastrService } from 'ngx-toastr';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DialogService } from 'src/app/services/dialog.service';
 import { Event } from 'src/app/models/event';
+import { ValidationsService } from 'src/app/services/validations.service';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -16,18 +18,25 @@ export class DashboardComponent {
   userDetails!: User; // Declarar una variable para almacenar userDetails
   updatedUser!: User;
   showUserForm: boolean = false;
-  userForm: FormGroup = new FormGroup({
-    name: new FormControl(),
-    surname: new FormControl(),
-    email: new FormControl(),
-    phone: new FormControl(),
-    birthDate: new FormControl(),
-  });
+  userForm: FormGroup;
 
   constructor(
     private accountService: AccountService,
     private toastr: ToastrService,
-    private dialogService: DialogService) { }
+    private dialogService: DialogService,
+    private validationsService: ValidationsService,
+    private fb: FormBuilder,) {
+
+    this.userForm = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      surname: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
+      phone: ['', [Validators.required, Validators.pattern(/^[0-9]{minLength,maxLength}$/)]],
+      birthday: ['', [Validators.required, this.validationsService.adult]]
+
+    });
+  }
 
   ngOnInit(): void {
     this.getUsers();
@@ -95,7 +104,7 @@ export class DashboardComponent {
     }
   }
 
-  deleteEvent(event:Event){
+  deleteEvent(event: Event) {
     if (this.userDetails.events) {
       const eventIndex = this.userDetails.events.indexOf(event);
       if (eventIndex !== -1) {
@@ -106,7 +115,7 @@ export class DashboardComponent {
     }
   }
 
-  deleteUser(){
+  deleteUser() {
     //BORRAR USUARIO DE LA BD
   }
 
