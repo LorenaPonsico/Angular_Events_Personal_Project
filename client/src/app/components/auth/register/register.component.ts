@@ -19,7 +19,7 @@ export class RegisterComponent {
     surname: ['', [Validators.required, Validators.minLength(3)]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(8)]],
-    phone: ['', [Validators.required, Validators.pattern(/^[0-9]{minLength,maxLength}$/)]],
+    phone: ['', [Validators.required, Validators.pattern(/^[0-9]{8,15}$/)]],
     birthday: ['', [Validators.required, this.validationsService.adult]]
 
     // img: ['', Validators.required]
@@ -72,6 +72,15 @@ export class RegisterComponent {
         error: (errorData) => {
           console.error(errorData);
           this.registerError = errorData;
+          if (errorData.error && errorData.error.message === 'El correo electrónico ya está registrado') {
+            // El correo ya existe en la base de datos, muestra un mensaje al usuario.
+            this.toastr.error('El correo electrónico ya está registrado', 'Error de registro');
+            this.registerError = 'El correo electrónico ya está registrado';
+          } else {
+            // Otro error, muestra un mensaje de error genérico.
+            this.toastr.error('Hubo un error en el registro', 'Error de registro');
+            this.registerError = 'Hubo un error en el registro';
+          }
         },
         complete: () => {
           this.accountService.login(email,password).subscribe({

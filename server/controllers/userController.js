@@ -3,11 +3,15 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 exports.createUser = async (req, res) => {
-
     try {
-        //crear usuario
-        let user;
-        user = new User(req.body);
+        // Verificar si el email ya existe en la base de datos
+        const existingUser = await User.findOne({ email: req.body.email });
+        if (existingUser) {
+            return res.status(400).json({ message: 'El correo electrónico ya está registrado' });
+        }
+
+        // Si el email no existe, crear el usuario
+        const user = new User(req.body);
         const saltRounds = 10; // Número de rondas para el proceso de hasheo
 
         // Hashear la contraseña antes de guardarla en la base de datos
@@ -18,13 +22,12 @@ exports.createUser = async (req, res) => {
 
         const token = jwt.sign({ _id: user._id }, 'secretKey')
         res.status(200).json({ token })
-
-
     } catch (error) {
         console.log(error);
         res.status(500).send('Hubo un error')
     }
 }
+
 
 exports.getUsers = async (req, res) => {
     
