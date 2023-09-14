@@ -35,7 +35,6 @@ export class AccountService {
       .pipe(
         map(user => {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
-          // console.log(user);
           localStorage.setItem('user', JSON.stringify(user));
           this.userSubject.next(user)
           return user;
@@ -75,10 +74,10 @@ export class AccountService {
     return this.http.put<User>(`${environment.apiUrl}/api/users/${user._id}`, user);
   }
   
-  deleteUser(){
-    //BORRAR USUARIO EN EL SERVICIO
-  }
   
+  deleteUser(id: string): Observable<any> {
+    return this.http.delete(`${environment.apiUrl}/api/users/${id}`);
+}
 }
 
 

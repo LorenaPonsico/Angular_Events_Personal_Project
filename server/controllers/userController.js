@@ -93,14 +93,15 @@ exports.deleteUser = async (req, res) => {
 
     try {
         //borrar evento por id
-        let User = await User.findById(req.params.id);
-
+        console.log(req.params.id);
+        let user = await User.findById(req.params.id);
         if (!user) {
-            res.status(404).json({ msg: 'no existe el producto' })
+
+            res.status(404).json({ msg: 'No existe el/la Usuario/a' })
         }
 
         await User.findOneAndRemove({ _id: req.params.id })
-        res.json({ msg: 'Evento eliminado con exito' })
+        res.json({ msg: 'Usuario/a eliminado con exito' })
 
     } catch (error) {
         console.log(error);
