@@ -11,7 +11,7 @@ exports.createUser = async (req, res) => {
         }
 
         // Si el email no existe, crear el usuario
-        const user = new User(req.body);
+        let user = new User(req.body);
         const saltRounds = 10; // Número de rondas para el proceso de hasheo
 
         // Hashear la contraseña antes de guardarla en la base de datos
@@ -22,6 +22,7 @@ exports.createUser = async (req, res) => {
 
         const token = jwt.sign({ _id: user._id }, 'secretKey')
         res.status(200).json({ token })
+
     } catch (error) {
         console.log(error);
         res.status(500).send('Hubo un error')
@@ -44,40 +45,31 @@ exports.getUsers = async (req, res) => {
 }
 
 exports.updateUser = async (req, res) => {
-
     try {
-        //actualizar usuario por id
+        // Actualizar usuario por ID
         const { name, surname, email, password, phone, birthDate, img } = req.body;
 
         let user = await User.findById(req.params.id);
 
         if (!user) {
-            res.status(404).json({ msg: 'no existe el producto' })
+            return res.status(404).json({ msg: 'El usuario no existe' });
         }
 
         user.name = name;
         user.surname = surname;
         user.email = email;
-
         user.phone = phone;
         user.birthDate = birthDate;
         user.img = img;
 
-        const saltRounds = 10; // Número de rondas para el proceso de hasheo
-
-        // Hashear la contraseña antes de guardarla en la base de datos
-        const hashedPassword = await bcrypt.hash(password, saltRounds);
-        user.password = hashedPassword;
-
-        user = await User.findOneAndUpdate({ _id: req.params.id }, user, { new: true })
-        res.json(user)
-
-
+        user = await User.findOneAndUpdate({ _id: req.params.id }, user, { new: true });
+        res.json(user);
     } catch (error) {
         console.log(error);
-        res.status(500).send('Hubo un error')
+        res.status(500).send('Hubo un error');
     }
 }
+
 
 exports.getUser = async (req, res) => {
 

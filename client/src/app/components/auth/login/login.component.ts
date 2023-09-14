@@ -50,7 +50,17 @@ export class LoginComponent implements OnInit {
                 },
                 error: (errorData) => {
                     console.error(errorData);
-                    this.loginError = errorData;
+                
+                    if (typeof errorData.error === 'string') {
+                        // Si errorData.error es una cadena de texto, es probable que sea el mensaje de error.
+                        this.loginError = errorData.error;
+                    } else if (errorData.error && errorData.error.message) {
+                        // Si errorData.error.message existe, asumimos que es el mensaje de error.
+                        this.loginError = errorData.error.message;
+                    } else {
+                        // Si no se puede determinar el mensaje de error, mostrar un mensaje genérico.
+                        this.loginError = 'Hubo un error en el inicio de sesión';
+                    }
                 },
                 complete: () => {
                     console.log('Login Completo')

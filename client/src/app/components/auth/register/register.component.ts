@@ -64,10 +64,8 @@ export class RegisterComponent {
       const phone = this.registerForm.get("phone")?.value;
       const birthday = this.registerForm.get("birthday")?.value;
       // const img = this.registerForm.get("img")?.value;
-
       this.accountService.register(name, surname, email, password, phone, birthday).subscribe({
         next: (userData) => {
-          console.log(userData, "register");
         },
         error: (errorData) => {
           console.error(errorData);

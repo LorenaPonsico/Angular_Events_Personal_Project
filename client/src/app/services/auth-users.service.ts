@@ -35,6 +35,7 @@ export class AccountService {
       .pipe(
         map(user => {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
+          // console.log(user);
           localStorage.setItem('user', JSON.stringify(user));
           this.userSubject.next(user)
           return user;

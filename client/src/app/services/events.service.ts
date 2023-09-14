@@ -8,6 +8,7 @@ import { Event } from "../models/event";
 })
 export class EventsService {
     url = 'http://localhost:4000/api/events/'
+    events: Event[] = []; 
 
     constructor(private http: HttpClient) { }
 
@@ -25,6 +26,7 @@ export class EventsService {
 
     createEvent(event: Event): Observable<any> {
         console.log(event)
+        // this.events.push(event);
         return this.http.post(this.url, event)
     }
 
@@ -41,4 +43,9 @@ export class EventsService {
         const uploadUrl = 'http://localhost:4000/api/'; // Reemplaza con la URL real de carga de imágenes en tu backend
         return this.http.post<any>(uploadUrl, formData);
     }
+
+      // Método para obtener la lista de eventos almacenada localmente
+    //   getLocalEvents(): Event[] {
+    //     return this.events;
+    // }
 }

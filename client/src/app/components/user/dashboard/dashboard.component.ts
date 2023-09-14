@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DialogService } from 'src/app/services/dialog.service';
 import { Event } from 'src/app/models/event';
 import { ValidationsService } from 'src/app/services/validations.service';
+import { EventsService } from 'src/app/services/events.service';
 
 
 @Component({
@@ -25,15 +26,16 @@ export class DashboardComponent {
     private toastr: ToastrService,
     private dialogService: DialogService,
     private validationsService: ValidationsService,
-    private fb: FormBuilder,) {
+    private fb: FormBuilder,
+    private eventsService: EventsService) {
 
     this.userForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       surname: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
-      phone: ['', [Validators.required, Validators.pattern(/^[0-9]{minLength,maxLength}$/)]],
-      birthday: ['', [Validators.required, this.validationsService.adult]]
+      phone: ['', [Validators.required, Validators.pattern(/^[0-9]{8,15}$/)]],
+      birthDate: ['', [Validators.required, this.validationsService.adult]]
 
     });
   }
@@ -41,21 +43,21 @@ export class DashboardComponent {
   ngOnInit(): void {
     this.getUsers();
   }
-
+  
   openDialogCustom(template: TemplateRef<any>) {
     this.dialogService.openDialogCustom({
       template
     }).afterClosed().subscribe(res => console.log('Dialog close', res))
   }
-
-
+  
+  
   getUsers(): void {
     this.userData = this.accountService.objectValue;
     // Si userData tiene una propiedad user, puedes acceder a los atributos de user
+    
     if (this.userData && this.userData.user) {
       this.userDetails = this.userData.user;
       this.setFormUser(this.userDetails)
-      // console.log(this.userDetails)
     }
   }
 
