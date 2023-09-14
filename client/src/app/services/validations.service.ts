@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -15,8 +14,7 @@ export class ValidationsService {
     return null;
   }
 
-
-  adult(control:any) { 
+  adult(control: any) {
     const selectedDate = new Date(control.value);
     const currentDate = new Date();
     currentDate.setFullYear(currentDate.getFullYear() - 18); // Restar 18 años a la fecha actual
@@ -25,6 +23,17 @@ export class ValidationsService {
       return { edadMinima: true };
     }
     return null;
+  }
+
+  validateDateNotPast(control: any): { [key: string]: any } | null {
+    const selectedDate = new Date(control.value);
+    const today = new Date();
+    
+    if (selectedDate < today) {
+      return { dateInPast: true }; // Devuelve un error si la fecha es anterior a hoy
+    }
+    
+    return null; // La fecha es válida
   }
 
 }

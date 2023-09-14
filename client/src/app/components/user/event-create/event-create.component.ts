@@ -33,7 +33,7 @@ export class EventCreateComponent {
 
     this.eventForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(3)]],
-      date: ['', Validators.required],
+      date: ['', [Validators.required, this.validationsService.validateDateNotPast]],
       startTime: ['', Validators.required],
       endTime: ['', Validators.required],
       capacity: ['', [Validators.required, this.validationsService.nonNegativeNumberValidator]],

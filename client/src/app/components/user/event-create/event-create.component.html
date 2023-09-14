@@ -37,6 +37,10 @@
                 *ngIf="eventForm.get('date')?.hasError('required') && eventForm.get('date')?.touched">
                 <span>La fecha del evento es <strong>obligatoria</strong></span>
               </div>
+              <div class="text-danger" *ngIf="eventForm.get('date')?.hasError('dateInPast')">
+                <span> La fecha no puede ser anterior a hoy.</span>
+              </div>
+
             </div>
 
             <div class="mb-3">
@@ -64,11 +68,11 @@
                 *ngIf="eventForm.get('capacity')?.hasError('required') && eventForm.get('capacity')?.touched">
                 <span>El aforo máximo es <strong>obligatorio</strong></span>
               </div>
-              <div class="text-danger" *ngIf="eventForm.get('capacity')?.hasError('nonNegativeNumber') && eventForm.get('capacity')?.dirty">
+              <div class="text-danger"
+                *ngIf="eventForm.get('capacity')?.hasError('nonNegativeNumber') && eventForm.get('capacity')?.dirty">
                 <span>El aforo máximo debe ser un número no negativo.</span>
               </div>
             </div>
-            
 
 
             <div class="mb-3">
