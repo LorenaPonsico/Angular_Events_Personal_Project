@@ -3,8 +3,17 @@
 
     <div>
       <button class="btn" (click)="showUserForm = !showUserForm">Modificar Datos</button>
-      <button class="btn" (click)="deleteUser(userDetails._id)">Eliminar Usuario</button>
+      <button class="btn"  (click)="openDialogCustom(deleteUserTemplate)">Eliminar Usuario</button>
 
+          <!-- DIALOG / MODAL  -->
+    <ng-template #deleteUserTemplate>
+      <div mat-dialog-content>Estas seguro/a que deseas eliminar tu perfil de la aplicación?
+          <div mat-dialog-actions>
+              <button class="btn btn-event" mat-dialog-close>No</button>
+              <button class="btn btn-event " (click)="deleteUser(userDetails._id)" mat-dialog-close>Si</button>
+          </div>
+      </div>
+  </ng-template>
     </div>
 
     <div class="card-header text-white">
