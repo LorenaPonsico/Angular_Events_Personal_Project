@@ -19,8 +19,9 @@ export class EventDetailsComponent implements OnInit {
   event: Event | undefined;
   updatedEvent!: Event;
   showEventForm: boolean = false;
+  isCreatorEvent: boolean = false;
   eventForm: FormGroup;
- 
+
 
   constructor(
     private route: ActivatedRoute,
@@ -30,19 +31,20 @@ export class EventDetailsComponent implements OnInit {
     private router: Router,
     private toastr: ToastrService,
     private dialogService: DialogService,
-    private validationsService: ValidationsService) { 
+    private validationsService: ValidationsService) {
 
-      this.eventForm = this.fb.group({
-        title: ['', [Validators.required, Validators.minLength(3)]],
-        date: ['', Validators.required],
-        startTime: ['', Validators.required],
-        endTime: ['', Validators.required],
-        capacity: ['', [Validators.required, this.validationsService.nonNegativeNumberValidator]],
-        type: ['', Validators.required],
-        location: ['', [Validators.required, Validators.minLength(3)]],
-        description: ['', [Validators.required, Validators.minLength(3)]],
-      });
-    }
+    this.eventForm = this.fb.group({
+      title: ['', [Validators.required, Validators.minLength(3)]],
+      date: ['', Validators.required],
+      startTime: ['', Validators.required],
+      endTime: ['', Validators.required],
+      capacity: ['', [Validators.required, this.validationsService.nonNegativeNumberValidator]],
+      registeredParticipants: ['', Validators.required],
+      type: ['', Validators.required],
+      location: ['', [Validators.required, Validators.minLength(3)]],
+      description: ['', [Validators.required, Validators.minLength(3)]],
+    });
+  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -66,6 +68,7 @@ export class EventDetailsComponent implements OnInit {
     this.eventForm.get('startTime')?.setValue(event.startTime);
     this.eventForm.get('endTime')?.setValue(event.endTime);
     this.eventForm.get('capacity')?.setValue(event.capacity);
+    this.eventForm.get('registeredParticipants')?.setValue(event.registeredParticipants)
     this.eventForm.get('type')?.setValue(event.type);
     this.eventForm.get('location')?.setValue(event.location);
     this.eventForm.get('description')?.setValue(event.description);
@@ -76,6 +79,7 @@ export class EventDetailsComponent implements OnInit {
       (event: Event) => {
         this.event = event;
         this.updatedEvent = { ...event };
+        this.isCreatorEvent = this.isUserCreator(event.creatorId!);
         this.setFormEvent(this.updatedEvent);
       },
       (error) => {
@@ -176,6 +180,7 @@ export class EventDetailsComponent implements OnInit {
 
           this.accountService.updateUser(currentUser).subscribe(
             () => {
+
               this.router.navigate(['/panel-control']); // Redirige a la página deseada
             },
             error => {
@@ -186,8 +191,49 @@ export class EventDetailsComponent implements OnInit {
           console.log('El evento ya está en el array de eventos del usuario');
         }
       }
+
+      // debugger
+
+      // Asegúrate de que this.event.registeredParticipants sea un array válido
+      if (!Array.isArray(this.event.registeredParticipants)) {
+        this.event.registeredParticipants = [];
+      }
+
+      // Agrega el ID del usuario actual al array de participantes
+      const userId = this.getCurrentUser()._id;
+      if (!this.event.registeredParticipants.includes(userId)) {
+        this.event.registeredParticipants.push(userId);
+      }
+
+      this.accountService.updateUser(currentUser).subscribe( // AQUI HAY ALGUN ERROR CURRENT USER??
+        () => {
+          // Actualiza el evento después de agregar al usuario como participante
+          this.eventsService.updateEvent(this.event!).subscribe(
+            () => {
+              this.router.navigate(['/panel-control']); // Redirige a la página deseada
+            },
+            error => {
+              console.error('Error al actualizar el evento:', error);
+            }
+          );
+        },
+        error => {
+          console.error('Error al agregar el evento al usuario:', error);
+        }
+      );
     }
+
   }
 
+  isUserCreator(creatorId: string) {
+    const userLocalStorage: any = JSON.parse(localStorage.getItem('user')!)
+    if (creatorId === userLocalStorage.user._id) {
+      return true
+    } else {
+      return false;
+    }
+  }
 }
+
+
 

@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const EventSchema = mongoose.Schema({
+    creatorId: {
+        type: String,
+        required: false
+    },
     title: {
         type: String,
         required: true
@@ -33,10 +37,10 @@ const EventSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    // imageURL: {
-    //     type: String,
-    //     required: true
-    // },
+    registeredParticipants: {
+        type: Array ,
+        required: false
+    }, 
     creationDate: {
         type: Date,
         default: Date.now()

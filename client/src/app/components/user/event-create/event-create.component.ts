@@ -1,12 +1,12 @@
 import { Component, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr'; 
+import { ToastrService } from 'ngx-toastr';
 import { Event } from 'src/app/models/event';
 import { DialogService } from 'src/app/services/dialog.service';
 import { EventsService } from 'src/app/services/events.service';
 import { AccountService } from 'src/app/services'; // Importa el AccountService aquí
-import { User } from 'src/app/models/user'; 
+import { User } from 'src/app/models/user';
 import { ValidationsService } from 'src/app/services/validations.service';
 
 // interface InputEvent extends Event {
@@ -49,24 +49,25 @@ export class EventCreateComponent {
   //     // Vista previa de imágenes
   //     const reader = new FileReader();
   //     reader.onload = e => this.photoSelected = reader.result as string;
-  
+
   //     reader.readAsDataURL(this.file);
   //   }
   // }
-  
-  
+
+
   openDialogCustom(template: TemplateRef<any>) {
     this.dialogService.openDialogCustom({
       template
     }).afterClosed().subscribe(res => console.log('Dialog close', res))
   }
-  
+
 
   createEvent() {
     if (this.eventForm.invalid) {
       return;
     }
-
+    const userLocalStorage: any = JSON.parse(localStorage.getItem('user')!)
+  
     const EVENT: Event = {
       title: this.eventForm.get('title')?.value,
       date: this.eventForm.get('date')?.value,
@@ -76,27 +77,28 @@ export class EventCreateComponent {
       type: this.eventForm.get('type')?.value,
       location: this.eventForm.get('location')?.value,
       description: this.eventForm.get('description')?.value,
+      creatorId: userLocalStorage.user._id
     };
+console.log(EVENT)
+    this.saveEvent(EVENT);
 
-      this.saveEvent(EVENT);
+    // QUIERO QUE LA PERSONA QUE CREA EL EVENTO SE LE AÑADA EL EVENTO DIRECTAMENTE EN SU DASHBOARD (ESTO NO FUNCIONA!!)
+    // this.accountService.updateUser(this.currentUser).subscribe(
+    //   (updatedUser: User | undefined) => {
+    //     if (updatedUser) {
+    //       this.userDetails = updatedUser;
+    //       this.toastr.success('El usuario fue actualizado');
+    //     } else {
+    //       console.error('El usuario no se pudo actualizar');
+    //     }
+    //   },
+    //   (error: any) => {
+    //     console.error('Error al actualizar el usuario:', error);
+    //   }
+    // );
 
-      // QUIERO QUE LA PERSONA QUE CREA EL EVENTO SE LE AÑADA EL EVENTO DIRECTAMENTE EN SU DASHBOARD (ESTO NO FUNCIONA!!)
-      // this.accountService.updateUser(this.currentUser).subscribe(
-      //   (updatedUser: User | undefined) => {
-      //     if (updatedUser) {
-      //       this.userDetails = updatedUser;
-      //       this.toastr.success('El usuario fue actualizado');
-      //     } else {
-      //       console.error('El usuario no se pudo actualizar');
-      //     }
-      //   },
-      //   (error: any) => {
-      //     console.error('Error al actualizar el usuario:', error);
-      //   }
-      // );
-      
 
-    
+
   }
 
   public saveEvent(event: Event) {
