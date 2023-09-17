@@ -7,7 +7,9 @@
 
   <div class="event-card">
     <h5 class="title">{{ event?.title | uppercase }}</h5>
-    <button class="btn btn-event btn-me-apunto" (click)="joinEvent(event!)" [routerLink]="['/panel-control']">Me apunto!
+    <button class="btn btn-event btn-me-apunto" *ngIf="userInEvent === false" (click)="joinEvent(event!)" [routerLink]="['/panel-control']">Me apunto!
+    </button>
+    <button class="btn btn-event btn-me-apunto" *ngIf="userInEvent === true" (click)="unregisterEvent(event!)" [routerLink]="['/panel-control']">Borrarme del Evento!
     </button>
     <p class="event-details">Categoria: {{ event?.type }}</p>
     <p class="event-details">Fecha: {{ event?.date | date }}</p>

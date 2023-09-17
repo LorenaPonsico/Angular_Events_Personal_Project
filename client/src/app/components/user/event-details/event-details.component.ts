@@ -21,6 +21,7 @@ export class EventDetailsComponent implements OnInit {
   currentUser!: User;
   showEventForm: boolean = false;
   isCreatorEvent: boolean = false;
+  userInEvent: boolean = false;
   eventForm: FormGroup;
 
 
@@ -52,9 +53,15 @@ export class EventDetailsComponent implements OnInit {
       const eventId = params.get('eventId');
       if (eventId) {
         this.getEventDetails(eventId);
+        this.currentUser = this.getCurrentUser();
+        const isRegistered = this.checkUserRegistered(eventId, this.currentUser);
+        if (isRegistered) {
+          this.userInEvent = true;
+        } else {
+          this.userInEvent = false;
+        }
       }
     });
-    this.currentUser = this.getCurrentUser();
   }
 
   openDialogCustom(template: TemplateRef<any>) {
@@ -162,6 +169,7 @@ export class EventDetailsComponent implements OnInit {
       // Asegúrate de que currentUser.event esté inicializado
       user.events = user.events || [];
       user.events.push(event);
+      this.setUserToLocalStorage(user);
       this.accountService.updateUser(user).subscribe(
         () => {
         },
@@ -172,10 +180,11 @@ export class EventDetailsComponent implements OnInit {
     } else {
       if (user.events.length) {
         // Verifica si el evento ya está en el array antes de agregarlo
-        if (user.events.some(ev => ev._id === event!._id)) {
+        const isIdInArray = user.events.some(ev => ev._id === event!._id);
+        if (!isIdInArray) {
           // Agrega el evento al array de eventos del usuario
           user.events.push(event);
-
+          this.setUserToLocalStorage(user);
           this.accountService.updateUser(user).subscribe(
             () => { },
             error => {
@@ -187,23 +196,23 @@ export class EventDetailsComponent implements OnInit {
         }
       } else {
         user.events.push(event);
-          this.accountService.updateUser(user).subscribe(
-            () => { },
-            error => {
-              console.error('Error al agregar el evento:', error);
-            }
-          );
+        this.setUserToLocalStorage(user);
+        this.accountService.updateUser(user).subscribe(
+          () => { },
+          error => {
+            console.error('Error al agregar el evento:', error);
+          }
+        );
       }
     }
 
   }
 
+
   joinEvent(event: Event): void {
     if (event._id) {
       event.registeredParticipants?.push(this.currentUser?._id);
-
       this.updateUserWithEvent(this.currentUser, event);
-
       this.eventsService.updateEvent(event).subscribe(
         (updatedEvent: Event | undefined) => {
           if (updatedEvent) {
@@ -217,73 +226,12 @@ export class EventDetailsComponent implements OnInit {
         }
       );
     }
-    // if (this.event?._id) {
-    //   const currentUser = this.getCurrentUser();
+  }
 
-    //   if (!currentUser.events) {
-    //     // Asegúrate de que currentUser.event esté inicializado
-    //     currentUser.events = currentUser.events || [];
-    //     currentUser.events.push(this.event);
-    //     this.accountService.updateUser(currentUser).subscribe(
-    //       () => {
-    //         this.router.navigate(['/panel-control']); // Redirige a la página deseada
-    //       },
-    //       error => {
-    //         console.error('Error al agregar el evento:', error);
-    //       }
-    //     );
-    //   } else {
-    //     // Verifica si el evento ya está en el array antes de agregarlo
-    //     if (!currentUser?.events.some(ev => ev._id === this.event!._id)) {
-    //       // Agrega el evento al array de eventos del usuario
-    //       currentUser.events.push(this.event);
-    //       console.log("Aquí", currentUser);
-
-    //       this.accountService.updateUser(currentUser).subscribe(
-    //         () => {
-
-    //           this.router.navigate(['/panel-control']); // Redirige a la página deseada
-    //         },
-    //         error => {
-    //           console.error('Error al agregar el evento:', error);
-    //         }
-    //       );
-    //     } else {
-    //       console.log('El evento ya está en el array de eventos del usuario');
-    //     }
-    //   }
-
-    //   // debugger
-
-    //   // Asegúrate de que this.event.registeredParticipants sea un array válido
-    //   if (!Array.isArray(this.event.registeredParticipants)) {
-    //     this.event.registeredParticipants = [];
-    //   }
-
-    //   // Agrega el ID del usuario actual al array de participantes
-    //   const userId = this.getCurrentUser()._id;
-    //   if (!this.event.registeredParticipants.includes(userId)) {
-    //     this.event.registeredParticipants.push(userId);
-    //   }
-
-    //   this.accountService.updateUser(currentUser).subscribe( // AQUI HAY ALGUN ERROR CURRENT USER??
-    //     () => {
-    //       // Actualiza el evento después de agregar al usuario como participante
-    //       this.eventsService.updateEvent(this.event!).subscribe(
-    //         () => {
-    //           this.router.navigate(['/panel-control']); // Redirige a la página deseada
-    //         },
-    //         error => {
-    //           console.error('Error al actualizar el evento:', error);
-    //         }
-    //       );
-    //     },
-    //     error => {
-    //       console.error('Error al agregar el evento al usuario:', error);
-    //     }
-    //   );
-    // }
-
+  setUserToLocalStorage(user: User) {
+    //Seteamos el user actualizado en el localStorage para tenerlo actualizado
+    const userToLocalStorage = { user: user };
+    localStorage.setItem('user', JSON.stringify(userToLocalStorage));
   }
 
   isUserCreator(creatorId: string) {
@@ -292,6 +240,45 @@ export class EventDetailsComponent implements OnInit {
       return true
     } else {
       return false;
+    }
+  }
+
+  checkUserRegistered(eventId: string, user: User) {
+    const result = user.events?.some(ev => ev._id === eventId);
+    return result;
+  }
+
+  eventsUserWithoutEvent(user: User, eventParams: Event) {
+    const result = user.events?.filter(event => event._id !== eventParams._id);
+    return result;
+  }
+
+  unregisterEvent(eventParams: Event): void {
+    const foundId = eventParams.registeredParticipants?.find(userId => userId === this.currentUser._id);
+    if (foundId) {
+      this.currentUser.events = this.eventsUserWithoutEvent(this.currentUser, eventParams);
+      eventParams.registeredParticipants = eventParams.registeredParticipants?.filter(userId => userId !== foundId);
+      this.eventsService.updateEvent(eventParams).subscribe(
+        (updatedEvent: Event | undefined) => {
+          if (updatedEvent) {
+            this.toastr.success('El evento fue actualizado');
+          } else {
+            console.error('El evento no se pudo actualizar');
+          }
+        },
+        (error: any) => {
+          console.error('Error al actualizar el evento:', error);
+        }
+      );
+
+      this.accountService.updateUser(this.currentUser).subscribe(
+        (user) => {
+          this.setUserToLocalStorage(user);
+        },
+        error => {
+          console.error('Error al agregar el evento:', error);
+        }
+      );
     }
   }
 }

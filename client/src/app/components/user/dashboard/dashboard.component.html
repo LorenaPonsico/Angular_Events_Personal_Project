@@ -34,7 +34,7 @@
       <ul>
         <li *ngFor="let event of userDetails?.events">{{ event.title | uppercase }}
           - Fecha: {{ event.date | date }} - Hora: {{event.startTime}}
-          <button (click)="navigateEvent(event)">Ver</button>
+          <button class="" [routerLink]="'/event/' + event._id">Ver</button>
         </li>
       </ul>
 

@@ -111,17 +111,6 @@ export class DashboardComponent {
     }
   }
 
-  navigateEvent(event: Event) {
-    if (this.userDetails.events) {
-      const eventIndex = this.userDetails.events.indexOf(event);
-      if (eventIndex !== -1) {
-        this.userDetails.events.splice(eventIndex, 1); // Eliminar el evento del array de eventos del usuario
-        // Luego, puedes llamar a la función para actualizar el usuario en el servidor
-        this.updateUser();
-      }
-    }
-  }
-
   deleteUser(id: string) {
     //BORRAR USUARIO DE LA BD
     if (id) {
