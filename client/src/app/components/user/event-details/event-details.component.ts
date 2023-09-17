@@ -54,7 +54,9 @@ export class EventDetailsComponent implements OnInit {
       if (eventId) {
         this.getEventDetails(eventId);
         this.currentUser = this.getCurrentUser();
-        const isRegistered = this.checkUserRegistered(eventId, this.currentUser);
+
+        const userLocalStorage: any = JSON.parse(localStorage.getItem('user')!);
+        const isRegistered = this.checkUserRegistered(eventId, userLocalStorage.user);
         if (isRegistered) {
           this.userInEvent = true;
         } else {
@@ -235,7 +237,7 @@ export class EventDetailsComponent implements OnInit {
   }
 
   isUserCreator(creatorId: string) {
-    const userLocalStorage: any = JSON.parse(localStorage.getItem('user')!)
+    const userLocalStorage: any = JSON.parse(localStorage.getItem('user')!);
     if (creatorId === userLocalStorage.user._id) {
       return true
     } else {
