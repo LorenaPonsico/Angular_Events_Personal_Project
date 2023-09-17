@@ -33,7 +33,7 @@ exports.updateEvent = async (req, res) => {
 
     try {
         //actualizar evento por id
-        const { title, date, startTime, endTime, capacity, location, description, type, img } = req.body;
+        const { title, date, startTime, endTime, capacity, location, description, type, img, registeredParticipants } = req.body;
         let event = await Event.findById(req.params.id);
 
         if (!event) {
@@ -49,6 +49,7 @@ exports.updateEvent = async (req, res) => {
         event.description = description;
         event.type = type;
         event.img = img;
+        event.registeredParticipants = registeredParticipants;
 
         event = await Event.findOneAndUpdate({ _id: req.params.id }, event, { new: true })
         res.json(event)

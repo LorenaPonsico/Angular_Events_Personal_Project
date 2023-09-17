@@ -38,7 +38,7 @@ const EventSchema = mongoose.Schema({
         required: true
     },
     registeredParticipants: {
-        type: Array ,
+        type: [String] ,
         required: false
     }, 
     creationDate: {

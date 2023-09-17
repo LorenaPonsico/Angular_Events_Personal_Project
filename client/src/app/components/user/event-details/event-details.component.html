@@ -7,8 +7,8 @@
 
   <div class="event-card">
     <h5 class="title">{{ event?.title | uppercase }}</h5>
-    <button class="btn btn-event btn-me-apunto" (click)="joinEvent()" [routerLink]="['/panel-control']">Me
-      apunto!</button>
+    <button class="btn btn-event btn-me-apunto" (click)="joinEvent(event!)" [routerLink]="['/panel-control']">Me apunto!
+    </button>
     <p class="event-details">Categoria: {{ event?.type }}</p>
     <p class="event-details">Fecha: {{ event?.date | date }}</p>
     <p class="event-details">Hora de inicio: {{ event?.startTime }}</p>
@@ -20,8 +20,10 @@
     <p class="event-details">Descripción: {{ event?.description }}</p>
     <!-- <p>Imagen: {{ event.img }}</p> -->
 
-    <button class="btn btn-event " *ngIf="isCreatorEvent === true" (click)="openDialogCustom(template1)">Eliminar Evento</button>
-    <button class="btn btn-event " *ngIf="isCreatorEvent === true" (click)="showEventForm = !showEventForm">Modificar Evento</button>
+    <button class="btn btn-event " *ngIf="isCreatorEvent === true" (click)="openDialogCustom(template1)">Eliminar
+      Evento</button>
+    <button class="btn btn-event " *ngIf="isCreatorEvent === true" (click)="showEventForm = !showEventForm">Modificar
+      Evento</button>
   </div>
 
 

@@ -111,7 +111,7 @@ export class DashboardComponent {
     }
   }
 
-  deleteEvent(event: Event) {
+  navigateEvent(event: Event) {
     if (this.userDetails.events) {
       const eventIndex = this.userDetails.events.indexOf(event);
       if (eventIndex !== -1) {

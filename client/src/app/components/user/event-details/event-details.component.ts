@@ -18,6 +18,7 @@ import { ValidationsService } from 'src/app/services/validations.service';
 export class EventDetailsComponent implements OnInit {
   event: Event | undefined;
   updatedEvent!: Event;
+  currentUser!: User;
   showEventForm: boolean = false;
   isCreatorEvent: boolean = false;
   eventForm: FormGroup;
@@ -53,6 +54,7 @@ export class EventDetailsComponent implements OnInit {
         this.getEventDetails(eventId);
       }
     });
+    this.currentUser = this.getCurrentUser();
   }
 
   openDialogCustom(template: TemplateRef<any>) {
@@ -149,40 +151,33 @@ export class EventDetailsComponent implements OnInit {
   }
 
 
-  getCurrentUser = () => {
+  getCurrentUser() {
     const currentObject = this.accountService.objectValue;
     const currentUser: User = currentObject.user;
     return currentUser;
   }
 
-  joinEvent(): void {
-    if (this.event?._id) {
-      const currentUser = this.getCurrentUser();
-
-      if (!currentUser.events) {
-        // Asegúrate de que currentUser.event esté inicializado
-        currentUser.events = currentUser.events || [];
-        currentUser.events.push(this.event);
-        this.accountService.updateUser(currentUser).subscribe(
-          () => {
-            this.router.navigate(['/panel-control']); // Redirige a la página deseada
-          },
-          error => {
-            console.error('Error al agregar el evento:', error);
-          }
-        );
-      } else {
+  updateUserWithEvent(user: User, event: Event) {
+    if (!user.events) {
+      // Asegúrate de que currentUser.event esté inicializado
+      user.events = user.events || [];
+      user.events.push(event);
+      this.accountService.updateUser(user).subscribe(
+        () => {
+        },
+        error => {
+          console.error('Error al agregar el evento:', error);
+        }
+      );
+    } else {
+      if (user.events.length) {
         // Verifica si el evento ya está en el array antes de agregarlo
-        if (!currentUser?.events.some(ev => ev._id === this.event!._id)) {
+        if (user.events.some(ev => ev._id === event!._id)) {
           // Agrega el evento al array de eventos del usuario
-          currentUser.events.push(this.event);
-          console.log("Aquí", currentUser);
+          user.events.push(event);
 
-          this.accountService.updateUser(currentUser).subscribe(
-            () => {
-
-              this.router.navigate(['/panel-control']); // Redirige a la página deseada
-            },
+          this.accountService.updateUser(user).subscribe(
+            () => { },
             error => {
               console.error('Error al agregar el evento:', error);
             }
@@ -190,38 +185,104 @@ export class EventDetailsComponent implements OnInit {
         } else {
           console.log('El evento ya está en el array de eventos del usuario');
         }
-      }
-
-      // debugger
-
-      // Asegúrate de que this.event.registeredParticipants sea un array válido
-      if (!Array.isArray(this.event.registeredParticipants)) {
-        this.event.registeredParticipants = [];
-      }
-
-      // Agrega el ID del usuario actual al array de participantes
-      const userId = this.getCurrentUser()._id;
-      if (!this.event.registeredParticipants.includes(userId)) {
-        this.event.registeredParticipants.push(userId);
-      }
-
-      this.accountService.updateUser(currentUser).subscribe( // AQUI HAY ALGUN ERROR CURRENT USER??
-        () => {
-          // Actualiza el evento después de agregar al usuario como participante
-          this.eventsService.updateEvent(this.event!).subscribe(
-            () => {
-              this.router.navigate(['/panel-control']); // Redirige a la página deseada
-            },
+      } else {
+        user.events.push(event);
+          this.accountService.updateUser(user).subscribe(
+            () => { },
             error => {
-              console.error('Error al actualizar el evento:', error);
+              console.error('Error al agregar el evento:', error);
             }
           );
+      }
+    }
+
+  }
+
+  joinEvent(event: Event): void {
+    if (event._id) {
+      event.registeredParticipants?.push(this.currentUser?._id);
+
+      this.updateUserWithEvent(this.currentUser, event);
+
+      this.eventsService.updateEvent(event).subscribe(
+        (updatedEvent: Event | undefined) => {
+          if (updatedEvent) {
+            this.toastr.success('Te has apuntado al evento');
+          } else {
+            console.error('El usuario no se pudo apuntar al evento');
+          }
         },
-        error => {
-          console.error('Error al agregar el evento al usuario:', error);
+        (error: any) => {
+          console.error('Error al apuntarse al evento:', error);
         }
       );
     }
+    // if (this.event?._id) {
+    //   const currentUser = this.getCurrentUser();
+
+    //   if (!currentUser.events) {
+    //     // Asegúrate de que currentUser.event esté inicializado
+    //     currentUser.events = currentUser.events || [];
+    //     currentUser.events.push(this.event);
+    //     this.accountService.updateUser(currentUser).subscribe(
+    //       () => {
+    //         this.router.navigate(['/panel-control']); // Redirige a la página deseada
+    //       },
+    //       error => {
+    //         console.error('Error al agregar el evento:', error);
+    //       }
+    //     );
+    //   } else {
+    //     // Verifica si el evento ya está en el array antes de agregarlo
+    //     if (!currentUser?.events.some(ev => ev._id === this.event!._id)) {
+    //       // Agrega el evento al array de eventos del usuario
+    //       currentUser.events.push(this.event);
+    //       console.log("Aquí", currentUser);
+
+    //       this.accountService.updateUser(currentUser).subscribe(
+    //         () => {
+
+    //           this.router.navigate(['/panel-control']); // Redirige a la página deseada
+    //         },
+    //         error => {
+    //           console.error('Error al agregar el evento:', error);
+    //         }
+    //       );
+    //     } else {
+    //       console.log('El evento ya está en el array de eventos del usuario');
+    //     }
+    //   }
+
+    //   // debugger
+
+    //   // Asegúrate de que this.event.registeredParticipants sea un array válido
+    //   if (!Array.isArray(this.event.registeredParticipants)) {
+    //     this.event.registeredParticipants = [];
+    //   }
+
+    //   // Agrega el ID del usuario actual al array de participantes
+    //   const userId = this.getCurrentUser()._id;
+    //   if (!this.event.registeredParticipants.includes(userId)) {
+    //     this.event.registeredParticipants.push(userId);
+    //   }
+
+    //   this.accountService.updateUser(currentUser).subscribe( // AQUI HAY ALGUN ERROR CURRENT USER??
+    //     () => {
+    //       // Actualiza el evento después de agregar al usuario como participante
+    //       this.eventsService.updateEvent(this.event!).subscribe(
+    //         () => {
+    //           this.router.navigate(['/panel-control']); // Redirige a la página deseada
+    //         },
+    //         error => {
+    //           console.error('Error al actualizar el evento:', error);
+    //         }
+    //       );
+    //     },
+    //     error => {
+    //       console.error('Error al agregar el evento al usuario:', error);
+    //     }
+    //   );
+    // }
 
   }
 
