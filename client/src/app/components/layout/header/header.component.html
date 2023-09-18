@@ -1,13 +1,20 @@
 <div class="container-fluid text-center">
-  <carousel>
-    <slide *ngFor="let image of images">
-      <div class="carousel-slide">
-        <img [src]="image.url" alt="Slide {{ image.id }}" style="max-width: 100%;">
-        <div class="carousel-caption">
-          <h3 class="text-background">Experiencia. Movimiento. Amor.</h3>
-          <p class="text-background">¿Tienes un proyecto en mente? ¿Estás planeando un evento? ¡Compártelo!</p>
-        </div>
+  <div class="">
+
+    <div class="text-container">
+      <div class="text-background">
+        <h3>Experiencia. Movimiento. Amor.</h3>
+        <p>¿Tienes un idea en mente? ¿Estás planeando un evento? ¡Compártelo!</p>
       </div>
-    </slide>
-  </carousel>
+    </div>
+
+    <div class="image-container">
+      <img src='../../../../assets/montaña.jpg' alt="Imagen">
+    </div>
+
+    <div class="abstract-shape"></div>
+
+
+    
+  </div>
 </div>

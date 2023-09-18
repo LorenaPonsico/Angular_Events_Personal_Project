@@ -3,81 +3,110 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  /* Cambiar a 'min-height' en lugar de 'height' para que el contenedor se ajuste al contenido */
-  background-color: #fad390;
 }
 
 .form-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; 
 }
 
-.btn {
-  background-color: #fad390;
+p{
+  font-family: 'Raleway';
+font-size: 16px;
 }
+
 
 .nav-link {
   background-color: #fad390;
-  /* Cambiar el color de fondo del botón */
   color: #ffffff;
-  /* Cambiar el color del texto del botón */
-  border-radius: 0;
-  /* Redondear las esquinas del botón */
-  margin-right: 5px;
-  /* Añadir un pequeño espacio entre los botones */
 }
 
 .nav-link.active {
   background-color: #ffffff;
-  /* Cambiar el color de fondo del botón activo */
-  color: #fad390;
-  /* Cambiar el color del texto del botón activo */
+  color:#e08453;
 }
 
 
-.card {
+.card-events {
   padding: 20px;
-  /* Añadir un relleno interior para separar el contenido de los bordes */
   margin-top: 100px;
   margin-bottom: 100px;
-  border-radius: 20px;
-  /* Redondear las esquinas de la tarjeta */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  /* Agregar una sombra ligera */
-  background-color: #f9f9f9;
-  /* Cambiar el color de fondo de la tarjeta */
 }
 
-  /* Estilos para la tarjeta de cada evento */
-  .event-card {
 
-    border: 5px solid #ddd;
-    border-radius: 20px;
-    padding: 10px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.event-card {
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  background-color: #549eb9;
+  text-align: center;
+  max-width: 800px; /* Ancho máximo deseado */
+  height: 150px; /* Altura deseada */
+}
+
+.event-card:hover{
+  background-color: #549eb9;
+  transform: scale(1.08);
+}
+
+
+.card-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: white;
+  font-family: 'Raleway';
+}
+
+
+.event-details {
+  color: white;
+  font-size: 16px;
+  font-family: 'Raleway';
+}
+
+.btn {
+  background-color: #e08453;
+  color: white;
+  display: block;
+  margin: 10px auto;
+  border: none;
+  border-radius: 0;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  font-family: 'Raleway';
+  font-size: 20px;
+}
+
+.btn:hover {
+  background-color: #d46835;
+  transform: translateY(-2px);
+}
+
+.btn-event {
+  display: block;
+  margin-left: auto;
+  font-family: 'Raleway';
+}
+
+
+/* Añade una media query para ajustar el diseño en tamaños de pantalla más pequeños */
+@media screen and (max-width: 768px) {
+  /* Modifica el tamaño del título para pantallas más pequeñas */
+  .title {
+    font-size: 20px;
   }
 
-  /* Estilos para el título del evento */
-  .card-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-
-  /* Estilos para los detalles del evento */
+  /* Modifica el tamaño de los detalles del evento para pantallas más pequeñas */
   .event-details {
     font-size: 14px;
-    margin-bottom: 3px;
   }
 
-  .btn-event{
-    /* display: flex; */
-align-items: end;
-justify-content: end;
-
+  /* Ajusta el ancho máximo de las tarjetas para pantallas más pequeñas */
+  .event-card {
+    max-width: 90%; /* Puedes ajustar esto según tus necesidades */
   }
+}

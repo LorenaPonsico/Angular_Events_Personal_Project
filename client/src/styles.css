@@ -17,7 +17,8 @@ body{
 
 .title {
   font-size: 24px; /* Tamaño de fuente más grande */
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Raleway';
+
   margin-bottom: 10px; /* Añadir espacio inferior */
   color: #218c74; /* Cambiar el color del texto */
   letter-spacing: 2px; /* Espaciado entre caracteres */
@@ -25,14 +26,10 @@ body{
 }
 
 
-/* naranja */
-/* #FEA47F */
-/* #F97F51 */
 
-/* color: #218c74; */
-
-/* font-family: Arial, Helvetica, sans-serif */
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: 'Raleway' }
+
+
 
 

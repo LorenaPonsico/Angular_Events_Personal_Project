@@ -1,13 +1,40 @@
 .container-fluid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
 
-    background-color: #FEA47F ; 
-    
-  }
+.container {
+  margin-top: 150px;
+  margin-bottom: 150px;
+  background-color: #549eb9;
+  letter-spacing: 2px;
+  color: black;
+  padding: 40px;
+  position: relative; 
+  
+}
 
-  .container{
-    margin-top: 200px;
-    margin-bottom: 200px;
-  }
+.title-container {
+  background-color: #e08453; /* Color de fondo para el título */
+  padding: 10px; /* Espaciado interno alrededor del título */
+  margin-right: -200px; /* Margen negativo a la derecha para que el título sobresalga */
+  margin-top: -100px; 
+  position: relative; /* Establecemos una posición relativa para el contenedor del título */
+  z-index: 1; /* Aseguramos que el título esté por encima del contenedor azul */
+}
+
+.title {
+  margin: 20px;
+  font-size: 25px;
+  color: white;
+  margin-bottom: 30px;
+  font-family: 'Raleway';
+}
+
+p {
+  font-family: 'Raleway';
+  color: white;
+
+}

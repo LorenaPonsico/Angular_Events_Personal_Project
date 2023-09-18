@@ -1,84 +1,71 @@
 <div class="container-fluid">
-  <div class="container mt-5">
+  <div class="container mt-4">
     <div class="row">
-      <div class=" card col-lg-6 offset-lg-3">
+      <div class=" event-card col-lg-6 offset-lg-3">
 
 
         <div class="card-body">
-          <span class="title float-end mb-2">Crear Evento</span>
+          <span class="title ">Crear Evento</span>
 
           <form class="mt-3" [formGroup]="eventForm">
             <div class="mb-3">
-              <label for="title">Titulo del Evento</label>
+              <label class="event-details" for="title">Título del Evento</label>
               <input type="text" id="title" formControlName="title" class="form-control">
-              <div class="text-danger"
+              <div class="error-message"
                 *ngIf="eventForm.get('title')?.hasError('required') && eventForm.get('title')?.touched">
                 <span>El titulo es <strong>obligatorio</strong></span>
               </div>
-              <div class="text-danger" *ngIf="eventForm.get('title')?.hasError('minlength')">
+              <div class="error-message" *ngIf="eventForm.get('title')?.hasError('minlength')">
                 <span>El titulo debe tener al menos 3 letras.</span>
               </div>
             </div>
 
-
-
-            <!-- <div class="mb-3">
-              <label>Imagen del Evento</label>
-              <input type="file" class="d-none" #photoInput class="form-control-file" (change)="onPhotoSelected(photoInput)">
-              <img [src]="photoSelected || 'assets/nophoto.jpg'" class="img-fluid" alt="No image" (click)="photoInput.click()">
-            </div>
-             -->
-
-
             <div class="mb-3">
-              <label>Fecha </label>
+              <label class="event-details">Fecha </label>
               <input type="date" formControlName="date" class="form-control">
-              <div class="text-danger"
+              <div class="error-message"
                 *ngIf="eventForm.get('date')?.hasError('required') && eventForm.get('date')?.touched">
                 <span>La fecha del evento es <strong>obligatoria</strong></span>
               </div>
-              <div class="text-danger" *ngIf="eventForm.get('date')?.hasError('dateInPast')">
+              <div class="error-message" *ngIf="eventForm.get('date')?.hasError('dateInPast')">
                 <span> La fecha no puede ser anterior a hoy.</span>
               </div>
 
             </div>
 
             <div class="mb-3">
-              <label>Hora Inicio</label>
+              <label class="event-details">Hora Inicio</label>
               <input type="time" formControlName="startTime" class="form-control">
-              <div class="text-danger"
+              <div class="error-message"
                 *ngIf="eventForm.get('date')?.hasError('required') && eventForm.get('date')?.touched">
                 <span>La hora de inicio es <strong>obligatoria</strong></span>
               </div>
             </div>
 
             <div class="mb-3">
-              <label>Hora fin</label>
+              <label class="event-details">Hora fin</label>
               <input type="time" formControlName="endTime" class="form-control">
-              <div class="text-danger"
+              <div class="error-message"
                 *ngIf="eventForm.get('endTime')?.hasError('required') && eventForm.get('endTime')?.touched">
                 <span>La hora de fin es <strong>obligatoria</strong></span>
               </div>
             </div>
 
             <div class="mb-3">
-              <label>Aforo máximo</label>
+              <label class="event-details">Aforo máximo</label>
               <input type="number" formControlName="capacity" class="form-control" placeholder="">
-              <div class="text-danger"
+              <div class="error-message"
                 *ngIf="eventForm.get('capacity')?.hasError('required') && eventForm.get('capacity')?.touched">
                 <span>El aforo máximo es <strong>obligatorio</strong></span>
               </div>
-              <div class="text-danger"
+              <div class="error-message"
                 *ngIf="eventForm.get('capacity')?.hasError('nonNegativeNumber') && eventForm.get('capacity')?.dirty">
                 <span>El aforo máximo debe ser un número no negativo.</span>
               </div>
             </div>
 
-            
-
-
             <div class="mb-3">
-              <label>Categoria</label>
+              <label class="event-details">Categoría</label>
               <select formControlName="type" class="form-control">
                 <option></option>
                 <option>Artes escenicas y visuales</option>
@@ -88,38 +75,38 @@
                 <option>Infantil</option>
                 <option>Salud y Bienestar</option>
               </select>
-              <div class="text-danger"
+              <div class="error-message"
                 *ngIf="eventForm.get('type')?.hasError('required') && eventForm.get('type')?.touched">
                 <span>La clasificación del evento es <strong>obligatorio</strong></span>
               </div>
             </div>
 
             <div class="mb-3">
-              <label>Localizacion</label>
+              <label class="event-details">Localización</label>
               <input type="text" formControlName="location" class="form-control" placeholder="">
-              <div class="text-danger"
+              <div class="error-message"
                 *ngIf="eventForm.get('location')?.hasError('required') && eventForm.get('location')?.touched">
                 <span>La localizacion es <strong>obligatoria</strong></span>
               </div>
-              <div class="text-danger" *ngIf="eventForm.get('location')?.hasError('minlength')">
+              <div class="error-message" *ngIf="eventForm.get('location')?.hasError('minlength')">
                 <span>El titulo debe tener al menos 3 letras.</span>
               </div>
             </div>
 
             <div class="mb-3">
-              <label>Descripcion</label>
+              <label class="event-details">Descripción</label>
               <textarea formControlName="description" class="form-control" rows="3"></textarea>
-              <div class="text-danger"
+              <div class="error-message"
                 *ngIf="eventForm.get('description')?.hasError('required') && eventForm.get('description')?.touched">
                 <span>La descripción es <strong>obligatoria</strong></span>
               </div>
-              <div class="text-danger" *ngIf="eventForm.get('description')?.hasError('minlength')">
+              <div class="error-message" *ngIf="eventForm.get('description')?.hasError('minlength')">
                 <span>El titulo debe tener al menos 3 letras.</span>
               </div>
             </div>
 
             <button (click)="openDialogCustom(pushEvent)" type="submit" [disabled]="eventForm.invalid"
-              class="btn btn-lg float-end">Publicar Evento</button>
+              class="btn btn-post ">Publicar Evento</button>
 
           </form>
         </div>

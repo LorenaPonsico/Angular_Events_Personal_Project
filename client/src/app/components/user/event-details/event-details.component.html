@@ -1,28 +1,29 @@
-<div class="container">
+<div class="container-fluid">
 
-  <div>
-    <h5 class="title">Detalles del evento</h5>
+  <div class="btn-calendar">
+
     <button class="btn btn-event  " [routerLink]="['/ver-eventos']">Volver a Calendario de Eventos</button>
   </div>
-
+  <h5 class="event-title">Detalles del evento</h5>
   <div class="event-card">
-    <h5 class="title">{{ event?.title | uppercase }}</h5>
-    <button class="btn btn-event btn-me-apunto" *ngIf="userInEvent === false" (click)="joinEvent(event!)" [routerLink]="['/panel-control']">Me apunto!
+    
+    <h5 class="title">{{ event?.title | titlecase }}</h5>
+    <button class="btn btn-event btn-me-apunto" *ngIf="userInEvent === false" (click)="openDialogCustom(apuntarmeAlEventoTemplate)"  >Me apunto!
     </button>
-    <button class="btn btn-event btn-me-apunto" *ngIf="userInEvent === true" (click)="unregisterEvent(event!)" [routerLink]="['/panel-control']">Borrarme del Evento!
+    <button class="btn btn-event btn-me-apunto" *ngIf="userInEvent === true" (click)="openDialogCustom(borrarmeDelEventoTemplate)"  >Borrarme del Evento!
     </button>
-    <p class="event-details">Categoria: {{ event?.type }}</p>
-    <p class="event-details">Fecha: {{ event?.date | date }}</p>
-    <p class="event-details">Hora de inicio: {{ event?.startTime }}</p>
-    <p class="event-details">Hora de fin: {{ event?.endTime }}</p>
-    <p class="event-details">Lugar: {{ event?.location | titlecase }}</p>
-    <p class="event-details">Capacidad máxima: {{ event?.capacity }}</p>
-    <p class="event-details">Numeros de participantes apuntados: {{ event?.registeredParticipants?.length }}</p>
+    <p class="event-details"><strong> Categoria: </strong> {{ event?.type }}</p>
+    <p class="event-details"><strong>Fecha:</strong> {{ event?.date | date }}</p>
+    <p class="event-details"><strong>Hora de inicio:</strong> {{ event?.startTime }}</p>
+    <p class="event-details"><strong>Hora de fin:</strong> {{ event?.endTime }}</p>
+    <p class="event-details"><strong>Lugar:</strong> {{ event?.location | titlecase }}</p>
+    <p class="event-details"><strong>Capacidad máxima:</strong> {{ event?.capacity }}</p>
+    <p class="event-details"><strong>Numeros de participantes apuntados:</strong> {{ event?.registeredParticipants?.length }}</p>
 
-    <p class="event-details">Descripción: {{ event?.description }}</p>
+    <p class="event-details"><strong>Descripción:</strong> {{ event?.description }}</p>
     <!-- <p>Imagen: {{ event.img }}</p> -->
 
-    <button class="btn btn-event " *ngIf="isCreatorEvent === true" (click)="openDialogCustom(template1)">Eliminar
+    <button class="btn btn-event " *ngIf="isCreatorEvent === true" (click)="openDialogCustom(eliminarEventoTemplate)">Eliminar
       Evento</button>
     <button class="btn btn-event " *ngIf="isCreatorEvent === true" (click)="showEventForm = !showEventForm">Modificar
       Evento</button>
@@ -30,11 +31,29 @@
 
 
   <!-- DIALOG / MODAL  -->
-  <ng-template #template1>
+  <ng-template #eliminarEventoTemplate>
     <div mat-dialog-content>Estas seguro/a que deseas eliminar el evento?
       <div mat-dialog-actions>
         <button class="btn btn-event" mat-dialog-close>No</button>
         <button class="btn btn-event " (click)="deleteEvent()" mat-dialog-close>Si</button>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #borrarmeDelEventoTemplate>
+    <div mat-dialog-content>Estas seguro/a que deseas desapuntarte del evento?
+      <div mat-dialog-actions>
+        <button class="btn btn-event" mat-dialog-close>No</button>
+        <button class="btn btn-event " (click)="unregisterEvent(event!)" [routerLink]="['/panel-control']" mat-dialog-close>Si</button>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #apuntarmeAlEventoTemplate>
+    <div mat-dialog-content>Estas seguro/a que deseas apuntarte al evento?
+      <div mat-dialog-actions>
+        <button class="btn btn-event" mat-dialog-close>No</button>
+        <button class="btn btn-event " (click)="joinEvent(event!)" [routerLink]="['/panel-control']" mat-dialog-close>Si</button>
       </div>
     </div>
   </ng-template>
@@ -44,12 +63,12 @@
   <!-- FORMULARIO DE EDICION / CAMBIAR DATOS EVENTO -->
   <form *ngIf="showEventForm" [formGroup]="eventForm">
     <div class="event-card">
-      <h5 class="title">Modificar detalles de evento</h5>
+      <h5 class="title">Modificar detalles del evento</h5>
 
-      <div class="form-group">
-        <label for="title">Título:</label>
+      <div class="form-group ">
+        <label class="event-details" for="title">Título:</label>
         <input type="text" id="title" name="title" formControlName="title">
-        <div class="text-danger"
+        <div class="text-danger event-details"
           *ngIf="eventForm.get('title')?.hasError('required') && eventForm.get('title')?.touched">
           <span>El titulo es <strong>obligatorio</strong></span>
         </div>
@@ -58,23 +77,23 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="date">Fecha:</label>
+        <label class="event-details" for="date">Fecha:</label>
         <input type="date" id="date" name="date" formControlName="date">
         <div class="text-danger" *ngIf="eventForm.get('date')?.hasError('required') && eventForm.get('date')?.touched">
           <span>La fecha del evento es <strong>obligatoria</strong></span>
         </div>
       </div>
       <div class="form-group">
-        <label for="startTime">Hora inicio:</label>
+        <label class="event-details" for="startTime">Hora inicio:</label>
         <input type="time" id="startTime" name="startTime" formControlName="startTime">
       </div>
       <div class="form-group">
-        <label for="endTime">Hora de fin:</label>
+        <label class="event-details" for="endTime">Hora de fin:</label>
         <input type="time" id="endTime" name="endTime" formControlName="endTime">
       </div>
 
       <div class="form-group">
-        <label for="capacity">Capacidad Máxima:</label>
+        <label class="event-details" for="capacity">Capacidad Máxima:</label>
         <input type="text" id="capacity" name="capacity" formControlName="capacity">
         <div class="text-danger"
           *ngIf="eventForm.get('capacity')?.hasError('required') && eventForm.get('capacity')?.touched">
@@ -86,10 +105,8 @@
         </div>
       </div>
 
-
-
       <div class="form-group">
-        <label for="type">Categoria:</label>
+        <label class="event-details" for="type">Categoria:</label>
         <select id="type" name="type" formControlName="type">
           <option></option>
           <option>Artes escenicas y visuales</option>
@@ -101,7 +118,7 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="location">Lugar:</label>
+        <label class="event-details" for="location">Lugar:</label>
         <input type="text" id="location" name="location" formControlName="location">
         <div class="text-danger"
           *ngIf="eventForm.get('location')?.hasError('required') && eventForm.get('location')?.touched">
@@ -112,7 +129,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="description">Descripción:</label>
+        <label class="event-details" for="description">Descripción:</label>
         <textarea id="description" name="description" formControlName="description" rows="6"></textarea>
         <div class="text-danger"
           *ngIf="eventForm.get('description')?.hasError('required') && eventForm.get('description')?.touched">

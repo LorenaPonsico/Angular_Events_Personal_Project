@@ -1,15 +1,53 @@
-.container {
+.container-fluid {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  margin-top: 100px;
+  padding: 20px;
+}
+
+.event-card {
+  background-color: #549eb9;
+  padding: 20px;
+  margin: 20px;
+  max-width: 100%;
+  font-family: 'Raleway';
+  margin: 10px auto;
+}
+
+.event-title{
+  font-size: 25px; 
+  max-width: 100%;
+  font-family: 'Raleway';
+}
+
+.title {
+  font-size: 25px;
+  color: white;
+  margin-bottom: 30px;
+  font-family: 'Raleway';
+}
+
+.event-details {
+  color: white;
+  font-size: 16px;
+  font-family: 'Raleway';
 }
 
 .btn {
-  background-color: #fad390;
+  background-color: #e08453;
+  color: white;
   display: block;
-  margin: 10px;
-  /* Espacio entre los botones */
+  margin: 10px auto; /* Centra horizontalmente */
+  border: none; /* Quita el borde */
+  border-radius: 0; /* Quita las esquinas redondas */
+  padding: 10px 20px; /* Ajusta el espaciado interno según tus necesidades */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+  transition: background-color 0.3s, transform 0.3s; /* Agrega una transición suave */
+}
+
+.btn:hover {
+  background-color: #d46835; /* Cambia el color de fondo al pasar el cursor */
+  transform: translateY(-2px); /* Agrega relieve hacia arriba */
 }
 
 .btn-me-apunto {
@@ -17,38 +55,14 @@
   margin-left: auto;
 }
 
-.event-card {
-  background-color: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin: 20px;
-  max-width: 400px;
-  /* Ajusta el ancho según tus necesidades */
-  margin: 0 auto;
-  /* Centra la tarjeta horizontalmente */
-}
-
-.card-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.nav-link.active {
-  background-color: #ffffff;
-  /* Cambiar el color de fondo del botón activo */
-  color: #fad390;
-  /* Cambiar el color del texto del botón activo */
+.btn-calendar{
+  margin: 50px;
+  max-width: 100%;
+  font-family: 'Raleway';
 }
 
 .form-group {
   margin-bottom: 15px;
-}
-
-label {
-  font-weight: bold;
 }
 
 input[type="text"],
@@ -61,4 +75,22 @@ select {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
+}
+
+/* Añade una media query para ajustar el diseño en tamaños de pantalla más pequeños */
+@media screen and (max-width: 768px) {
+  /* Modifica el tamaño del título para pantallas más pequeñas */
+  .title {
+    font-size: 20px;
+  }
+
+  /* Modifica el tamaño de los detalles del evento para pantallas más pequeñas */
+  .event-details {
+    font-size: 14px;
+  }
+
+  /* Ajusta el ancho máximo de las tarjetas para pantallas más pequeñas */
+  .event-card {
+    max-width: 90%; /* Puedes ajustar esto según tus necesidades */
+  }
 }

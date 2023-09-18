@@ -1,20 +1,92 @@
 .container-fluid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 150%;
-    background-color: #fad390;
-  }
-  .card{
-    margin-top: 100px;
-    margin-bottom: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150%;
+}
+
+
+.event-card {
+  background-color: #549eb9;
+  padding: 20px;
+  margin: 20px;
+  max-width: 100%;
+  font-family: 'Raleway';
+  margin: 10px auto;
+}
+
+.title {
+  font-size: 25px;
+  color: white;
+  margin-bottom: 30px;
+  font-family: 'Raleway';
+}
+
+.event-details {
+  color: white;
+  font-size: 16px;
+  font-family: 'Raleway';
+}
+
+.btn {
+  background-color: #e08453;
+  color: white;
+  display: block;
+  margin: 10px auto; /* Centra horizontalmente */
+  border: none; /* Quita el borde */
+  border-radius: 0; /* Quita las esquinas redondas */
+  padding: 10px 20px; /* Ajusta el espaciado interno según tus necesidades */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+  transition: background-color 0.3s, transform 0.3s; /* Agrega una transición suave */
+}
+
+.btn:hover {
+  background-color: #d46835; /* Cambia el color de fondo al pasar el cursor */
+  transform: translateY(-2px); /* Agrega relieve hacia arriba */
+}
+
+.btn-post{
+  display: block;
+  margin-left: auto;
+
+}
+
+.error-message {
+  color: #f7c459 ; /* Cambia el color del texto a rojo u otro color de tu elección */
+  font-size: 16px; /* Ajusta el tamaño de fuente según tus preferencias */
+  margin-top: 5px; /* Agrega un pequeño margen superior para separar los mensajes de error */
+  /* Otros estilos que desees aplicar a los mensajes de error */
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+
+/* Añade una media query para ajustar el diseño en tamaños de pantalla más pequeños */
+@media screen and (max-width: 768px) {
+  /* Modifica el tamaño del título para pantallas más pequeñas */
+  .title {
+    font-size: 20px;
   }
 
-  .btn{
-    background-color: #fad390;
+  /* Modifica el tamaño de los detalles del evento para pantallas más pequeñas */
+  .event-details {
+    font-size: 14px;
   }
 
-  .text-danger{
-    text-align: start;
+  /* Ajusta el ancho máximo de las tarjetas para pantallas más pequeñas */
+  .event-card {
+    max-width: 90%; /* Puedes ajustar esto según tus necesidades */
   }
-  
+}

@@ -1,48 +1,111 @@
+.container-fluid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* Asegura que el contenedor tenga al menos la altura del viewport */
+  overflow: hidden;
+  /* Evita que el color azul se extienda fuera del contenedor */
+  position: relative;
+  /* Establece posición relativa para posicionar el color azul */
+}
 
+.container-fluid::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 40%;
+  /* Cambia el valor izquierdo al 50% para aplicar el fondo a la mitad derecha */
+  width: 60%;
+  /* Mitad derecha */
+  height: 100%;
+  background-color: #e08453;
+  /* Color naranja para la mitad derecha */
+  z-index: -1;
+  /* Coloca el fondo detrás del contenido */
+}
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
+.content {
+  background: transparent;
+  /* Fondo blanco para el contenido */
+  z-index: 1;
+  /* Coloca el contenido sobre el fondo bicolor */
+  position: relative;
+  /* Establece posición relativa para el contenido */
+}
 
-  }
 .card {
-    width: 800px;
-    background-color: #faf0e6 ; /* Color de fondo de la tarjeta */
-    padding: 20px; /* Espaciado interior */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Sombra */
-    text-align: center; /* Centra el contenido en la tarjeta */
-  }
-  
-  /* Estilos para el título */
-  .card-title {
-    font-size: 25px;
-    color: #218c74;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: left; /* Alinea el título a la izquierda */
-    margin-bottom: 10px; /* Espacio entre el título y el párrafo */
-    letter-spacing: 2px; /* Espaciado entre caracteres */
-  text-transform: uppercase; /* Convierte el texto en mayúsculas */
-  }
-  
-  /* Estilos para el párrafo */
-  .card-body {
-    font-size: 15px;
-    text-align: right; /* Alinea el párrafo a la derecha */
-    margin-bottom: 10px; /* Espacio entre el párrafo y las palabras */
-    color: #218c74;
-  }
-  
-  /* Estilos para las palabras centradas */
-  .card-header {
-    display: flex;
-    justify-content: center;
-    color: #218c74;
-  }
-  
-  .card-header span {
-    margin: 0 10px; /* Espacio entre las palabras */
-  }
-  
+  background: transparent;
+  border: none;
+  width: 500px;
+  height: 400px;
+  padding: 30px;
+  /* Espaciado interior */
+  font-family: 'Raleway';
+  text-align: center;
+  /* Centra el contenido en la tarjeta */
 
+  /* Añade márgenes izquierdos negativos para mover la tarjeta hacia la derecha */
+  margin-left: 500px; /* Ajusta según tus preferencias */
+  position: relative; /* Establece posición relativa para permitir el ajuste del margen */
+}
+
+/* Estilos para el título */
+.card-title {
+  font-size: 25px;
+  color: white;
+  font-family: 'Raleway';
+
+  text-align: left;
+  /* Alinea el título a la izquierda */
+  margin-bottom: 10px;
+  /* Espacio entre el título y el párrafo */
+  letter-spacing: 2px;
+  /* Espaciado entre caracteres */
+  text-transform: uppercase;
+  /* Convierte el texto en mayúsculas */
+  text-indent: 2em; 
+}
+
+/* Estilos para el párrafo */
+.card-body {
+  font-size: 16px;
+  text-align: right;
+  /* Alinea el párrafo a la derecha */
+  margin-bottom: 10px;
+  /* Espacio entre el párrafo y las palabras */
+  color: white;
+  letter-spacing: 2px;
+
+}
+
+/* Estilos para las palabras centradas */
+.card-text {
+  /* display: flex; */
+  justify-content: center;
+  color: white;
+  letter-spacing: 2px;
+
+}
+
+.card-text span {
+  margin: 0 10px;
+  /* Espacio entre las palabras */
+}
+
+.image-container {
+  width: 600px; /* Establece el ancho fijo del contenedor cuadrado */
+  height: 600px; /* Establece la altura fija del contenedor cuadrado */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Recorta cualquier contenido que exceda las dimensiones */
+  /* margin-left: 50px; */
+  position: relative; /* Establece una posición relativa para posicionar elementos hijos */
+}
+
+.image-container img {
+  max-width: 100%; /* Ajusta el ancho máximo de la imagen al tamaño del contenedor */
+  max-height: 100%; /* Ajusta la altura máxima de la imagen al tamaño del contenedor */
+  z-index: -1; /* Coloca la imagen en la capa inferior */
+}

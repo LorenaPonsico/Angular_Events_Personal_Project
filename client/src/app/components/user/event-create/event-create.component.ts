@@ -146,7 +146,6 @@ export class EventCreateComponent {
   setUserToLocalStorage(user: User) {
     //Seteamos el user actualizado en el localStorage para tenerlo actualizado
     const userToLocalStorage = { user: user };
-    debugger
     localStorage.setItem('user', JSON.stringify(userToLocalStorage));
   }
 }

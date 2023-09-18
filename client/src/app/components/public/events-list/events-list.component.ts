@@ -32,7 +32,7 @@ export class EventsListComponent implements OnInit {
       data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
       
       // Obtener solo los primeros 6 eventos (los más recientes)
-      this.listEvents = data.slice(0, 6);
+      this.listEvents = data.slice(0, 4);
     }, error => {
       console.log(error);
     })

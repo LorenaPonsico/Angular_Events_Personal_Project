@@ -3,10 +3,21 @@
 
     <a class="logo navbar-brand fw-bold" href="#">SYNERA</a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+
+    <div id="menuToggle" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" (click)="toggleNavbar()">
+      <input id="checkbox" type="checkbox">
+      <label  class="toggle" for="checkbox">
+          <div class="bar bar--top"></div>
+          <div class="bar bar--middle"></div>
+          <div class="bar bar--bottom"></div>
+      </label>
+    </div>
+
+    <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" (click)="toggleNavbar()">
       <span class="navbar-toggler-icon"></span>
-    </button>
+    </button> -->
 
     <div class="navbar-collapse collapse" [ngClass]="{'show': !isNavbarCollapsed}" id="navbarSupportedContent">
 
@@ -50,6 +61,7 @@
 
         </li>
       </ul>
+
 
 
       <ul class="navbar-nav row  ">
