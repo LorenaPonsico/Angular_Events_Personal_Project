@@ -1,18 +1,69 @@
 .container-fluid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #fad390;
-  }
-  
-  .form-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .btn{
-    background-color: #fad390;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+margin-top: 40px;
+}
+
+.form-container {
+  background-color: #549eb9;
+  padding: 20px;
+  max-width: 100%;
+  font-family: 'Raleway';
+  margin-top: 20px;
+}
+
+.register-details{
+  color: white;
+  font-size: 16px;
+  font-family: 'Raleway';
+}
+
+.title{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-family: 'Raleway';
+  color: white;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.btn {
+  background-color: #e08453;
+  color: white;
+  display: block;
+  margin: 10px auto;
+  border: none;
+  border-radius: 0;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+  background-color: #d46835;
+  transform: translateY(-2px);
+}
+
+.error-message {
+  color: #f7c459;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"]
+ {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}

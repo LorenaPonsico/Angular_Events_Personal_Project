@@ -17,15 +17,13 @@ export class EventsScheduleComponent {
   gastronomy: string = Constants.TYPEEVENTS.GASTRONOMY
   children: string = Constants.TYPEEVENTS.CHILDREN
   wellness:string = Constants.TYPEEVENTS.WELLNESS
+  // showButtonMenu: boolean = false;
+  showButtonsType:boolean = true;
 
   listEvents: Event[] = [];
   userLoginOn: boolean = false;
   user?: User | null;
-  eventsByType: { [type: string]: Event[] } = {}; // Objeto para agrupar eventos por tipo
-  // categories: string[] = ['Arte', 'Cultura', 'Deporte', 'Gastronomia', 'Infantil', 'Salud y Bienestar'];
-  
-
-
+  eventsByType: { [type: string]: Event[] } = {}; // Objeto para agrupar eventos por tipo  
 
   constructor( private eventsService: EventsService, private accountService:AccountService ){ }
 
@@ -37,6 +35,7 @@ export class EventsScheduleComponent {
         });
   }
 
+  
   getEvents(){
     this.eventsService.getEvents().subscribe(data => {
       // console.log(data);

@@ -4,14 +4,14 @@
 
       <p class="text-danger">{{loginError}}</p>
 
-      <h4 class="text-center">Iniciar Sesion</h4>
+      <h4 class="text-center title">Iniciar Sesion</h4>
 
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email</label>
+      <div class="form-group mb-3">
+        <label class="login-details">Email</label>
         <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1"
           aria-describedby="emailHelp" placeholder="Introduce email">
 
-        <div *ngIf="email.invalid && (email.dirty || email.touched)" class=" text-danger">
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class=" error-message">
 
           <div *ngIf="email.errors?.['required']">
             El email es obligatorio.
@@ -22,11 +22,11 @@
         </div>
       </div>
 
-      <div class="form-group">
-        <label for="exampleInputPassword1">Contraseña</label>
+      <div class="form-group mb-3">
+        <label class="login-details">Contraseña</label>
         <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1"
           placeholder="Contraseña">
-        <div *ngIf="password.invalid && (password.dirty || password.touched)" class=" text-danger">
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error-message">
 
           <div *ngIf="password.errors?.['required']">
             La contraseña es obligatoria.

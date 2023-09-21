@@ -1,7 +1,7 @@
 <div class="container-fluid">
 
   <div class="title-container">
-    <h3 class="title mt-5">ULTIMOS EVENTOS CREADOS POR LOS USUARIOS</h3>
+    <h3 class="title">ULTIMOS EVENTOS CREADOS POR LOS USUARIOS</h3>
   </div>
   
   <div class="card-container">
@@ -9,8 +9,8 @@
     <!-- <img class="card-image" [style.background-image]="'url(' + event + ')'"> -->
     <div class="card-body">
       <h5 class="card-title">{{ event.title | titlecase }}</h5>
-      <!-- <p>Fecha: {{ event.date | date }}</p> -->
-      <!-- <p>{{ event.type }}</p> -->
+      <p class="card-text">Fecha: {{ event.date | date }}</p>
+      <p class="card-text">Categoria: {{ event.type }}</p>
       <a *ngIf="!userLoginOn" href="#" class="btn " routerLink="/registro">Ir al evento</a>
       <a *ngIf="userLoginOn" href="#" class="btn " [routerLink]="'/event/' + event._id">Ir al evento</a>
     </div>

@@ -3,21 +3,15 @@
 
     <a class="logo navbar-brand fw-bold" href="#">SYNERA</a>
 
-
     <div id="menuToggle" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" (click)="toggleNavbar()">
       <input id="checkbox" type="checkbox">
-      <label  class="toggle" for="checkbox">
-          <div class="bar bar--top"></div>
-          <div class="bar bar--middle"></div>
-          <div class="bar bar--bottom"></div>
+      <label class="toggle" for="checkbox">
+        <div class="bar bar--top"></div>
+        <div class="bar bar--middle"></div>
+        <div class="bar bar--bottom"></div>
       </label>
     </div>
-
-    <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" (click)="toggleNavbar()">
-      <span class="navbar-toggler-icon"></span>
-    </button> -->
 
     <div class="navbar-collapse collapse" [ngClass]="{'show': !isNavbarCollapsed}" id="navbarSupportedContent">
 
@@ -26,37 +20,37 @@
 
         <li class="nav-item">
           <a class="nav-link " aria-current="page" routerLink="/inicio" (click)="closeNavbar()"> <i
-              class="fa-solid fa-house"></i> INICIO</a>
+              class="fa-solid fa-house"></i> Inicio</a>
         </li>
 
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#" routerLink="/comunidad" (click)="closeNavbar()"> <i
-              class="fa-solid fa-tower-broadcast"></i> COMUNIDAD</a>
+              class="fa-solid fa-tower-broadcast"></i> Que hacemos?</a>
         </li>
 
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#" [routerLink]="userLoginOn ? '/crear-evento' : '/registro'"
             (click)="closeNavbar()"> <i class="fa-solid fa-plus"></i>
-            CREAR EVENTO
+            Crear Evento
           </a>
         </li>
 
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#" [routerLink]="userLoginOn ? '/ver-eventos' : '/registro'"
             (click)="closeNavbar()"> <i class="fa-solid fa-calendar-days"></i>
-            CALENDARIO EVENTOS
+            Calendario de Eventos
           </a>
         </li>
       </ul>
 
       <ul class="navbar-nav row  ">
         <li *ngIf="userLoginOn" class="nav-item">
-          <a class="nav-link btn btn-sm" aria-current="page" href="#" routerLink="/panel-control"
+          <a class="nav-link btn-sm" aria-current="page" href="#" routerLink="/panel-control"
             (click)="closeNavbar()"> <i class="fa-solid fa-person"></i> Datos Personales</a>
         </li>
 
         <li *ngIf="userLoginOn" class="nav-item">
-          <a class="nav-link btn btn-sm " aria-current="page" (click)="openDialogCustom(logouttemplate)"> <i
+          <a class="nav-link btn-sm " aria-current="page" (click)="openDialogCustom(logouttemplate)"> <i
               class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar sesión </a>
 
         </li>
@@ -66,12 +60,12 @@
 
       <ul class="navbar-nav row  ">
         <li *ngIf="!userLoginOn" class="nav-item">
-          <a class="nav-link btn btn-sm" aria-current="page" routerLink="/iniciar-sesion" (click)="closeNavbar()"> <i
+          <a class="nav-link btn-sm" aria-current="page" routerLink="/iniciar-sesion" (click)="closeNavbar()"> <i
               class="fa-solid fa-arrow-right-from-bracket"></i> Iniciar Sesion</a>
         </li>
 
         <li *ngIf="!userLoginOn" class="nav-item">
-          <a class="nav-link btn btn-sm" aria-current="page" routerLink="/registro" (click)="closeNavbar()"> <i
+          <a class="nav-link btn-sm" aria-current="page" routerLink="/registro" (click)="closeNavbar()"> <i
               class="fa-solid fa-user-plus"></i> Regístrate
             Ahora</a>
         </li>
@@ -81,12 +75,12 @@
   </div>
 </nav>
 
-      <!-- DIALOG / MODAL  -->
-      <ng-template #logouttemplate>
-        <div mat-dialog-content>Estas seguro/a que deseas cerrar sesión?
-          <div mat-dialog-actions>
-            <button class="btn btn-event" mat-dialog-close>No</button>
-            <button (click)="logout()" class="btn btn-event" mat-dialog-close>Si</button>
-          </div>
-        </div>
-      </ng-template>
+<!-- DIALOG / MODAL  -->
+<ng-template #logouttemplate>
+  <div mat-dialog-content>Estas seguro/a que deseas cerrar sesión?
+    <div mat-dialog-actions>
+      <button class="btn btn-event" mat-dialog-close>No</button>
+      <button (click)="logout()" class="btn btn-event" mat-dialog-close>Si</button>
+    </div>
+  </div>
+</ng-template>

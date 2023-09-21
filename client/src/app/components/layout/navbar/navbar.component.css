@@ -4,12 +4,35 @@
   color: black;
 }
 
+.btn {
+  background-color: #e08453;
+  color: white;
+  display: block;
+  margin: 10px auto;
+  /* Centra horizontalmente */
+  border: none;
+  /* Quita el borde */
+  border-radius: 0;
+  /* Quita las esquinas redondas */
+  padding: 10px 20px;
+  /* Ajusta el espaciado interno según tus necesidades */
+  cursor: pointer;
+  /* Cambia el cursor al pasar por encima */
+  transition: background-color 0.3s, transform 0.3s;
+  /* Agrega una transición suave */
+}
 
+.btn:hover {
+  background-color: #d46835;
+  /* Cambia el color de fondo al pasar el cursor */
+  transform: translateY(-2px);
+  /* Agrega relieve hacia arriba */
+}
 
 .nav-link {
   color: black;
   font-family: 'Raleway';
-
+  cursor: pointer;
   font-size: 17px;
   /* font-weight: bold;  */
   transition: transform 0.3s ease; 
@@ -27,10 +50,6 @@
   box-shadow: none;
   border: none;
 }
-
-/* .navbar-toggler{
-  background-color: black;
-} */
 
 #checkbox {
   display: none;

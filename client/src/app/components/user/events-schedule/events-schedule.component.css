@@ -17,6 +17,23 @@ p{
 font-size: 16px;
 }
 
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  margin-top: 150px;
+  font-family: 'Raleway';
+  font-weight: bold;
+  color: #549eb9;
+  font-size: 25px;
+  letter-spacing: 2px;
+
+}
+
+.menu-desplegable {
+  display: none; /* Ocultar el botón inicialmente */
+}
 
 .nav-link {
   background-color: #fad390;
@@ -28,10 +45,15 @@ font-size: 16px;
   color:#e08453;
 }
 
+.nav.nav-tabs {
+  display: flex;
+  justify-content: space-between;
+}
+
 
 .card-events {
   padding: 20px;
-  margin-top: 100px;
+  /* margin-top: 100px; */
   margin-bottom: 100px;
 }
 
@@ -94,7 +116,7 @@ font-size: 16px;
 
 
 /* Añade una media query para ajustar el diseño en tamaños de pantalla más pequeños */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 830px) {
   /* Modifica el tamaño del título para pantallas más pequeñas */
   .title {
     font-size: 20px;
@@ -108,5 +130,24 @@ font-size: 16px;
   /* Ajusta el ancho máximo de las tarjetas para pantallas más pequeñas */
   .event-card {
     max-width: 90%; /* Puedes ajustar esto según tus necesidades */
+  }
+
+  .nav.nav-tabs {
+    flex-wrap: wrap; /* Permite que los títulos se envuelvan en pantallas pequeñas */
+    justify-content: center;
+  }
+  .btn.nav-link {
+    flex-basis: calc(33.33% - 10px); /* Divide igualmente en 3 columnas con espacio entre ellas */
+    margin: 5px; /* Agrega margen entre los títulos */
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .menu-desplegable {
+    display: block; /* Mostrar el botón cuando se cumple la condición */
+  }
+
+  .nav.nav-tabs {
+    display: none;
   }
 }

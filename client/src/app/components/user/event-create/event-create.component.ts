@@ -9,9 +9,6 @@ import { AccountService } from 'src/app/services'; // Importa el AccountService 
 import { User } from 'src/app/models/user';
 import { ValidationsService } from 'src/app/services/validations.service';
 
-// interface InputEvent extends Event {
-//   target: HTMLInputElement & EventTarget;
-// }
 @Component({
   selector: 'app-event-create',
   templateUrl: './event-create.component.html',
@@ -19,8 +16,6 @@ import { ValidationsService } from 'src/app/services/validations.service';
 })
 export class EventCreateComponent {
   eventForm: FormGroup;
-  // file: File | undefined;
-  // photoSelected: string | ArrayBuffer | undefined
 
   constructor(
     private fb: FormBuilder,
@@ -43,16 +38,6 @@ export class EventCreateComponent {
     });
   }
 
-  // onPhotoSelected(input: HTMLInputElement): void {
-  //   if (input.files && input.files[0]) {
-  //     this.file = input.files[0];
-  //     // Vista previa de imágenes
-  //     const reader = new FileReader();
-  //     reader.onload = e => this.photoSelected = reader.result as string;
-
-  //     reader.readAsDataURL(this.file);
-  //   }
-  // }
 
 
   openDialogCustom(template: TemplateRef<any>) {

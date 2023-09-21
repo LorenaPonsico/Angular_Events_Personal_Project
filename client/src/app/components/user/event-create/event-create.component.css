@@ -5,21 +5,22 @@
   height: 150%;
 }
 
-
 .event-card {
   background-color: #549eb9;
   padding: 20px;
-  margin: 20px;
   max-width: 100%;
   font-family: 'Raleway';
-  margin: 10px auto;
 }
 
-.title {
-  font-size: 25px;
-  color: white;
-  margin-bottom: 30px;
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: 'Raleway';
+  font-weight: bold;
+  color: #549eb9;
+  font-size: 25px;
+  letter-spacing: 2px;
 }
 
 .event-details {
@@ -48,21 +49,18 @@
 .btn-post{
   display: block;
   margin-left: auto;
-
 }
 
 .error-message {
   color: #f7c459 ; /* Cambia el color del texto a rojo u otro color de tu elección */
   font-size: 16px; /* Ajusta el tamaño de fuente según tus preferencias */
   margin-top: 5px; /* Agrega un pequeño margen superior para separar los mensajes de error */
-  /* Otros estilos que desees aplicar a los mensajes de error */
 }
 
 input[type="text"],
 input[type="date"],
 input[type="time"],
 input[type="number"],
-
 textarea,
 select {
   width: 100%;

@@ -4,10 +4,10 @@
 
       <p class="text-danger">{{registerError}}</p>
 
-      <h4 class="text-center">Registrarse</h4>
+      <h4 class="text-center title">Registrarse</h4>
 
-      <div class="form-group">
-        <label>Nombre</label>
+      <div class="form-group mb-3">
+        <label class="register-details">Nombre</label>
         <input formControlName="name" type="text" class="form-control" id="name" aria-describedby="emailHelp"
           placeholder="Introduce tu nombre">
         <div *ngIf="name.invalid && (name.dirty || name.touched)" class=" text-danger">
@@ -21,8 +21,8 @@
         </div>
       </div>
 
-      <div class="form-group">
-        <label for="exampleInputPassword1">Apellidos</label>
+      <div class="form-group mb-3">
+        <label class="register-details">Apellidos</label>
         <input formControlName="surname" type="text" class="form-control" id="surname" placeholder="Apellidos">
         <div *ngIf="surname.invalid && (surname.dirty || surname.touched)" class=" text-danger">
 
@@ -35,8 +35,8 @@
         </div>
       </div>
 
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email</label>
+      <div class="form-group mb-3">
+        <label class="register-details">Email</label>
         <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1"
           aria-describedby="emailHelp" placeholder="Introduce email">
 
@@ -51,8 +51,8 @@
 
       </div>
 
-      <div class="form-group">
-        <label for="exampleInputPassword1">Contraseña</label>
+      <div class="form-group mb-3">
+        <label class="register-details">Contraseña</label>
         <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1"
           placeholder="Contraseña">
 
@@ -67,8 +67,8 @@
 
       </div>
 
-      <div class="form-group">
-        <label for="exampleInputPhone">Telefono</label>
+      <div class="form-group mb-3">
+        <label class="register-details">Telefono</label>
         <input formControlName="phone" type="number" class="form-control" id="exampleInputPhone" placeholder="telefono">
         <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class=" text-danger">
 
@@ -81,9 +81,10 @@
           </div>
 
         </div>
+      </div>
 
-        <div class="form-group">
-          <label for="exampleInputBirthday">Fecha nacimiento</label>
+        <div class="form-group mb-3">
+          <label class="register-details">Fecha nacimiento</label>
           <input formControlName="birthday" type="date" class="form-control" id="exampleInputBirthday1"
             placeholder="fecha nacimiento">
           <div *ngIf="birthday.invalid && (birthday.dirty || birthday.touched)" class=" text-danger">
@@ -99,6 +100,6 @@
 
 
 
-        <div class="text-center">
+        <div class="text-center ">
           <button (click)="registerUser()" type="submit" class="btn mt-3">Aceptar</button>
         </div>

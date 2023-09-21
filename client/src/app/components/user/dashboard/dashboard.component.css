@@ -1,33 +1,124 @@
 .container-fluid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #F5F5DC;
-  }
-  
-  .form-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 50px auto;
+}
+
+.user-card {
+  background-color: #549eb9;
+  padding: 20px;
+  margin: 20px;
+  max-width: 100%;
+  font-family: 'Raleway';
+  color: white;
+  font-size: 16px;
+  margin: 10px auto;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  font-family: 'Raleway';
+  font-weight: bold;
+  color: #549eb9;
+  font-size: 25px;
+  letter-spacing: 2px;
+}
+
+.title-modify-data{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  font-family: 'Raleway';
+  font-weight: bold;
+  color: white;
+  font-size: 25px;
+  letter-spacing: 2px;
+}
+
+.btn {
+  background-color: #e08453;
+  color: white;
+  display: block;
+  margin: 10px auto;
+  border: none;
+  border-radius: 0;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+  background-color: #d46835;
+  transform: translateY(-2px);
+}
+
+.btn-calendar {
+  margin: 50px;
+  max-width: 100%;
+  font-family: 'Raleway';
+}
+
+.btn-view-event {
+  background-color: #e08453;
+  color: white;
+  /* display: block; */
+  margin: 3px auto;
+  /* Centra horizontalmente */
+  border: none;
+  /* Quita el borde */
+  border-radius: 0;
+  /* Quita las esquinas redondas */
+  padding: 5px 10px;
+  /* Ajusta el espaciado interno según tus necesidades */
+  cursor: pointer;
+  /* Cambia el cursor al pasar por encima */
+  transition: background-color 0.3s, transform 0.3s;
+  /* Agrega una transición suave */
+}
+
+.btn-view-event:hover {
+  background-color: #d46835;
+  /* Cambia el color de fondo al pasar el cursor */
+  transform: translateY(-2px);
+  /* Agrega relieve hacia arriba */
+}
 
 
+.error-message {
+  color: #f7c459;
+  /* Cambia el color del texto a rojo u otro color de tu elección */
+  font-size: 16px;
+  /* Ajusta el tamaño de fuente según tus preferencias */
+  margin-top: 5px;
+  /* Agrega un pequeño margen superior para separar los mensajes de error */
+  /* Otros estilos que desees aplicar a los mensajes de error */
+}
 
-  .btn {
-    margin: 5px;
-    padding: 10px 20px; /* Ajusta el relleno para el tamaño del botón */
-    background-color: #004225; /* Color de fondo del botón */
-    border: none; /* Elimina los bordes por defecto */
-    color: #FFB000; /* Color del texto en el botón */
-    border-radius: 5px; /* Agrega esquinas redondeadas */
-    cursor: pointer; /* Cambia el cursor al pasar por encima */
-    transition: background-color 0.3s ease, transform 0.1s ease; /* Transiciones suaves */
+
+/* Añade una media query para ajustar el diseño en tamaños de pantalla más pequeños */
+@media screen and (max-width: 768px) {
+
+  /* Modifica el tamaño del título para pantallas más pequeñas */
+  .title {
+    font-size: 20px;
   }
-  
-  .btn:hover {
-    background-color: #004225; /* Cambia el color de fondo al pasar el cursor */
-    transform: scale(1.05); /* Escala ligeramente el botón al pasar el cursor */
+
+  /* Modifica el tamaño de los detalles del evento para pantallas más pequeñas */
+  .event-details {
+    font-size: 14px;
   }
-  
+
+  /* Ajusta el ancho máximo de las tarjetas para pantallas más pequeñas */
+  .event-card {
+    max-width: 90%;
+    /* Puedes ajustar esto según tus necesidades */
+  }
+}

@@ -213,12 +213,23 @@ export class EventDetailsComponent implements OnInit {
 
   joinEvent(event: Event): void {
     if (event._id) {
+
+      if (event.registeredParticipants && event.registeredParticipants.length >= event.capacity) {
+        // La capacidad máxima ya se ha alcanzado, muestra un mensaje de error o toma una acción adecuada.
+        this.toastr.error('La capacidad máxima de participantes ha sido alcanzada.');
+        this.router.navigate([`/event/${event._id}`]);
+        return; // No permitas que el usuario se una al evento.
+      }
+
+      // Si la capacidad aún no se ha alcanzado, puedes agregar al usuario a la lista de participantes.
       event.registeredParticipants?.push(this.currentUser?._id);
       this.updateUserWithEvent(this.currentUser, event);
       this.eventsService.updateEvent(event).subscribe(
         (updatedEvent: Event | undefined) => {
           if (updatedEvent) {
             this.toastr.success('Te has apuntado al evento');
+        this.router.navigate(['/panel-control']);
+
           } else {
             console.error('El usuario no se pudo apuntar al evento');
           }

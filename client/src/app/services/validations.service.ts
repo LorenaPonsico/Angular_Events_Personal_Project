@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AbstractControl } from '@angular/forms';
 @Injectable({
   providedIn: 'root'
 })
@@ -35,5 +36,19 @@ export class ValidationsService {
     
     return null; // La fecha es válida
   }
+
+
+  // NO FUNCIONA
+  // endTimeValidator(control: any): { [key: string]: any } | null {
+  //   const startTimeValue = control.get('startTime')?.value;
+  //   const endTimeValue = control.get('endTime')?.value;
+  
+  //   if (endTimeValue < startTimeValue) {
+  //     return { 'invalidEndTime': true };
+  //   }
+  
+  //   return null;
+  // }
+
 
 }

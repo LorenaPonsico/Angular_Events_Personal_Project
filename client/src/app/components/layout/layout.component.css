@@ -25,29 +25,16 @@
   /* Coloca el fondo detrás del contenido */
 }
 
-.content {
-  background: transparent;
-  /* Fondo blanco para el contenido */
-  z-index: 1;
-  /* Coloca el contenido sobre el fondo bicolor */
-  position: relative;
-  /* Establece posición relativa para el contenido */
-}
-
 .card {
   background: transparent;
   border: none;
-  width: 500px;
-  height: 400px;
-  padding: 30px;
-  /* Espaciado interior */
+  width: 700px;
+  height: 10px;
   font-family: 'Raleway';
   text-align: center;
-  /* Centra el contenido en la tarjeta */
+  margin-left: 800px;
+  /* Ajusta según tus preferencias */
 
-  /* Añade márgenes izquierdos negativos para mover la tarjeta hacia la derecha */
-  margin-left: 500px; /* Ajusta según tus preferencias */
-  position: relative; /* Establece posición relativa para permitir el ajuste del margen */
 }
 
 /* Estilos para el título */
@@ -55,57 +42,127 @@
   font-size: 25px;
   color: white;
   font-family: 'Raleway';
-
   text-align: left;
-  /* Alinea el título a la izquierda */
   margin-bottom: 10px;
-  /* Espacio entre el título y el párrafo */
   letter-spacing: 2px;
-  /* Espaciado entre caracteres */
   text-transform: uppercase;
-  /* Convierte el texto en mayúsculas */
-  text-indent: 2em; 
+  text-indent: 2em;
+  padding-top: 50px;
+  font-weight: bold;
 }
 
-/* Estilos para el párrafo */
 .card-body {
   font-size: 16px;
   text-align: right;
-  /* Alinea el párrafo a la derecha */
   margin-bottom: 10px;
-  /* Espacio entre el párrafo y las palabras */
   color: white;
   letter-spacing: 2px;
-
+  padding-top: 50px;
 }
 
-/* Estilos para las palabras centradas */
 .card-text {
-  /* display: flex; */
-  justify-content: center;
+  font-size: 16px;
   color: white;
   letter-spacing: 2px;
-
+  text-align: center;
+  max-width: 80%;
+  margin: 0 auto;
+  padding-top: 50px;
 }
 
-.card-text span {
-  margin: 0 10px;
-  /* Espacio entre las palabras */
+.card-text ul {
+  list-style-type: none;
+  /* Elimina los puntos de la lista */
+  padding: 0;
+  /* Elimina el relleno predeterminado de la lista */
+  display: flex;
+  /* Utiliza flexbox para distribuir los elementos horizontalmente */
+  justify-content: flex-end;
+  /* Alinea los elementos a la derecha */
+  flex-wrap: wrap;
+  /* Permite que los elementos de lista se envuelvan a la siguiente línea si no caben en el ancho */
 }
+
+.card-text ul i {
+  margin-right: 10px;
+  /* Espacio entre el ícono y el texto */
+}
+
+.card-text ul::before {
+  content: "\2022";
+  /* Agrega un marcador de viñeta personalizado */
+  color: #e08453;
+  /* Color naranja para el marcador de viñeta */
+  display: inline-block;
+  /* Alinea el marcador de viñeta con el texto */
+  width: 1em;
+  /* Espaciado entre el marcador de viñeta y el texto */
+  margin-left: -1em;
+  /* Mueve el marcador de viñeta hacia la izquierda para centrarlo */
+}
+
+
+
+
 
 .image-container {
-  width: 600px; /* Establece el ancho fijo del contenedor cuadrado */
-  height: 600px; /* Establece la altura fija del contenedor cuadrado */
+  width: 600px;
+  /* Establece el ancho fijo del contenedor cuadrado */
+  height: 600px;
+  /* Establece la altura fija del contenedor cuadrado */
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* Recorta cualquier contenido que exceda las dimensiones */
-  /* margin-left: 50px; */
-  position: relative; /* Establece una posición relativa para posicionar elementos hijos */
+  overflow: hidden;
+  /* Recorta cualquier contenido que exceda las dimensiones */
+  margin-left: 150px;
+  position: relative;
+  /* Establece una posición relativa para posicionar elementos hijos */
 }
 
 .image-container img {
-  max-width: 100%; /* Ajusta el ancho máximo de la imagen al tamaño del contenedor */
-  max-height: 100%; /* Ajusta la altura máxima de la imagen al tamaño del contenedor */
-  z-index: -1; /* Coloca la imagen en la capa inferior */
+  max-width: 100%;
+  /* Ajusta el ancho máximo de la imagen al tamaño del contenedor */
+  max-height: 100%;
+  /* Ajusta la altura máxima de la imagen al tamaño del contenedor */
+  z-index: -1;
+  /* Coloca la imagen en la capa inferior */
+}
+
+/* Estilos para pantallas más pequeñas (ejemplo: dispositivos móviles) */
+@media (max-width: 768px) {
+  .container-fluid {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .container-fluid::before {
+    left: 0;
+    width: 100%;
+    height: 40%;
+  }
+
+  .card {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .card-title {
+    text-align: center;
+    margin: 0;
+  }
+
+  .card-body {
+    text-align: center;
+  }
+
+  .card-text {
+    text-align: center;
+  }
+
+  .image-container {
+    width: 100%;
+    height: auto;
+  }
 }

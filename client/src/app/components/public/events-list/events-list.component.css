@@ -4,16 +4,17 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 50px;
+  margin-top: 50px;
 }
 
 .title {
   text-align: center;
   margin-bottom: 20px;
   position: relative;
-
   font-size: 35px;
   font-family: 'Raleway';
   color: #e08453;
+  font-weight: bold;
 }
 
 .card-container {
@@ -24,25 +25,21 @@
 
 .card {
 
-  width: 200px;
-  /* Ancho deseado de la tarjeta circular */
-  height: 200px;
-  /* Asegura que la tarjeta sea cuadrada (mismo ancho y alto) */
+  width: 300px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  /* text-decoration: none; */
-  /* Quita la decoración de enlace */
   background-color: #549eb9;
-  /* Color de fondo de la tarjeta */
-  margin: 20px;
+  margin: 40px;
   overflow: hidden;
   position: relative;
-    /* Elimina las esquinas redondeadas y el borde */
-    border-radius: 0; /* Hace que las esquinas sean cuadradas */
-    border: none; /* Elimina el borde */
+  border-radius: 0;
+  /* Hace que las esquinas sean cuadradas */
+  border: none;
+  /* Elimina el borde */
 }
 
 /* Asegura que cada tarjeta ocupe el ancho especificado y se alinee horizontalmente */
@@ -73,11 +70,16 @@
 .card-title {
   margin-bottom: 10px;
   font-size: 20px;
-  /* font-weight: bold; */
   font-family: 'Raleway';
-  color:white;
+  color: white;
+  font-weight: bold;
+}
 
-
+.card-text{
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-family: 'Raleway';
+  color: white;
 }
 
 .btn {
@@ -87,7 +89,7 @@
   display: inline-block;
   margin-top: 10px;
   padding: 8px 16px;
-  color: white;
+  color: #f7c459;
   border-radius: 4px;
   text-decoration: none;
   position: relative;

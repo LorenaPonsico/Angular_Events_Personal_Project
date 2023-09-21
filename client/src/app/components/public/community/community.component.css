@@ -33,6 +33,13 @@
   font-family: 'Raleway';
 }
 
+.text{
+  color: white;
+  font-family: 'Raleway';
+letter-spacing: 3px;
+margin-top: 20px;
+}
+
 p {
   font-family: 'Raleway';
   color: white;
