@@ -44,6 +44,7 @@
   padding: 10px 20px; /* Ajusta el espaciado interno según tus necesidades */
   cursor: pointer; /* Cambia el cursor al pasar por encima */
   transition: background-color 0.3s, transform 0.3s; /* Agrega una transición suave */
+  font-weight: bold;
 }
 
 .btn:hover {

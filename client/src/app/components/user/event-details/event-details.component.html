@@ -10,7 +10,7 @@
     <h5 class="title">{{ event?.title | titlecase }}</h5>
     <button class="btn btn-event btn-me-apunto" *ngIf="userInEvent === false" (click)="openDialogCustom(apuntarmeAlEventoTemplate)"  >Me apunto!
     </button>
-    <button class="btn btn-event btn-me-apunto" *ngIf="userInEvent === true" (click)="openDialogCustom(borrarmeDelEventoTemplate)"  >Borrarme del Evento!
+    <button class="btn btn-event btn-me-apunto" *ngIf="userInEvent === true" (click)="openDialogCustom(borrarmeDelEventoTemplate)"  >No voy!
     </button>
     <p class="event-details"><strong> Categoria: </strong> {{ event?.type }}</p>
     <p class="event-details"><strong>Fecha:</strong> {{ event?.date | date }}</p>
@@ -19,9 +19,7 @@
     <p class="event-details"><strong>Lugar:</strong> {{ event?.location | titlecase }}</p>
     <p class="event-details"><strong>Capacidad máxima:</strong> {{ event?.capacity }}</p>
     <p class="event-details"><strong>Numeros de participantes apuntados:</strong> {{ event?.registeredParticipants?.length }}</p>
-
     <p class="event-details"><strong>Descripción:</strong> {{ event?.description }}</p>
-    <!-- <p>Imagen: {{ event.img }}</p> -->
 
     <button class="btn btn-event " *ngIf="isCreatorEvent === true" (click)="openDialogCustom(eliminarEventoTemplate)">Eliminar
       Evento</button>

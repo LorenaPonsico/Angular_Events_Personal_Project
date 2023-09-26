@@ -16,16 +16,18 @@ const routes: Routes = [
   { path: 'comunidad', component: CommunityComponent },
   { path: 'iniciar-sesion', component: LoginComponent },
   { path: 'registro', component: RegisterComponent },
-  { path: 'panel-control', component: DashboardComponent, canActivate: [AuthGuard]  },
-  { path: 'crear-evento', component: EventCreateComponent, canActivate: [AuthGuard]  },
-  { path: 'editar-evento/:id', component: EventCreateComponent, canActivate: [AuthGuard]  },
+  { path: 'panel-control', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'crear-evento', component: EventCreateComponent, canActivate: [AuthGuard] },
+  { path: 'editar-evento/:id', component: EventCreateComponent, canActivate: [AuthGuard] },
   { path: 'ver-eventos', component: EventsScheduleComponent, canActivate: [AuthGuard] },
   { path: 'event/:eventId', component: EventDetailsComponent },
-  { path: '**', redirectTo: '/inicio', pathMatch:'full' } // si el usuario pone en la barra un nombre que no existe, angular redirige a la ruta raiz
+  { path: '**', redirectTo: '/inicio', pathMatch: 'full' } // si el usuario pone en la barra un nombre que no existe, angular redirige a la ruta raiz
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'top', // Esto restaurará la posición de desplazamiento a la parte superior
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

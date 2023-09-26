@@ -1,5 +1,5 @@
 import { Component, TemplateRef } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Event } from 'src/app/models/event';
@@ -38,7 +38,16 @@ export class EventCreateComponent {
     });
   }
 
+  //ESTA FUNCION NO ME FUNCIONA
+  endTimeValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    const startTime = this.eventForm.get('startTime')?.value;
+    const endTime = control.value;
 
+    if (startTime < endTime) {
+      return { endTimeValidator: true };
+    }
+    return null;
+  }
 
   openDialogCustom(template: TemplateRef<any>) {
     this.dialogService.openDialogCustom({
@@ -66,27 +75,9 @@ export class EventCreateComponent {
     };
     console.log(EVENT)
     this.saveEvent(EVENT, userLocalStorage);
-
-    // QUIERO QUE LA PERSONA QUE CREA EL EVENTO SE LE AÑADA EL EVENTO DIRECTAMENTE EN SU DASHBOARD (ESTO NO FUNCIONA!!)
-    // this.accountService.updateUser(this.currentUser).subscribe(
-    //   (updatedUser: User | undefined) => {
-    //     if (updatedUser) {
-    //       this.userDetails = updatedUser;
-    //       this.toastr.success('El usuario fue actualizado');
-    //     } else {
-    //       console.error('El usuario no se pudo actualizar');
-    //     }
-    //   },
-    //   (error: any) => {
-    //     console.error('Error al actualizar el usuario:', error);
-    //   }
-    // );
-
-
-
   }
 
-  public saveEvent(event: Event, userLocalStorage: any) {
+  saveEvent(event: Event, userLocalStorage: any) {
     event.registeredParticipants = [];
     //Añadimos al array de registeredParticipants el id del usuario actual
     event.registeredParticipants?.push(userLocalStorage.user._id);

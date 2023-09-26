@@ -6,11 +6,9 @@
                 <button class="btn" routerLink="/crear-evento">Crear Evento</button>
             </div>
 
-
             <nav>
                 <button class="menu-desplegable" (click)="showButtonsType = !showButtonsType">Mostrar Menú</button>
                 <div *ngIf="showButtonsType" class="menu-desplegable">
-                    <!-- <button (click)="showButtonsType = !showButtonsType">Mostrar Categorías</button> -->
                     <div *ngIf="showButtonsType" class="botones-especificos">
                         <button class="btn nav-link active" id="nav-home-tab">Arte</button>
                         <button class="btn nav-link" id="nav-profile-tab" >Cultura</button>
@@ -44,10 +42,14 @@
                         type="button" role="tab" aria-controls="nav-salud" aria-selected="false">Salud y
                         Bienestar</button>
                 </div>
+
+                <div *ngIf="!eventsLoaded" class="spinner"> </div>
             </nav>
 
             <div class="tab-content" id="nav-tabContent">
+                
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                  
                     <!-- Filtrar los eventos por categoría "Arte" -->
                     <ng-container *ngIf="eventsByType[art] && eventsByType[art].length > 0; else noEventsArt">
                         <!-- Mostrar eventos de "Arte" -->
@@ -62,6 +64,7 @@
                     </ng-container>
                     <ng-template #noEventsArt>
                         <!-- Mensaje si no hay eventos de "Arte" -->
+            
                         <p>No hay eventos disponibles en la categoría "Arte" en este momento.</p>
                     </ng-template>
 

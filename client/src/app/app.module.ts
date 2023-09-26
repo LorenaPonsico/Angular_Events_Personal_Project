@@ -55,11 +55,14 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot({ positionClass: 'toast-bottom-right' }), // ToastrModule added 
+    ToastrModule.forRoot({ positionClass: 'toast-bottom-right', 
+    timeOut: 3000, // Tiempo en milisegundos antes de que se cierre automáticamente
+  }), // ToastrModule added 
     CarouselModule.forRoot(),
     FormsModule,
     MatDialogModule,
     BsDatepickerModule.forRoot(),
+    
   ],
   providers: [
     // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

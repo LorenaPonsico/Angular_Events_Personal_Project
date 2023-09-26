@@ -17,13 +17,13 @@ export class EventsScheduleComponent {
   gastronomy: string = Constants.TYPEEVENTS.GASTRONOMY
   children: string = Constants.TYPEEVENTS.CHILDREN
   wellness:string = Constants.TYPEEVENTS.WELLNESS
-  // showButtonMenu: boolean = false;
   showButtonsType:boolean = true;
 
   listEvents: Event[] = [];
   userLoginOn: boolean = false;
   user?: User | null;
   eventsByType: { [type: string]: Event[] } = {}; // Objeto para agrupar eventos por tipo  
+  eventsLoaded = false;
 
   constructor( private eventsService: EventsService, private accountService:AccountService ){ }
 
@@ -35,12 +35,12 @@ export class EventsScheduleComponent {
         });
   }
 
-  
   getEvents(){
     this.eventsService.getEvents().subscribe(data => {
       // console.log(data);
       this.listEvents = data
       this.groupEventsByType(); 
+      this.eventsLoaded = true;      
     }, error => {
       console.log(error);
     })
@@ -48,13 +48,22 @@ export class EventsScheduleComponent {
 
   groupEventsByType() {
     this.eventsByType = {}; // Reiniciamos el objeto de eventos por tipo
+    this.listEvents = this.sortEventsByDate(this.listEvents); // Ordenar eventos por fecha
     this.listEvents.forEach((event: Event) => {
       if (this.eventsByType[event.type]) {
         this.eventsByType[event.type].push(event);
-        // console.log(this.eventsByType)
       } else {
         this.eventsByType[event.type] = [event];
       }
     });
   }
+
+  sortEventsByDate(events: Event[]): Event[] {
+    return events.sort((a: Event, b: Event) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      return dateA.getTime() - dateB.getTime();
+    });
+  }
+  
 }

@@ -274,13 +274,13 @@ export class EventDetailsComponent implements OnInit {
       this.eventsService.updateEvent(eventParams).subscribe(
         (updatedEvent: Event | undefined) => {
           if (updatedEvent) {
-            this.toastr.success('El evento fue actualizado');
+            this.toastr.success('Te has borrado del evento');
           } else {
-            console.error('El evento no se pudo actualizar');
+            console.error('No te has podido borrar del evento');
           }
         },
         (error: any) => {
-          console.error('Error al actualizar el evento:', error);
+          console.error('Error al borrate del evento:', error);
         }
       );
 
