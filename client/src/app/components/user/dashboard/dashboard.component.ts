@@ -35,7 +35,6 @@ export class DashboardComponent {
       name: ['', [Validators.required, Validators.minLength(3)]],
       surname: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
       phone: ['', [Validators.required, Validators.pattern(/^[0-9]{8,15}$/)]],
       birthDate: ['', [Validators.required, this.validationsService.adult]]
 
@@ -54,9 +53,9 @@ export class DashboardComponent {
 
 
   getUsers(): void {
-    this.userData = this.accountService.objectValue;
+    this.userData = JSON.parse(localStorage.getItem('user')!);
+    this.userData = this.userData;
     // Si userData tiene una propiedad user, puedes acceder a los atributos de user
-
     if (this.userData && this.userData.user) {
       this.userDetails = this.userData.user;
       this.setFormUser(this.userDetails)
@@ -96,7 +95,7 @@ export class DashboardComponent {
         (updatedUser: User | undefined) => {
           if (updatedUser) {
             this.userDetails = updatedUser;
-            const userToLocalStorage = {user: updatedUser};
+            const userToLocalStorage = { user: updatedUser };
             localStorage.setItem('user', JSON.stringify(userToLocalStorage));
 
             this.toastr.success('El usuario fue actualizado');
@@ -109,6 +108,7 @@ export class DashboardComponent {
         }
       );
     }
+    this.showUserForm = false;
   }
 
   deleteUser(id: string) {
@@ -126,7 +126,4 @@ export class DashboardComponent {
       );
     }
   }
-
-  
-
 }

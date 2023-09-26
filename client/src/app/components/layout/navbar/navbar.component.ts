@@ -33,14 +33,12 @@ export class NavbarComponent implements OnInit {
      
         console.log(this.user?.name);
         //NO APARECE EL NOMBRE DEL USUARIO, SALE UNDEFINED
-      
     });
   }
 
   toggleNavbar() {
     this.isNavbarCollapsed = !this.isNavbarCollapsed;
   }
-
 
   openDialogCustom(template: TemplateRef<any>) {
     this.dialogService.openDialogCustom({
@@ -49,10 +47,7 @@ export class NavbarComponent implements OnInit {
   }
   
   closeNavbar(): void {
-    const navbarToggler = document.querySelector('.navbar-toggler') as HTMLElement | null;
-    if (navbarToggler) {
-      navbarToggler.click();
-    }
+   this.isNavbarCollapsed = true;
   }
 
   logout() {

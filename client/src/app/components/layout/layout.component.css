@@ -1,3 +1,9 @@
+
+
+
+
+
+
 .container-fluid {
   display: flex;
   justify-content: center;
@@ -24,6 +30,8 @@
   z-index: -1;
   /* Coloca el fondo detrás del contenido */
 }
+
+
 
 .card {
   background: transparent;
@@ -137,32 +145,34 @@
     padding: 20px;
   }
 
-  .container-fluid::before {
-    left: 0;
-    width: 100%;
-    height: 40%;
+  
+   .container-fluid::before {
+    left: 50%; /* Cambia a la mitad derecha */
+    width: 50%; /* Mitad derecha */
+    height: 100%;
   }
 
   .card {
-    width: 100%;
-    margin-left: 0;
+    background: transparent;
+    border: none;
+    font-family: 'Raleway';
+    text-align: left;
+    max-width: 50%; /* Ajusta el ancho del div card según tu preferencia */
+    padding: 20px; /* Añade relleno según sea necesario */
   }
 
-  .card-title {
-    text-align: center;
-    margin: 0;
-  }
-
-  .card-body {
-    text-align: center;
-  }
-
+  .card-title,
+  .card-body,
   .card-text {
     text-align: center;
   }
 
+
   .image-container {
-    width: 100%;
-    height: auto;
+    width: 30px; /* Ancho máximo del 70% para la imagen */
+    height: 30px;
+
   }
+
+
 }

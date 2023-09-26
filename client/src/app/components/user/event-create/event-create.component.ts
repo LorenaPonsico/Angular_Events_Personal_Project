@@ -29,8 +29,8 @@ export class EventCreateComponent {
     this.eventForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(3)]],
       date: ['', [Validators.required, this.validationsService.validateDateNotPast]],
-      startTime: ['', Validators.required],
-      endTime: ['', Validators.required],
+      startTime: ['',[ Validators.required]],
+      endTime: ['', [Validators.required]],
       capacity: ['', [Validators.required, this.validationsService.nonNegativeNumberValidator]],
       type: ['', Validators.required],
       location: ['', [Validators.required, Validators.minLength(3)]],
@@ -73,7 +73,6 @@ export class EventCreateComponent {
       description: this.eventForm.get('description')?.value,
       creatorId: userLocalStorage.user._id
     };
-    console.log(EVENT)
     this.saveEvent(EVENT, userLocalStorage);
   }
 

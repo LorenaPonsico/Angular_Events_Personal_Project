@@ -4,7 +4,7 @@
     <img src='../../../../assets/logo_eventopia.png' alt="Imagen">
     </a>
 
-    <div class="mx-auto" id="menuToggle" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+    <div class="me-3 toggle " id="menuToggle" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" (click)="toggleNavbar()">
       <input id="checkbox" type="checkbox">
       <label class="toggle" for="checkbox">
@@ -14,10 +14,10 @@
       </label>
     </div>
 
-    <div class="navbar-collapse collapse " [ngClass]="{'show': !isNavbarCollapsed}" id="navbarSupportedContent">
+    <div class="navbar-collapse collapse  " [ngClass]="{'show': !isNavbarCollapsed}" id="navbarSupportedContent">
         <ul class="navbar-nav navbar-edit ">
-        <li class="nav-item nav-center">
-          <a class="nav-link " aria-current="page" routerLink="/inicio" (click)="closeNavbar()"> <i
+        <li class="nav-item nav-center ">
+          <a class="nav-link  " aria-current="page" routerLink="/inicio" (click)="closeNavbar()"> <i
               class="fa-solid fa-house"></i> Inicio</a>
         </li>
 
@@ -43,23 +43,23 @@
       
       
       <ul class="navbar-nav row   ">
-          <li *ngIf="userLoginOn" class="nav-item">
+          <li *ngIf="userLoginOn" class="nav-item nav-end">
             <a class="nav-link" aria-current="page" href="#" routerLink="/panel-control"
             (click)="closeNavbar()"> <i class="fa-solid fa-person"></i> {{  'Datos Personales' }} </a>
         </li>
         
-        <li *ngIf="userLoginOn" class="nav-item ">
+        <li *ngIf="userLoginOn" class="nav-item nav-end">
           <a class="nav-link " aria-current="page" (click)="openDialogCustom(logouttemplate)"> <i
             class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar sesión </a>
             
         </li>
     
-        <li *ngIf="!userLoginOn" class="nav-item d-flex justify-content-end">
+        <li *ngIf="!userLoginOn" class="nav-item nav-end">
           <a class="nav-link btn-sm" aria-current="page" routerLink="/iniciar-sesion" (click)="closeNavbar()"> <i
               class="fa-solid fa-arrow-right-from-bracket"></i> Iniciar Sesion</a>
         </li>
 
-        <li *ngIf="!userLoginOn" class="nav-item d-flex justify-content-end">
+        <li *ngIf="!userLoginOn" class="nav-item nav-end">
           <a class="nav-link btn-sm" aria-current="page" routerLink="/registro" (click)="closeNavbar()"> <i
             class="fa-solid fa-user-plus"></i> Regístrate
             Ahora</a>

@@ -88,3 +88,17 @@ p {
 }
 
 
+/* Estilos para pantallas más pequeñas (ejemplo: dispositivos móviles) */
+@media (max-width: 750px) {
+
+  .text-background{
+padding: 30px;
+  }
+
+  .image-container img {
+    max-width: 70%; /* Ajusta el ancho máximo de la imagen al tamaño del contenedor */
+    max-height: 70%; /* Ajusta la altura máxima de la imagen al tamaño del contenedor */
+    z-index: -1; /* Coloca la imagen en la capa inferior */
+  }
+  
+}
