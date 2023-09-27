@@ -6,8 +6,7 @@ import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { environment } from 'src/enviroment';
-import { LoginRequest } from './loginRequest';
-import { Event } from '../models/event';
+
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {

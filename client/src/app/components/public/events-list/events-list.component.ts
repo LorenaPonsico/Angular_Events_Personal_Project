@@ -14,7 +14,8 @@ export class EventsListComponent implements OnInit {
   listEvents: Event[] = [];
   userLoginOn: boolean = false;
   user?: User | null;
-  
+  eventsLoaded: boolean = false;
+
   constructor( private eventsService: EventsService, private accountService: AccountService){}
 
   ngOnInit(): void {
@@ -23,19 +24,20 @@ export class EventsListComponent implements OnInit {
           this.user = user;
           this.userLoginOn = !!user; // Convertimos el objeto user en un valor booleano
         });
-       
   }
 
   getEvents(){
+    // this.eventsLoaded = true;      
     this.eventsService.getEvents().subscribe((data: Event[]) => {
       // Ordenar los eventos por fecha en orden descendente (eventos más recientes primero)
       data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-      
       // Obtener solo los primeros 6 eventos (los más recientes)
       this.listEvents = data.slice(0, 6);
+      // Establecer eventsLoaded en true para ocultar el spinner
+      this.eventsLoaded = true;
     }, error => {
       console.log(error);
-    })
+    });
   }
 }
 

@@ -1,19 +1,10 @@
-
-
-
-
-
-
 .container-fluid {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  /* Asegura que el contenedor tenga al menos la altura del viewport */
   overflow: hidden;
-  /* Evita que el color azul se extienda fuera del contenedor */
   position: relative;
-  /* Establece posición relativa para posicionar el color azul */
 }
 
 .container-fluid::before {
@@ -21,47 +12,38 @@
   position: absolute;
   top: 0;
   left: 40%;
-  /* Cambia el valor izquierdo al 50% para aplicar el fondo a la mitad derecha */
   width: 60%;
-  /* Mitad derecha */
   height: 100%;
   background-color: #e08453;
-  /* Color naranja para la mitad derecha */
   z-index: -1;
-  /* Coloca el fondo detrás del contenido */
 }
-
-
 
 .card {
   background: transparent;
   border: none;
   width: 700px;
-  height: 10px;
+  /* height: 10px; */
   font-family: 'Raleway';
   text-align: center;
-  margin-left: 800px;
-  /* Ajusta según tus preferencias */
-
+  margin-left: 600px;
 }
 
-/* Estilos para el título */
 .card-title {
-  font-size: 25px;
+  font-size: 30px;
   color: white;
   font-family: 'Raleway';
-  text-align: left;
+  text-align: right;
   margin-bottom: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  text-indent: 2em;
-  padding-top: 50px;
-  font-weight: bold;
+  /* text-indent: 2em; */
+  /* padding-top: 30px; */
+  /* font-weight: bold; */
 }
 
 .card-body {
   font-size: 16px;
-  text-align: right;
+  text-align: center;
   margin-bottom: 10px;
   color: white;
   letter-spacing: 2px;
@@ -78,101 +60,82 @@
   padding-top: 50px;
 }
 
-.card-text ul {
+.card-text p {
   list-style-type: none;
-  /* Elimina los puntos de la lista */
   padding: 0;
-  /* Elimina el relleno predeterminado de la lista */
-  display: flex;
-  /* Utiliza flexbox para distribuir los elementos horizontalmente */
-  justify-content: flex-end;
-  /* Alinea los elementos a la derecha */
-  flex-wrap: wrap;
-  /* Permite que los elementos de lista se envuelvan a la siguiente línea si no caben en el ancho */
-}
-
-.card-text ul i {
-  margin-right: 10px;
-  /* Espacio entre el ícono y el texto */
-}
-
-.card-text ul::before {
-  content: "\2022";
-  /* Agrega un marcador de viñeta personalizado */
-  color: #e08453;
-  /* Color naranja para el marcador de viñeta */
-  display: inline-block;
-  /* Alinea el marcador de viñeta con el texto */
-  width: 1em;
-  /* Espaciado entre el marcador de viñeta y el texto */
-  margin-left: -1em;
-  /* Mueve el marcador de viñeta hacia la izquierda para centrarlo */
-}
-
-
-
-
-
-.image-container {
-  width: 600px;
-  /* Establece el ancho fijo del contenedor cuadrado */
-  height: 600px;
-  /* Establece la altura fija del contenedor cuadrado */
   display: flex;
   justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  /* Recorta cualquier contenido que exceda las dimensiones */
-  margin-left: 150px;
-  position: relative;
-  /* Establece una posición relativa para posicionar elementos hijos */
+  flex-wrap: wrap;
 }
 
-.image-container img {
-  max-width: 100%;
-  /* Ajusta el ancho máximo de la imagen al tamaño del contenedor */
-  max-height: 100%;
-  /* Ajusta la altura máxima de la imagen al tamaño del contenedor */
-  z-index: -1;
-  /* Coloca la imagen en la capa inferior */
+.card-text p i {
+  margin-right: 10px;
 }
+
+.card-text p::before {
+  content: "\2022";
+  color: #e08453;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+
+
 
 /* Estilos para pantallas más pequeñas (ejemplo: dispositivos móviles) */
-@media (max-width: 768px) {
+@media (max-width: 990px) {
   .container-fluid {
-    flex-direction: column;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    padding: 20px;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background-color: #e08453; /* Cambia el fondo a naranja */
   }
-
   
-   .container-fluid::before {
-    left: 50%; /* Cambia a la mitad derecha */
-    width: 50%; /* Mitad derecha */
-    height: 100%;
+  .container-fluid::before {
+    display: none; /* Oculta el fondo adicional */
   }
-
+  
   .card {
     background: transparent;
     border: none;
+    width: 80%; /* Ajusta el ancho del div card según tu preferencia */
     font-family: 'Raleway';
-    text-align: left;
-    max-width: 50%; /* Ajusta el ancho del div card según tu preferencia */
-    padding: 20px; /* Añade relleno según sea necesario */
-  }
-
-  .card-title,
-  .card-body,
-  .card-text {
     text-align: center;
+ 
+    color: white; /* Texto en blanco */
+    margin: 0 auto; /* Centra el card horizontalmente */
   }
-
-
-  .image-container {
-    width: 30px; /* Ancho máximo del 70% para la imagen */
-    height: 30px;
-
+  
+  .card-title {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    padding-top: 20px; /* Ajusta el espacio superior según tu preferencia */
   }
-
+  
+  .card-body {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+  }
+  
+  .card-text {
+    font-size: 14px;
+    color: white; /* Texto en blanco */
+    letter-spacing: 2px;
+    text-align: center;
+    max-width: 80%;
+    margin: 0 auto;
+    padding-top: 20px; /* Ajusta el espacio superior según tu preferencia */
+  }
+  
 
 }

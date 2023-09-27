@@ -1,13 +1,10 @@
-
-
-/* Establece el fondo azul para la mitad izquierda */
 .container-fluid {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Asegura que el contenedor tenga al menos la altura del viewport */
-  overflow: hidden; /* Evita que el color azul se extienda fuera del contenedor */
-  position: relative; /* Establece posición relativa para posicionar el color azul */
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
 }
 
 .container-fluid::before {
@@ -15,62 +12,59 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 50%; /* Mitad izquierda */
+  width: 50%;
   height: 100%;
-  background-color: #549eb9; /* Color azul para la mitad izquierda */
-  z-index: -1; /* Coloca el fondo detrás del contenido */
+  background-color: #549eb9;
+  z-index: -1;
 }
 
-/* Estilo del recuadro blanco para el texto */
 .text-container {
   position: absolute;
-  top: 50%; /* Centra verticalmente */
-  left: 5%; /* Espacio a la izquierda (ajusta según tus preferencias) */
-  transform: translateY(-50%); /* Centra verticalmente */
-  width: 40%; /* Ancho del recuadro blanco (ajusta según tus preferencias) */
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  width: 40%;
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Alinea el contenido en la parte superior */
-  padding-left: 20px; /* Espaciado a la izquierda (ajusta según tus preferencias) */
+  align-items: flex-start;
+  padding-left: 20px;
 }
 
 .text-background {
   background-color: white;
-  padding: 60px; /* Ajusta el espaciado según tus preferencias */
+  padding: 60px;
   text-align: center;
   color: black;
 }
 
 .image-container {
-  width: 600px; /* Establece el ancho fijo del contenedor cuadrado */
-  height: 600px; /* Establece la altura fija del contenedor cuadrado */
+  width: 600px;
+  height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* Recorta cualquier contenido que exceda las dimensiones */
+  overflow: hidden;
   margin-left: 300px;
-  position: relative; /* Establece una posición relativa para posicionar elementos hijos */
+  position: relative;
 }
 
 .image-container img {
-  max-width: 100%; /* Ajusta el ancho máximo de la imagen al tamaño del contenedor */
-  max-height: 100%; /* Ajusta la altura máxima de la imagen al tamaño del contenedor */
-  z-index: -1; /* Coloca la imagen en la capa inferior */
+  max-width: 100%;
+  max-height: 100%;
+  z-index: -1;
 }
 
 .abstract-shape {
-  width: 200px; /* Ancho de la forma */
-  height: 200px; /* Altura de la forma */
-  background-color: #f7c459; /* Color de fondo mostaza */
-  position: absolute; /* Establece una posición absoluta para posicionar la forma */
-  top: 400px; /* Ajusta la posición vertical según tus preferencias */
-  left: 1100px; /* Ajusta la posición horizontal para que esté detrás de la imagen */
-  z-index: -2; /* Coloca la forma abstracta detrás de la imagen */
-  transform: rotate(45deg) skewX(20deg); /* Aplica una rotación y una inclinación */
-  border-radius: 20% 50% 30% 60% / 40% 30% 50% 20%; /* Define un borde irregular */
+  width: 200px;
+  height: 200px;
+  background-color: #f7c459;
+  position: absolute;
+  top: 400px;
+  left: 1100px;
+  z-index: -2;
+  transform: rotate(45deg) skewX(20deg);
+  border-radius: 20% 50% 30% 60% / 40% 30% 50% 20%;
 }
-
-
 
 
 h3 {
@@ -84,21 +78,34 @@ p {
   font-size: 25px;
   font-family: 'Raleway';
   margin-top: 20px;
-  line-height: 1; 
+  line-height: 1;
 }
 
 
 /* Estilos para pantallas más pequeñas (ejemplo: dispositivos móviles) */
-@media (max-width: 750px) {
-
-  .text-background{
-padding: 30px;
+@media (max-width: 990px) {
+  .image-container {
+    display: none;
   }
 
-  .image-container img {
-    max-width: 70%; /* Ajusta el ancho máximo de la imagen al tamaño del contenedor */
-    max-height: 70%; /* Ajusta la altura máxima de la imagen al tamaño del contenedor */
-    z-index: -1; /* Coloca la imagen en la capa inferior */
+  .container-fluid::before {
+    width: 100%;
+    height: 80%;
   }
-  
+
+  .text-container {
+    width: 80%;
+    left: 10%;
+  }
+
+  .text-background {
+    padding: 30px;
+  }
+
+  /* Nuevo estilo para el cuadro blanco con letras encima */
+  .new-background {
+    background-color: blue;
+    color: white;
+    padding: 20px;
+  }
 }

@@ -23,7 +23,7 @@ export class EventsScheduleComponent {
   userLoginOn: boolean = false;
   user?: User | null;
   eventsByType: { [type: string]: Event[] } = {}; // Objeto para agrupar eventos por tipo  
-  eventsLoaded = false;
+  eventsLoaded: boolean = false;
 
   constructor( private eventsService: EventsService, private accountService:AccountService ){ }
 

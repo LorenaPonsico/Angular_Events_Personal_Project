@@ -69,37 +69,24 @@
 .btn-view-event {
   background-color: #e08453;
   color: white;
-  /* display: block; */
   margin: 3px auto;
-  /* Centra horizontalmente */
   border: none;
-  /* Quita el borde */
   border-radius: 0;
-  /* Quita las esquinas redondas */
   padding: 5px 10px;
-  /* Ajusta el espaciado interno según tus necesidades */
   cursor: pointer;
-  /* Cambia el cursor al pasar por encima */
   transition: background-color 0.3s, transform 0.3s;
-  /* Agrega una transición suave */
 }
 
 .btn-view-event:hover {
   background-color: #d46835;
-  /* Cambia el color de fondo al pasar el cursor */
   transform: translateY(-2px);
-  /* Agrega relieve hacia arriba */
 }
 
 
 .error-message {
   color: #f7c459;
-  /* Cambia el color del texto a rojo u otro color de tu elección */
   font-size: 16px;
-  /* Ajusta el tamaño de fuente según tus preferencias */
   margin-top: 5px;
-  /* Agrega un pequeño margen superior para separar los mensajes de error */
-  /* Otros estilos que desees aplicar a los mensajes de error */
 }
 
 

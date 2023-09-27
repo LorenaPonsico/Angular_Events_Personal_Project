@@ -5,16 +5,18 @@
   </div>
   
   <div class="card-container">
-  <div class="card" *ngFor="let event of listEvents">
-    <!-- <img class="card-image" [style.background-image]="'url(' + event + ')'"> -->
-    <div class="card-body">
+    
+    <div class="card" *ngFor="let event of listEvents">
+      <div class="card-body">
       <h5 class="card-title">{{ event.title | titlecase }}</h5>
-      <p class="card-text">Fecha: {{ event.date | date }}</p>
-      <p class="card-text">Categoria: {{ event.type }}</p>
+      <p class="card-text">{{ event.date | date }}</p>
       <a *ngIf="!userLoginOn" href="#" class="btn " routerLink="/registro">Ir al evento</a>
       <a *ngIf="userLoginOn" href="#" class="btn " [routerLink]="'/event/' + event._id">Ir al evento</a>
     </div>
   </div>
+
+  <div *ngIf="!eventsLoaded" class="spinner"> </div>
+
 </div>
 
 </div>

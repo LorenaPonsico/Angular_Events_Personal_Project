@@ -1,4 +1,3 @@
-// import { User } from './../../../models/user';
 import { Component, HostListener, OnInit, TemplateRef } from '@angular/core';
 import { AccountService } from '../../../services/auth-users.service';
 import { User } from 'src/app/models/user';
@@ -31,7 +30,12 @@ export class NavbarComponent implements OnInit {
       this.user = user;
       this.userLoginOn = !!user; // Convertimos el objeto user en un valor booleano
      
-        console.log(this.user?.name);
+      console.log('Usuario autenticado:', this.userLoginOn);
+      if (this.userLoginOn && this.user) {
+        console.log('Nombre de usuario:', this.user.name);
+      } else {
+        console.log('Usuario no autenticado o nombre de usuario no disponible');
+      }
         //NO APARECE EL NOMBRE DEL USUARIO, SALE UNDEFINED
     });
   }
@@ -48,6 +52,7 @@ export class NavbarComponent implements OnInit {
   
   closeNavbar(): void {
    this.isNavbarCollapsed = true;
+   console.log(this.isNavbarCollapsed)
   }
 
   logout() {

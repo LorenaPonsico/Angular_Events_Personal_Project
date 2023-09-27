@@ -24,7 +24,6 @@
 }
 
 .card {
-
   width: 300px;
   height: 300px;
   display: flex;
@@ -36,27 +35,20 @@
   margin: 40px;
   overflow: hidden;
   position: relative;
-  border-radius: 0;
-  /* Hace que las esquinas sean cuadradas */
+  border-radius: 50%;
   border: none;
-  /* Elimina el borde */
 }
 
-/* Asegura que cada tarjeta ocupe el ancho especificado y se alinee horizontalmente */
 .card-body {
   width: 100%;
-  /* Cambia el valor según tus preferencias */
   margin: 0 auto;
-  /* Para centrar el card-body horizontalmente */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  /* background-color: #f9f9f9; */
   padding: 10px;
   background-color: #549eb9;
-  /* Color de fondo de la tarjeta */
 }
 
 .card-body:hover {
@@ -64,20 +56,18 @@
   transform: scale(1.10);
 }
 
-
-
-
 .card-title {
   margin-bottom: 10px;
   font-size: 20px;
   font-family: 'Raleway';
-  color: white;
+  color: #333; 
+  /* color: white; */
   font-weight: bold;
 }
 
 .card-text{
   margin-bottom: 10px;
-  font-size: 15px;
+  font-size: 16px;
   font-family: 'Raleway';
   color: white;
 }
@@ -85,7 +75,6 @@
 .btn {
   font-family: 'Raleway';
   font-size: 15px;
-
   display: inline-block;
   margin-top: 10px;
   padding: 8px 16px;
@@ -98,7 +87,85 @@
 }
 
 .btn:hover {
-  /* background-color: #549eb9; */
   transform: scale(1.05);
-  /* transition: background-color 0.3s, transform 0.3s; */
+}
+
+
+.spinner {
+  --size: 30px;
+  --first-block-clr: #f7c459;
+  --second-block-clr: #549eb9;
+  --clr: #111;
+  width: 100px;
+  height: 100px;
+  position: relative;
+ }
+ 
+ .spinner::after,.spinner::before {
+  box-sizing: border-box;
+  position: absolute;
+  content: "";
+  width: var(--size);
+  height: var(--size);
+  top: 50%;
+  animation: up 2.4s cubic-bezier(0, 0, 0.24, 1.21) infinite;
+  left: 50%;
+  background: var(--first-block-clr);
+ }
+ 
+ .spinner::after {
+  background: var(--second-block-clr);
+  top: calc(50% - var(--size));
+  left: calc(50% - var(--size));
+  animation: down 2.4s cubic-bezier(0, 0, 0.24, 1.21) infinite;
+ }
+ 
+
+ 
+ @keyframes down {
+  0%, 100% {
+   transform: none;
+  }
+ 
+  25% {
+   transform: translateX(100%);
+  }
+ 
+  50% {
+   transform: translateX(100%) translateY(100%);
+  }
+ 
+  75% {
+   transform: translateY(100%);
+  }
+ }
+ 
+ @keyframes up {
+  0%, 100% {
+   transform: none;
+  }
+ 
+  25% {
+   transform: translateX(-100%);
+  }
+ 
+  50% {
+   transform: translateX(-100%) translateY(-100%);
+  }
+ 
+  75% {
+   transform: translateY(-100%);
+  }
+ }
+ 
+
+
+ /* Añade una media query para ajustar el diseño en tamaños de pantalla más pequeños */
+@media screen and (max-width: 768px) {
+
+  .card {
+    width: 200px;
+    height: 200px;
+   
+  }
 }

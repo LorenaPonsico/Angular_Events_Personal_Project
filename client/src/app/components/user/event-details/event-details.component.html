@@ -146,14 +146,12 @@
         <div mat-dialog-content>Estas seguro/a que deseas realizar cambios en el evento?
           <div mat-dialog-actions>
             <button class="btn btn-event" mat-dialog-close>No</button>
-            <button (click)="updateEvent()" [disabled]="!eventForm.valid" class="btn btn-event"
+            <button (click)="updateEvent()" (click)="showEventForm = false" [disabled]="!eventForm.valid" class="btn btn-event"
               mat-dialog-close>Si</button>
           </div>
         </div>
       </ng-template>
 
     </div>
-
-
   </form>
 </div>

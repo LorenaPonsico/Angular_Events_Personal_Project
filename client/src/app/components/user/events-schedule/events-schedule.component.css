@@ -12,6 +12,11 @@
   align-items: center; 
 }
 
+.card-events {
+  padding: 20px;
+  margin-bottom: 100px;
+}
+
 .nav-tabs {
   border-bottom: none !important;
 }
@@ -57,11 +62,6 @@ font-size: 16px;
 }
 
 
-.card-events {
-  padding: 20px;
-  /* margin-top: 100px; */
-  margin-bottom: 100px;
-}
 
 
 .event-card {
@@ -106,7 +106,7 @@ font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
   font-family: 'Raleway';
-  font-size: 20px;
+  /* font-size: 20px; */
 }
 
 .btn:hover {
