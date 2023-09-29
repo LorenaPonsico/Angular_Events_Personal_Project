@@ -29,6 +29,10 @@ footer{
   footer {
     padding-left: 30%; /* Cambia el valor del padding para dispositivos móviles */
   }
+  .section-title{
+    padding: 10px;
+    margin: 10px;
+  }
 }
 
 /* Media query para pantallas de tamaño intermedio (ejemplo: entre 768px y 1200px) */

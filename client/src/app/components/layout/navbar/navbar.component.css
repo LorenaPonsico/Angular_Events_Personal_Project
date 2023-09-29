@@ -80,6 +80,10 @@ img {
   transition: none 0.35s cubic-bezier(.5, -0.35, .35, 1.5) 0s;
 }
 
+.login{
+  font-size: 14px;
+}
+
 /* Estilos para los botones datos personales y cerrar sesion*/
 .navbar .nav-link.btn.btn-sm {
   font-size: 15px;

@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 }
 
 .card-events {
@@ -21,9 +21,9 @@
   border-bottom: none !important;
 }
 
-p{
+p {
   font-family: 'Raleway';
-font-size: 16px;
+  font-size: 16px;
 }
 
 .title {
@@ -41,28 +41,27 @@ font-size: 16px;
 }
 
 .menu-desplegable {
-  display: none; /* Ocultar el botón inicialmente */
+  display: none;
+  /* Ocultar el botón inicialmente */
 }
 
 .nav-link {
   background-color: #fad390;
   color: #ffffff;
-  
+  font-size: 22px;
+
 }
 
 .nav-link.active {
   background-color: #ffffff;
-  color:#e08453;
+  color: #e08453;
 }
 
 .nav.nav-tabs {
   display: flex;
   justify-content: space-between;
-  
+
 }
-
-
-
 
 .event-card {
   padding: 10px;
@@ -70,11 +69,11 @@ font-size: 16px;
   margin-top: 20px;
   background-color: #549eb9;
   text-align: center;
-  max-width: 800px; /* Ancho máximo deseado */
-  height: 150px; /* Altura deseada */
+  max-width: 800px;
+  height: 150px;
 }
 
-.event-card:hover{
+.event-card:hover {
   background-color: #549eb9;
   transform: scale(1.08);
 }
@@ -106,7 +105,6 @@ font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
   font-family: 'Raleway';
-  /* font-size: 20px; */
 }
 
 .btn:hover {
@@ -128,9 +126,10 @@ font-size: 16px;
   width: 100px;
   height: 100px;
   position: relative;
- }
- 
- .spinner::after,.spinner::before {
+}
+
+.spinner::after,
+.spinner::before {
   box-sizing: border-box;
   position: absolute;
   content: "";
@@ -140,57 +139,62 @@ font-size: 16px;
   animation: up 2.4s cubic-bezier(0, 0, 0.24, 1.21) infinite;
   left: 50%;
   background: var(--first-block-clr);
- }
- 
- .spinner::after {
+}
+
+.spinner::after {
   background: var(--second-block-clr);
   top: calc(50% - var(--size));
   left: calc(50% - var(--size));
   animation: down 2.4s cubic-bezier(0, 0, 0.24, 1.21) infinite;
- }
- 
+}
 
- 
- @keyframes down {
-  0%, 100% {
-   transform: none;
+
+
+@keyframes down {
+
+  0%,
+  100% {
+    transform: none;
   }
- 
+
   25% {
-   transform: translateX(100%);
+    transform: translateX(100%);
   }
- 
+
   50% {
-   transform: translateX(100%) translateY(100%);
+    transform: translateX(100%) translateY(100%);
   }
- 
+
   75% {
-   transform: translateY(100%);
+    transform: translateY(100%);
   }
- }
- 
- @keyframes up {
-  0%, 100% {
-   transform: none;
+}
+
+@keyframes up {
+
+  0%,
+  100% {
+    transform: none;
   }
- 
+
   25% {
-   transform: translateX(-100%);
+    transform: translateX(-100%);
   }
- 
+
   50% {
-   transform: translateX(-100%) translateY(-100%);
+    transform: translateX(-100%) translateY(-100%);
   }
- 
+
   75% {
-   transform: translateY(-100%);
+    transform: translateY(-100%);
   }
- }
- 
+}
+
 
 
 /* Añade una media query para ajustar el diseño en tamaños de pantalla más pequeños */
 @media screen and (max-width: 830px) {
+
   /* Modifica el tamaño del título para pantallas más pequeñas */
   .title {
     font-size: 20px;
@@ -203,23 +207,29 @@ font-size: 16px;
 
   /* Ajusta el ancho máximo de las tarjetas para pantallas más pequeñas */
   .event-card {
-    max-width: 90%; /* Puedes ajustar esto según tus necesidades */
+    max-width: 90%;
+    /* Puedes ajustar esto según tus necesidades */
   }
 
   .nav.nav-tabs {
-    flex-wrap: wrap; /* Permite que los títulos se envuelvan en pantallas pequeñas */
+    flex-wrap: wrap;
+    /* Permite que los títulos se envuelvan en pantallas pequeñas */
     justify-content: center;
   }
+
   .btn.nav-link {
-    flex-basis: calc(33.33% - 10px); /* Divide igualmente en 3 columnas con espacio entre ellas */
-    margin: 5px; /* Agrega margen entre los títulos */
+    flex-basis: calc(33.33% - 10px);
+    /* Divide igualmente en 3 columnas con espacio entre ellas */
+    margin: 5px;
+    /* Agrega margen entre los títulos */
   }
 }
 
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 770px) {
   .menu-desplegable {
-    display: block; /* Mostrar el botón cuando se cumple la condición */
+    display: block;
+    /* Mostrar el botón cuando se cumple la condición */
   }
 
   .nav.nav-tabs {

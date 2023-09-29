@@ -67,7 +67,7 @@
 }
 
 .btn-view-event {
-  background-color: #e08453;
+  background-color: #549eb9;
   color: white;
   margin: 3px auto;
   border: none;
@@ -78,7 +78,7 @@
 }
 
 .btn-view-event:hover {
-  background-color: #d46835;
+  /* background-color: #d46835; */
   transform: translateY(-2px);
 }
 

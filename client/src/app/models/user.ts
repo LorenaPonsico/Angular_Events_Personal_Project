@@ -2,7 +2,7 @@ import { Event } from './event';
 
 export class User {
     _id: string;
-    name: string;
+    name?: string;
     surname?: string;
     email?: string;
     password?: string;

@@ -8,22 +8,22 @@
 
   <div class="user-card" *ngIf="userData">
     <div class="card-body">
-      <p><strong>Nombre:</strong> {{ userDetails.name | titlecase }}</p>
-      <p><strong>Apellidos:</strong> {{ userDetails.surname | titlecase}}</p>
-      <p><strong>Fecha nacimiento:</strong> {{ userDetails.birthDate | date }}</p>
-      <p><strong>Telefono:</strong> {{ userDetails.phone }}</p>
-      <p><strong>Email:</strong> {{ userDetails.email | lowercase }}</p>
-      <p><strong>Eventos a los que te has apuntado:</strong></p>
+      <p> <i class="fa-solid fa-bookmark"> </i> <strong> Nombre:</strong> {{ userDetails.name | titlecase }}</p>
+      <p> <i class="fa-solid fa-bookmark"></i> <strong> Apellidos:</strong> {{ userDetails.surname | titlecase}}</p>
+      <p> <i class="fa-solid fa-bookmark"> </i><strong> Fecha nacimiento:</strong> {{ userDetails.birthDate | date }}</p>
+      <p> <i class="fa-solid fa-bookmark"> </i><strong> Telefono:</strong> {{ userDetails.phone }}</p>
+      <p> <i class="fa-solid fa-bookmark"></i><strong> Email:</strong> {{ userDetails.email | lowercase }}</p>
+      <p> <i class="fa-solid fa-bars"></i> <strong> Eventos a los que te has apuntado:</strong></p>
       <ul>
         <li *ngFor="let event of userDetails?.events">{{ event.title | uppercase }}
           - Fecha: {{ event.date | date }} - Hora: {{event.startTime}}
-          <button class="btn-view-event" [routerLink]="'/event/' + event._id">Ver</button>
+          <button class="btn-view-event" [routerLink]="'/event/' + event._id"> <i class="fa-solid fa-magnifying-glass"></i></button>
         </li>
       </ul>
 
       <div>
-        <button class="btn" (click)="showUserForm = !showUserForm">Modificar Datos</button>
-        <button class="btn" (click)="openDialogCustom(deleteUserTemplate)">Eliminar Usuario</button>
+        <button class="btn" (click)="showUserForm = !showUserForm"> <i class="fa-solid fa-pen"></i>  Modificar Datos</button>
+        <button class="btn" (click)="openDialogCustom(deleteUserTemplate)"> <i class="fa-solid fa-trash"></i> Eliminar Usuario</button>
       </div>
 
       <!-- DIALOG / MODAL  -->

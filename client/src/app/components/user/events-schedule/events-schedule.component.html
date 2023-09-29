@@ -8,15 +8,15 @@
             </div>
 
             <nav>
-                <button class="menu-desplegable" (click)="showButtonsType = !showButtonsType">Mostrar Menú</button>
-                <div *ngIf="showButtonsType" class="menu-desplegable">
-                    <div *ngIf="showButtonsType" class="botones-especificos">
+                <button class="menu-desplegable" (click)="toggleCategoryButtons()">Mostrar Menú</button>
+                <div *ngIf="showCategoryButtons" class="menu-desplegable">
+                    <!-- <div *ngIf="showCategoryButtons" class="botones-especificos"> -->
                         <button class="btn nav-link active" id="nav-home-tab">Arte</button>
                         <button class="btn nav-link" id="nav-profile-tab" >Cultura</button>
                         <button class="btn nav-link" id="nav-gastronomia-tab">Gastronomia</button>
                         <button class="btn nav-link" id="nav-infantil-tab">Infantil</button>
                         <button class="btn nav-link" id="nav-salud-tab">Salud y Bienestar</button>
-                    </div>
+                    <!-- </div> -->
                 </div>
 
                 <div class="nav nav-tabs mt-5" id="nav-tab" role="tablist">

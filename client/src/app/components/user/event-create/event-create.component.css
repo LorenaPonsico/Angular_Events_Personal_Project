@@ -10,6 +10,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 900px; /* Cambia el valor según tus necesidades */
+  /* width: 100%;  */
+}
+
+.card-body{
+  width: 600px; /* Cambia el valor según tus necesidades */
+
 }
 
 

@@ -17,7 +17,8 @@ export class EventsScheduleComponent {
   gastronomy: string = Constants.TYPEEVENTS.GASTRONOMY
   children: string = Constants.TYPEEVENTS.CHILDREN
   wellness:string = Constants.TYPEEVENTS.WELLNESS
-  showButtonsType:boolean = true;
+  showCategoryButtons: boolean = true;
+
 
   listEvents: Event[] = [];
   userLoginOn: boolean = false;
@@ -57,6 +58,11 @@ export class EventsScheduleComponent {
       }
     });
   }
+
+  toggleCategoryButtons() {
+    this.showCategoryButtons = !this.showCategoryButtons;
+  }
+  
 
   sortEventsByDate(events: Event[]): Event[] {
     return events.sort((a: Event, b: Event) => {

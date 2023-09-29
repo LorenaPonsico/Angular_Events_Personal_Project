@@ -21,6 +21,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+
 }
 
 .card {
@@ -32,11 +33,12 @@
   align-items: center;
   text-align: center;
   background-color: #549eb9;
+  transition: background-color 0.3s;
   margin: 40px;
   overflow: hidden;
   position: relative;
-  border-radius: 50%;
   border: none;
+  border-radius: 0;
 }
 
 .card-body {
@@ -52,7 +54,7 @@
 }
 
 .card-body:hover {
-  background-color: #549eb9;
+  background-color: #6eb6d4; 
   transform: scale(1.10);
 }
 
@@ -61,7 +63,6 @@
   font-size: 20px;
   font-family: 'Raleway';
   color: #333; 
-  /* color: white; */
   font-weight: bold;
 }
 
