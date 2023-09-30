@@ -1,7 +1,7 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Event } from 'src/app/models/event';
 import { User } from 'src/app/models/user';
@@ -228,7 +228,7 @@ export class EventDetailsComponent implements OnInit {
         (updatedEvent: Event | undefined) => {
           if (updatedEvent) {
             this.toastr.success('Te has apuntado al evento');
-        this.router.navigate(['/panel-control']);
+            this.router.navigate(['/panel-control']);
 
           } else {
             console.error('El usuario no se pudo apuntar al evento');
@@ -287,6 +287,7 @@ export class EventDetailsComponent implements OnInit {
       this.accountService.updateUser(this.currentUser).subscribe(
         (user) => {
           this.setUserToLocalStorage(user);
+          this.router.navigate(['/panel-control'])
         },
         error => {
           console.error('Error al agregar el evento:', error);

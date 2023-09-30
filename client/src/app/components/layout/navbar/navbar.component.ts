@@ -25,22 +25,20 @@ export class NavbarComponent implements OnInit {
 
 
     ngOnInit(): void {
-    this.user = JSON.parse(localStorage.getItem('user')!);
-  
-    this.isNavbarCollapsed = true;
-    this.accountService.user.subscribe((user) => {
-      // this.user = user;
-      this.userLoginOn = !!user; 
-      // Convertimos el objeto user en un valor booleano
-     
-      console.log('Usuario autenticado:', this.userLoginOn);
-      if (this.userLoginOn && this.user) {
-        console.log('Nombre de usuario:', this.user);
-      } else {
-        console.log('Usuario no autenticado o nombre de usuario no disponible');
-      }
-    });
-  }
+      this.isNavbarCollapsed = true;
+      this.accountService.user.subscribe((user) => {
+        this.user = user;
+        this.userLoginOn = !!user; // Convertimos el objeto user en un valor booleano
+       
+        console.log('Usuario autenticado:', this.userLoginOn);
+        if (this.userLoginOn && this.user) {
+          console.log('Nombre de usuario:', this.user.name);
+        } else {
+          console.log('Usuario no autenticado o nombre de usuario no disponible');
+        }
+          //NO APARECE EL NOMBRE DEL USUARIO, SALE UNDEFINED
+      });
+    }
   
   toggleNavbar() {
     this.isNavbarCollapsed = !this.isNavbarCollapsed;
