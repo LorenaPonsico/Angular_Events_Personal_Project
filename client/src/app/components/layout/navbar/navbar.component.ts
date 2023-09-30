@@ -14,7 +14,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class NavbarComponent implements OnInit {
 
   userLoginOn: boolean = false;
-  user?: User | null;
+  user: any;
   isNavbarCollapsed = true; 
 
   constructor(
@@ -32,11 +32,10 @@ export class NavbarComponent implements OnInit {
        
         console.log('Usuario autenticado:', this.userLoginOn);
         if (this.userLoginOn && this.user) {
-          console.log('Nombre de usuario:', this.user.name);
+          console.log('Nombre de usuario:', this.user.user.name);
         } else {
           console.log('Usuario no autenticado o nombre de usuario no disponible');
         }
-          //NO APARECE EL NOMBRE DEL USUARIO, SALE UNDEFINED
       });
     }
   

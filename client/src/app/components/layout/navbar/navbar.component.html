@@ -45,7 +45,7 @@
       <ul class="navbar-nav row   ">
           <li *ngIf="userLoginOn" class="nav-item nav-end">
             <a class="nav-link login" aria-current="page" href="#" routerLink="/panel-control"
-            (click)="closeNavbar()"> <i class="fa-solid fa-person"></i> {{  'Hola' }} </a>
+            (click)="closeNavbar()"> <i class="fa-solid fa-person"></i> {{ 'Hola ' +  user.user.name | titlecase }} </a>
         </li>
         
         <li *ngIf="userLoginOn" class="nav-item nav-end">
