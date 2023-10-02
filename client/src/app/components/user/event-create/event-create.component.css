@@ -4,30 +4,25 @@
   align-items: center;
   padding: 20px;
   margin: 50px auto;
+  max-width: 100%; 
 }
 
 .form-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 900px; 
+  padding: 20px;
+  width: 100%; /* Ocupa todo el ancho disponible */
+  max-width: 900px; 
 }
 
-.card-body{
-  width: 600px; /* Cambia el valor según tus necesidades */
-
-}
 
 
 .event-card {
   background-color: #549eb9;
   padding: 20px;
-  margin: 20px;
-  max-width: 100%;
+  max-width: 100%; /* Ajusta el ancho máximo de la tarjeta */
   font-family: 'Raleway';
   color: white;
   font-size: 16px;
-  margin: 10px auto;
+  margin: 10px auto; /* Ajusta el margen vertical */
 }
 
 .title {
@@ -35,31 +30,13 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 50px;
-  margin-top: 50px;
+  margin-top: 100px;
   font-family: 'Raleway';
   font-weight: bold;
   color: #549eb9;
   font-size: 25px;
   letter-spacing: 2px;
 }
-
-/* .title-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Raleway';
-  font-weight: bold;
-  color: #549eb9;
-  font-size: 25px;
-  letter-spacing: 2px;
-} */
-
-/* .event-details {
-  color: white;
-  font-size: 16px;
-  font-family: 'Raleway';
-} */
-
 
 .btn {
   background-color: #e08453;
@@ -114,6 +91,7 @@ select {
 
   /* Modifica el tamaño del título para pantallas más pequeñas */
   .title {
+    margin-top: 80px;
     font-size: 20px;
   }
 
@@ -127,4 +105,7 @@ select {
     max-width: 90%;
     /* Puedes ajustar esto según tus necesidades */
   }
+
+
+
 }

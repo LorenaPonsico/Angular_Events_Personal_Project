@@ -23,6 +23,7 @@
   margin-top: -100px; 
   position: relative; /* Establecemos una posición relativa para el contenedor del título */
   z-index: 1; /* Aseguramos que el título esté por encima del contenedor azul */
+  margin-bottom: 20px;
 }
 
 .title {
