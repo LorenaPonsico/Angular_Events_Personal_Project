@@ -54,19 +54,6 @@
   z-index: -1;
 }
 
-.abstract-shape {
-  width: 200px;
-  height: 200px;
-  background-color: #f7c459;
-  position: absolute;
-  top: 400px;
-  left: 1100px;
-  z-index: -2;
-  transform: rotate(45deg) skewX(20deg);
-  border-radius: 20% 50% 30% 60% / 40% 30% 50% 20%;
-}
-
-
 h3 {
   font-size: 35px;
   font-family: 'Raleway';

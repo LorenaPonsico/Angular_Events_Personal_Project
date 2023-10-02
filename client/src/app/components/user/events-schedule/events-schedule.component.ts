@@ -50,12 +50,20 @@ export class EventsScheduleComponent {
   groupEventsByType() {
     this.eventsByType = {}; // Reiniciamos el objeto de eventos por tipo
     this.listEvents = this.sortEventsByDate(this.listEvents); // Ordenar eventos por fecha
+    const currentDate = new Date(); // Obtener la fecha actual
+
     this.listEvents.forEach((event: Event) => {
+      const eventDate = new Date(event.date);
+
+        // Verificar si la fecha del evento es posterior o igual a la fecha actual
+    if (eventDate >= currentDate) {
+
       if (this.eventsByType[event.type]) {
         this.eventsByType[event.type].push(event);
       } else {
         this.eventsByType[event.type] = [event];
       }
+    }
     });
   }
 
