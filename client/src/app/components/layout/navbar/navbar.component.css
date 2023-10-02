@@ -13,6 +13,7 @@ img {
   padding: 20px;
 }
 
+
 .btn {
   background-color: #e08453;
   color: white;
@@ -82,6 +83,7 @@ img {
 
 .login{
   font-size: 14px;
+  background-color: #e08453;
 }
 
 /* Estilos para los botones datos personales y cerrar sesion*/
