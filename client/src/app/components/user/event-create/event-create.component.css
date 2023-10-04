@@ -3,8 +3,9 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  margin: 50px auto;
+  /* margin: 50px auto; */
   max-width: 100%; 
+background-color: #FFF9F3;
 }
 
 .form-container {
@@ -16,11 +17,12 @@
 
 
 .event-card {
-  background-color: #549eb9;
+  background-color: #FFF9F3;
+
   padding: 20px;
   max-width: 100%; /* Ajusta el ancho máximo de la tarjeta */
   font-family: 'Raleway';
-  color: white;
+  color: #435420;
   font-size: 16px;
   margin: 10px auto; /* Ajusta el margen vertical */
 }
@@ -33,14 +35,14 @@
   margin-top: 100px;
   font-family: 'Raleway';
   font-weight: bold;
-  color: #549eb9;
+  color: #435420;
   font-size: 25px;
   letter-spacing: 2px;
 }
 
 .btn {
-  background-color: #e08453;
-  color: white;
+  background-color: #D1D3AA;
+  color: #435420;
   display: block;
   margin: 10px auto;
   border: none;
@@ -57,7 +59,7 @@
 }
 
 .btn:hover {
-  background-color: #d46835;
+  background-color: #D1D3AA;
   transform: translateY(-2px);
 }
 
@@ -67,7 +69,7 @@
 }
 
 .error-message {
-  color: #f7c459;
+  color: red;
   font-size: 16px;
   margin-top: 5px;
 }
@@ -80,7 +82,7 @@ textarea,
 select {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #435420;
   border-radius: 4px;
   font-size: 16px;
 }

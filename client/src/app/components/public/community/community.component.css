@@ -3,46 +3,52 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  background-color: #FFF9F3;
 }
 
 .container {
   margin-top: 200px;
   margin-bottom: 150px;
-  background-color: #549eb9;
+  background-color: #FFF9F3;
   letter-spacing: 2px;
-  color: black;
+  color: #FFF9F3;
   padding: 40px;
-  position: relative; 
-  
+  position: relative;
+
 }
 
-.title-container {
-  background-color: #e08453; /* Color de fondo para el título */
-  padding: 10px; /* Espaciado interno alrededor del título */
-  margin-right: -200px; /* Margen negativo a la derecha para que el título sobresalga */
-  margin-top: -100px; 
-  position: relative; /* Establecemos una posición relativa para el contenedor del título */
-  z-index: 1; /* Aseguramos que el título esté por encima del contenedor azul */
-  margin-bottom: 20px;
-}
+/* .title-container { */
+  /* background-color: #435420; */
+  /* Color de fondo para el título */
+  /* padding: 10px; */
+  /* Espaciado interno alrededor del título */
+  /* margin-right: -200px; */
+  /* Margen negativo a la derecha para que el título sobresalga */
+  /* margin-top: -100px; */
+  /* position: relative; */
+  /* Establecemos una posición relativa para el contenedor del título */
+  /* z-index: 1; */
+  /* Aseguramos que el título esté por encima del contenedor azul */
+  /* margin-bottom: 20px; */
+/* } */
 
-.title {
+/* .title {
   margin: 20px;
   font-size: 25px;
   color: white;
   margin-bottom: 30px;
   font-family: 'Raleway';
-}
+} */
 
-.text{
-  color: white;
+/* .text {
+  color: #435420;
   font-family: 'Raleway';
-letter-spacing: 3px;
-margin-top: 20px;
-}
+  letter-spacing: 3px;
+  margin-top: 20px;
+} */
 
 p {
   font-family: 'Raleway';
-  color: white;
+  color: #435420;
 
 }

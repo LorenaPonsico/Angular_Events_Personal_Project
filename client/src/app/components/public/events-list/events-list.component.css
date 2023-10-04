@@ -1,10 +1,10 @@
 .container-fluid {
+  background-color: #FFF9F3;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 80px;
-  margin-top: 50px;
+  padding-bottom: 100px;
 }
 
 .title {
@@ -14,7 +14,7 @@
   position: relative;
   font-size: 35px;
   font-family: 'Raleway';
-  color: #e08453;
+  color: #435420;
   font-weight: bold;
 }
 
@@ -33,7 +33,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #549eb9;
+  background-color: #435420;
   transition: background-color 0.3s;
   margin: 5px;
   overflow: hidden;
@@ -51,28 +51,25 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  /* padding: 10px; */
-  background-color: #549eb9;
+  background-color: #435420;
 }
 
 .card-body:hover {
-  background-color: #6eb6d4; 
+  background-color: #435420; 
   transform: scale(1.10);
 }
 
 .card-title {
-  /* margin-bottom: 10px; */
   font-size: 20px;
   font-family: 'Raleway';
-  color: #333; 
+  color: #D1D3AA; 
   font-weight: bold;
 }
 
 .card-text{
-  /* margin-bottom: 10px; */
   font-size: 16px;
   font-family: 'Raleway';
-  color: white;
+  color: #FFF9F3;
 }
 
 .btn {
@@ -97,7 +94,7 @@
 .spinner {
   --size: 30px;
   --first-block-clr: #f7c459;
-  --second-block-clr: #549eb9;
+  --second-block-clr: #435420;
   --clr: #111;
   width: 100px;
   height: 100px;

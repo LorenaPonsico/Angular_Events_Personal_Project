@@ -1,4 +1,5 @@
 .container-fluid {
+  background-color: #FFF9F3;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,7 +15,7 @@
   left: 0;
   width: 50%;
   height: 100%;
-  background-color: #549eb9;
+  background-color: white;
   z-index: -1;
 }
 
@@ -28,13 +29,14 @@
   justify-content: center;
   align-items: flex-start;
   padding-left: 20px;
+  z-index: 1; 
 }
 
 .text-background {
-  background-color: white;
+  background-color: #435420;
   padding: 60px;
   text-align: center;
-  color: black;
+  color: white;
 }
 
 .image-container {
@@ -46,6 +48,7 @@
   overflow: hidden;
   margin-left: 300px;
   position: relative;
+  z-index: 0; 
 }
 
 .image-container img {
@@ -57,13 +60,14 @@
 h3 {
   font-size: 35px;
   font-family: 'Raleway';
-  color: #e08453;
+  color: #D1D3AA;
   font-weight: bold;
 }
 
 p {
   font-size: 25px;
   font-family: 'Raleway';
+  color: #D1D3AA;
   margin-top: 20px;
   line-height: 1;
 }
@@ -90,9 +94,9 @@ p {
   }
 
   /* Nuevo estilo para el cuadro blanco con letras encima */
-  .new-background {
-    background-color: blue;
+  /* .new-background {
+    background-color: #435420;
     color: white;
     padding: 20px;
-  }
+  } */
 }

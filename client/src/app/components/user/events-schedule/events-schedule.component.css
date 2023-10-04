@@ -34,7 +34,7 @@ p {
   margin-top: 50px;
   font-family: 'Raleway';
   font-weight: bold;
-  color: #549eb9;
+  color: #435420;
   font-size: 25px;
   letter-spacing: 2px;
 
@@ -67,14 +67,14 @@ p {
   padding: 10px;
   margin-bottom: 20px;
   margin-top: 20px;
-  background-color: #549eb9;
+  background-color: #435420;
   text-align: center;
   max-width: 800px;
   height: 150px;
 }
 
 .event-card:hover {
-  background-color: #549eb9;
+  background-color: #435420;
   transform: scale(1.08);
 }
 
@@ -121,7 +121,7 @@ p {
 .spinner {
   --size: 30px;
   --first-block-clr: #f7c459;
-  --second-block-clr: #549eb9;
+  --second-block-clr: #435420;
   --clr: #111;
   width: 100px;
   height: 100px;

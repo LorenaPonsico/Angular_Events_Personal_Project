@@ -4,18 +4,17 @@ img {
   padding-left: 20px;
 }
 
-.navbar-edit{
+.navbar-edit {
   width: 100%;
   justify-content: center;
 }
 
-.nav-center{
+.nav-center {
   padding: 20px;
 }
 
-
 .btn {
-  background-color: #e08453;
+  background-color: #D1D3AA;
   color: white;
   display: block;
   margin: 10px auto;
@@ -27,7 +26,7 @@ img {
 }
 
 .btn:hover {
-  background-color: #d46835;
+  background-color: #D1D3AA;
   transform: translateY(-2px);
 }
 
@@ -40,7 +39,7 @@ img {
 }
 
 .nav-link {
-  color: black;
+  color: #435420;
   font-family: 'Raleway';
   cursor: pointer;
   font-size: 17px;
@@ -48,7 +47,7 @@ img {
 }
 
 .nav-link:hover {
-  color: black;
+  color: #435420;
   transform: scale(1.1);
 }
 
@@ -75,15 +74,15 @@ img {
   right: 0;
   height: 4px;
   border-radius: calc(4px / 2);
-  background: black;
+  background: #435420;
   color: inherit;
   opacity: 1;
   transition: none 0.35s cubic-bezier(.5, -0.35, .35, 1.5) 0s;
 }
 
-.login{
+.login {
   font-size: 14px;
-  background-color: #e08453;
+  background-color: #D1D3AA;
 }
 
 /* Estilos para los botones datos personales y cerrar sesion*/
@@ -92,7 +91,7 @@ img {
 }
 
 .navbar-white-bg {
-  background-color: white;
+  background-color: #FFF9F3;
 }
 
 /***** Collapse Animation *****/
@@ -144,23 +143,24 @@ img {
   }
 }
 
- /* pantallas pequeñas (menores de 576px) */
+/* pantallas pequeñas (menores de 576px) */
 @media (max-width: 990px) {
 
-  nav{
+  nav {
     background: white;
   }
+
   .nav-center {
     padding: 0;
     padding-left: 20px;
   }
 
-  .nav-end{
+  .nav-end {
     padding: 0;
     padding-left: 35px;
   }
 
-  .nav-item{
+  .nav-item {
     text-align: center;
   }
 }

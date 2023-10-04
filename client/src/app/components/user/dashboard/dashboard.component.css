@@ -1,4 +1,5 @@
 .container-fluid {
+  background-color: #FFF9F3;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,7 +8,7 @@
 }
 
 .user-card {
-  background-color: #549eb9;
+  background-color: #435420;
   padding: 20px;
   margin: 20px;
   max-width: 100%;
@@ -25,7 +26,7 @@
   margin-top: 50px;
   font-family: 'Raleway';
   font-weight: bold;
-  color: #549eb9;
+  color: #435420;
   font-size: 25px;
   letter-spacing: 2px;
 }
@@ -67,7 +68,7 @@
 }
 
 .btn-view-event {
-  background-color: #549eb9;
+  background-color: #435420;
   color: white;
   margin: 3px auto;
   border: none;

@@ -1,23 +1,36 @@
 footer{
-  /* background-color: #e08453; */
+  background-color: #D1D3AA;
   font-family: 'Raleway';
   padding-top: 30px;
   padding-bottom: 30px;
+}
+h4{
+  color: #435420;
+
+}
+p{
+  color: #435420;
+
 }
 
 .social-icons {
   display: flex;
   gap: 10px; /* Espacio entre los íconos */
+  color: #435420;
 }
 
 .social-icons a {
   text-decoration: none;
   color: inherit; /* Utiliza el color del texto heredado */
   cursor: pointer; /* Muestra el cursor como un puntero al pasar sobre los íconos */
+  color: #435420;
+
 }
 
 .social-icons i {
   font-size: 20px; /* Tamaño del ícono */
+  color: #435420;
+
 }
 
 .social-icons i:hover{

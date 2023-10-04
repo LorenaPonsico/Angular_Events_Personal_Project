@@ -37,10 +37,12 @@ export class NavbarComponent implements OnInit {
           console.log('Usuario no autenticado o nombre de usuario no disponible');
         }
       });
+      console.log(this.isNavbarCollapsed)
     }
   
   toggleNavbar() {
     this.isNavbarCollapsed = !this.isNavbarCollapsed;
+    console.log(this.isNavbarCollapsed)
   }
   
   openDialogCustom(template: TemplateRef<any>) {
