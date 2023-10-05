@@ -12,8 +12,7 @@ export class User {
     token: any;
     events?: Event[];
 
-    constructor( id: string, name: string, surname: string,  email: string,  password: string,    phone: string,   birthDate: string,
-    img: string, events: Event[]   ){
+    constructor( id: string, name: string, surname: string, email: string, password: string, phone: string, birthDate: string, img: string, events: Event[] ){
     this._id = id;
     this.name = name;
     this.surname = surname;
@@ -23,8 +22,6 @@ export class User {
     this.birthDate = birthDate;
     this.img = img;
     this.events = events
-
-
     }
 }
 

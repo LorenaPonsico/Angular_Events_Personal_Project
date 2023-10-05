@@ -6,11 +6,13 @@
   </div>
   <h5 class="event-title">Detalles del evento</h5>
   <div class="event-card">
-    
+
     <h5 class="title">{{ event?.title | titlecase }}</h5>
-    <button class="btn btn-event btn-me-apunto" *ngIf="userInEvent === false" (click)="openDialogCustom(apuntarmeAlEventoTemplate)"> <i class="fa-solid fa-thumbs-up"></i> Me apunto!
+    <button class="btn btn-event btn-me-apunto" *ngIf="userInEvent === false"
+      (click)="openDialogCustom(apuntarmeAlEventoTemplate)"> <i class="fa-solid fa-thumbs-up"></i> Me apunto!
     </button>
-    <button class="btn btn-event btn-me-apunto" *ngIf="userInEvent === true" (click)="openDialogCustom(borrarmeDelEventoTemplate)"> <i class="fa-solid fa-thumbs-down"></i> No voy!
+    <button class="btn btn-event btn-me-apunto" *ngIf="userInEvent === true"
+      (click)="openDialogCustom(borrarmeDelEventoTemplate)"> <i class="fa-solid fa-thumbs-down"></i> No voy!
     </button>
     <p class="event-details"><strong> Categoria: </strong> {{ event?.type }}</p>
     <p class="event-details"><strong>Fecha:</strong> {{ event?.date | date }}</p>
@@ -18,12 +20,15 @@
     <p class="event-details"><strong>Hora de fin:</strong> {{ event?.endTime }}</p>
     <p class="event-details"><strong>Lugar:</strong> {{ event?.location | titlecase }}</p>
     <p class="event-details"><strong>Capacidad máxima:</strong> {{ event?.capacity }}</p>
-    <p class="event-details"><strong>Numeros de participantes apuntados:</strong> {{ event?.registeredParticipants?.length }}</p>
+    <p class="event-details"><strong>Numeros de participantes apuntados:</strong> {{
+      event?.registeredParticipants?.length }}</p>
     <p class="event-details"><strong>Descripción:</strong> {{ event?.description }}</p>
 
-    <button class="btn btn-event " *ngIf="isCreatorEvent === true" (click)="openDialogCustom(eliminarEventoTemplate)"> <i class="fa-solid fa-trash"> </i> Eliminar
+    <button class="btn btn-event " *ngIf="isCreatorEvent === true" (click)="openDialogCustom(eliminarEventoTemplate)">
+      <i class="fa-solid fa-trash"> </i> Eliminar
       Evento</button>
-    <button class="btn btn-event " *ngIf="isCreatorEvent === true" (click)="showEventForm = !showEventForm"> <i class="fa-solid fa-pen"></i> Modificar
+    <button class="btn btn-event " *ngIf="isCreatorEvent === true" (click)="showEventForm = !showEventForm"> <i
+        class="fa-solid fa-pen"></i> Modificar
       Evento</button>
   </div>
 
@@ -42,7 +47,7 @@
     <div mat-dialog-content>Estas seguro/a que deseas desapuntarte del evento?
       <div mat-dialog-actions>
         <button class="btn btn-event" mat-dialog-close>No</button>
-        <button class="btn btn-event " (click)="unregisterEvent(event!)"  mat-dialog-close>Si</button>
+        <button class="btn btn-event " (click)="unregisterEvent(event!)" mat-dialog-close>Si</button>
       </div>
     </div>
   </ng-template>
@@ -51,7 +56,7 @@
     <div mat-dialog-content>Estas seguro/a que deseas apuntarte al evento?
       <div mat-dialog-actions>
         <button class="btn btn-event" mat-dialog-close>No</button>
-        <button class="btn btn-event " (click)="joinEvent(event!)"  mat-dialog-close>Si</button>
+        <button class="btn btn-event " (click)="joinEvent(event!)" mat-dialog-close>Si</button>
       </div>
     </div>
   </ng-template>
@@ -146,12 +151,13 @@
         <div mat-dialog-content>Estas seguro/a que deseas realizar cambios en el evento?
           <div mat-dialog-actions>
             <button class="btn btn-event" mat-dialog-close>No</button>
-            <button (click)="updateEvent()" (click)="showEventForm = false" [disabled]="!eventForm.valid" class="btn btn-event"
-              mat-dialog-close>Si</button>
+            <button (click)="updateEvent()" (click)="showEventForm = false" [disabled]="!eventForm.valid"
+              class="btn btn-event" mat-dialog-close>Si</button>
           </div>
         </div>
       </ng-template>
 
     </div>
   </form>
+
 </div>

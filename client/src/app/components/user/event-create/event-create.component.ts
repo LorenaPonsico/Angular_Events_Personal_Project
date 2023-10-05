@@ -1,11 +1,11 @@
 import { Component, TemplateRef } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Event } from 'src/app/models/event';
 import { DialogService } from 'src/app/services/dialog.service';
 import { EventsService } from 'src/app/services/events.service';
-import { AccountService } from 'src/app/services'; // Importa el AccountService aquí
+import { AccountService } from 'src/app/services';
 import { User } from 'src/app/models/user';
 import { ValidationsService } from 'src/app/services/validations.service';
 
@@ -19,8 +19,8 @@ export class EventCreateComponent {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router, // Asegúrate de tener esto
-    private toastr: ToastrService, // Asegúrate de tener esto
+    private router: Router,
+    private toastr: ToastrService,
     private eventService: EventsService,
     private dialogService: DialogService,
     private validationsService: ValidationsService,
@@ -29,8 +29,8 @@ export class EventCreateComponent {
     this.eventForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(3)]],
       date: ['', [Validators.required, this.validationsService.validateDateNotPast]],
-      startTime: ['',[ Validators.required]],
-      endTime: ['', [Validators.required]],
+      startTime: ['', Validators.required],
+      endTime: ['', Validators.required],
       capacity: ['', [Validators.required, this.validationsService.nonNegativeNumberValidator]],
       type: ['', Validators.required],
       location: ['', [Validators.required, Validators.minLength(3)]],
@@ -38,23 +38,11 @@ export class EventCreateComponent {
     });
   }
 
-  //ESTA FUNCION NO ME FUNCIONA
-  endTimeValidator(control: AbstractControl): { [key: string]: boolean } | null {
-    const startTime = this.eventForm.get('startTime')?.value;
-    const endTime = control.value;
-
-    if (startTime < endTime) {
-      return { endTimeValidator: true };
-    }
-    return null;
-  }
-
   openDialogCustom(template: TemplateRef<any>) {
     this.dialogService.openDialogCustom({
       template
     }).afterClosed().subscribe(res => console.log('Dialog close', res))
   }
-
 
   createEvent() {
     if (this.eventForm.invalid) {
@@ -85,7 +73,7 @@ export class EventCreateComponent {
       (event) => {
         //Hacemos un update de User para actualizar su array de events y meter el event actual
         let user: User = userLocalStorage.user;
-        if(user.events?.length){
+        if (user.events?.length) {
           user.events.push(event);
           this.setUserToLocalStorage(userLocalStorage.user);
           this.accountService.updateUser(userLocalStorage.user).subscribe(
@@ -95,7 +83,7 @@ export class EventCreateComponent {
               console.error('Error al agregar el evento:', error);
             }
           );
-        }else{
+        } else {
           user.events = [];
           user.events.push(event);
           this.setUserToLocalStorage(userLocalStorage.user);

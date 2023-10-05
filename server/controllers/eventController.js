@@ -89,8 +89,8 @@ exports.deleteEvent = async (req, res) => {
             res.status(404).json({ msg: 'no existe el producto' })
         }
 
-      await Event.findOneAndRemove({ _id: req.params.id})
-      res.json({ msg: 'Evento eliminado con exito'})
+        await Event.findOneAndRemove({ _id: req.params.id })
+        res.json({ msg: 'Evento eliminado con exito' })
 
     } catch (error) {
         console.log(error);

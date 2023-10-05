@@ -24,7 +24,6 @@ export class EventDetailsComponent implements OnInit {
   userInEvent: boolean = false;
   eventForm: FormGroup;
 
-
   constructor(
     private route: ActivatedRoute,
     private eventsService: EventsService,
@@ -71,7 +70,6 @@ export class EventDetailsComponent implements OnInit {
       template
     }).afterClosed().subscribe(res => console.log('Dialog close', res))
   }
-
 
   setFormEvent(event: Event) {
     this.eventForm.get('title')?.setValue(event.title);
@@ -159,7 +157,6 @@ export class EventDetailsComponent implements OnInit {
     }
   }
 
-
   getCurrentUser() {
     const currentObject = this.accountService.objectValue;
     const currentUser: User = currentObject.user;
@@ -209,7 +206,6 @@ export class EventDetailsComponent implements OnInit {
     }
 
   }
-
 
   joinEvent(event: Event): void {
     if (event._id) {

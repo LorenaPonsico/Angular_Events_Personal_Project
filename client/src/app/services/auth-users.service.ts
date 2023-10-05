@@ -1,20 +1,16 @@
-import { User } from './../models/user';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-
 import { environment } from 'src/enviroment';
-
+import { User } from './../models/user';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
 
   private userSubject: BehaviorSubject<any | null>;
   public user: Observable<User | null>;
-  currentUserLoginOn: any; //??
-  currentUserData: any;//??
 
   constructor(
     private router: Router,
@@ -39,13 +35,12 @@ export class AccountService {
           return user;
         }),
         catchError((error: HttpErrorResponse) => {
-          // Handle error here (e.g., show an error message)
+          // Handle error here ( show an error message)
           return throwError(error);
         })
       );
   }
   
-
   logout() {
     // remove user from local storage and set current user to null
     localStorage.removeItem('user');
@@ -61,18 +56,16 @@ export class AccountService {
           // You can navigate to a login page or do something else after successful registration
         }),
         catchError((error: HttpErrorResponse) => {
-          // Handle error here (e.g., show an error message)
+          // Handle error here (show an error message)
           return throwError(error);
         })
       );
   }
-  
 
   updateUser(user: User): Observable<User> {
     console.log(user)
     return this.http.put<User>(`${environment.apiUrl}/api/users/${user._id}`, user);
   }
-  
   
   deleteUser(id: string): Observable<any> {
     return this.http.delete(`${environment.apiUrl}/api/users/${id}`);

@@ -25,17 +25,12 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    // img: {
-    //     type: String,
-    //     required: true
-    // },
     creationDate: {
         type: Date,
         default: Date.now()
     },
     events:{
         type: Array
-
     }
 
 });

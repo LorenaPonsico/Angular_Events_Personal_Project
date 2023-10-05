@@ -10,15 +10,14 @@ import { Constants } from 'src/assets/constants';
   templateUrl: './events-schedule.component.html',
   styleUrls: ['./events-schedule.component.css']
 })
+
 export class EventsScheduleComponent {
   art: string = Constants.TYPEEVENTS.ART
   culture: string = Constants.TYPEEVENTS.CULTURE
   sport: string = Constants.TYPEEVENTS.SPORT
   gastronomy: string = Constants.TYPEEVENTS.GASTRONOMY
   children: string = Constants.TYPEEVENTS.CHILDREN
-  wellness:string = Constants.TYPEEVENTS.WELLNESS
-  showCategoryButtons: boolean = true;
-
+  wellness: string = Constants.TYPEEVENTS.WELLNESS
 
   listEvents: Event[] = [];
   userLoginOn: boolean = false;
@@ -26,22 +25,23 @@ export class EventsScheduleComponent {
   eventsByType: { [type: string]: Event[] } = {}; // Objeto para agrupar eventos por tipo  
   eventsLoaded: boolean = false;
 
-  constructor( private eventsService: EventsService, private accountService:AccountService ){ }
+  constructor(
+    private eventsService: EventsService,
+    private accountService: AccountService) { }
 
   ngOnInit(): void {
     this.getEvents();
     this.accountService.user.subscribe((user) => {
-          this.user = user;
-          this.userLoginOn = !!user; // Convertimos el objeto user en un valor booleano
-        });
+      this.user = user;
+      this.userLoginOn = !!user; // Convertimos el objeto user en un valor booleano
+    });
   }
 
-  getEvents(){
+  getEvents() {
     this.eventsService.getEvents().subscribe(data => {
-      // console.log(data);
       this.listEvents = data
-      this.groupEventsByType(); 
-      this.eventsLoaded = true;      
+      this.groupEventsByType();
+      this.eventsLoaded = true;
     }, error => {
       console.log(error);
     })
@@ -54,23 +54,17 @@ export class EventsScheduleComponent {
 
     this.listEvents.forEach((event: Event) => {
       const eventDate = new Date(event.date);
+      // Verificar si la fecha del evento es posterior o igual a la fecha actual
+      if (eventDate >= currentDate) {
 
-        // Verificar si la fecha del evento es posterior o igual a la fecha actual
-    if (eventDate >= currentDate) {
-
-      if (this.eventsByType[event.type]) {
-        this.eventsByType[event.type].push(event);
-      } else {
-        this.eventsByType[event.type] = [event];
+        if (this.eventsByType[event.type]) {
+          this.eventsByType[event.type].push(event);
+        } else {
+          this.eventsByType[event.type] = [event];
+        }
       }
-    }
     });
   }
-
-  toggleCategoryButtons() {
-    this.showCategoryButtons = !this.showCategoryButtons;
-  }
-  
 
   sortEventsByDate(events: Event[]): Event[] {
     return events.sort((a: Event, b: Event) => {
@@ -79,5 +73,5 @@ export class EventsScheduleComponent {
       return dateA.getTime() - dateB.getTime();
     });
   }
-  
+
 }

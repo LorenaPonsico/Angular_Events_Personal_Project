@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { AbstractControl } from '@angular/forms';
 @Injectable({
   providedIn: 'root'
 })
@@ -29,11 +28,10 @@ export class ValidationsService {
   validateDateNotPast(control: any): { [key: string]: any } | null {
     const selectedDate = new Date(control.value);
     const today = new Date();
-    
+
     if (selectedDate < today) {
       return { dateInPast: true }; // Devuelve un error si la fecha es anterior a hoy
     }
-    
     return null; // La fecha es válida
   }
 

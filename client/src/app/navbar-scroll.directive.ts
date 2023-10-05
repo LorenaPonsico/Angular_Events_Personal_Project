@@ -5,7 +5,7 @@ import { Directive, HostListener, ElementRef, Renderer2 } from '@angular/core';
 })
 export class NavbarScrollDirective {
 
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
+  constructor(private el: ElementRef, private renderer: Renderer2) { }
 
   @HostListener('window:scroll', ['$event'])
   onScroll(event: any) {

@@ -8,9 +8,11 @@ import { Dialog } from '../models/dialog';
 })
 export class DialogService {
 
-  constructor( private matDialog: MatDialog  ) { }
+  constructor(
+    private matDialog: MatDialog
+  ) { }
 
-  openDialogCustom(data: Dialog){
-   return this.matDialog.open(DialogCustomComponent, {data})
+  openDialogCustom(data: Dialog) {
+    return this.matDialog.open(DialogCustomComponent, { data })
   }
 }

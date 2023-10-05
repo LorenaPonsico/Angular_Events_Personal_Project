@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 exports.createUser = async (req, res) => {
+
     try {
         // Verificar si el email ya existe en la base de datos
         const existingUser = await User.findOne({ email: req.body.email });
@@ -29,9 +30,8 @@ exports.createUser = async (req, res) => {
     }
 }
 
-
 exports.getUsers = async (req, res) => {
-    
+
     try {
         //mostrar usuarios
         const users = await User.find();
@@ -45,6 +45,7 @@ exports.getUsers = async (req, res) => {
 }
 
 exports.updateUser = async (req, res) => {
+
     try {
         // Actualizar usuario por ID
         const { name, surname, email, password, phone, birthDate, img, events } = req.body;
@@ -110,8 +111,8 @@ exports.deleteUser = async (req, res) => {
     }
 }
 
-
 exports.signInUser = async (req, res) => {
+
     const { email, password } = req.body;
 
     try {
@@ -124,7 +125,6 @@ exports.signInUser = async (req, res) => {
 
         // Comparar la contraseña proporcionada con la contraseña almacenada en la base de datos
         const isPasswordValid = await bcrypt.compare(password, user.password);
-        //   const isPasswordValid = password === user.password ? true : false;
 
         if (!isPasswordValid) {
             return res.status(401).json({ message: 'Credenciales inválidas' });
