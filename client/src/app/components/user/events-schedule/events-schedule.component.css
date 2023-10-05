@@ -3,6 +3,8 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  background-color: #FFF9F3;
+  padding-top: 130px;
 }
 
 .form-container {
@@ -10,11 +12,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.card-events {
-  padding: 20px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 .nav-tabs {
@@ -37,40 +35,35 @@ p {
   color: #435420;
   font-size: 25px;
   letter-spacing: 2px;
-
-}
-
-.menu-desplegable {
-  display: none;
-  /* Ocultar el botón inicialmente */
 }
 
 .nav-link {
-  background-color: #fad390;
-  color: #ffffff;
+  color: #FFF9F3;
   font-size: 22px;
-
 }
 
 .nav-link.active {
-  background-color: #ffffff;
-  color: #e08453;
+  background-color: #FFF9F3;
+  color: #435420;
+  font-weight: bold;
 }
 
 .nav.nav-tabs {
   display: flex;
   justify-content: space-between;
-
 }
 
 .event-card {
-  padding: 10px;
-  margin-bottom: 20px;
+  padding: 20px;
+  padding-bottom: 20px;
   margin-top: 20px;
-  background-color: #435420;
+  background-color: #D1D3AA;
   text-align: center;
   max-width: 800px;
   height: 150px;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
 }
 
 .event-card:hover {
@@ -83,44 +76,55 @@ p {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 10px;
-  color: white;
+  color: #FFF9F3;
   font-family: 'Raleway';
 }
 
 
 .event-details {
-  color: white;
+  color: #FFF9F3;
   font-size: 16px;
   font-family: 'Raleway';
 }
 
 .btn {
-  background-color: #e08453;
-  color: white;
+  background-color: #D1D3AA;
   display: block;
   margin: 10px auto;
   border: none;
   border-radius: 0;
-  padding: 10px 20px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
   font-family: 'Raleway';
 }
 
-.btn:hover {
-  background-color: #d46835;
+.btn-create-event {
+  background-color: #D1D3AA;
+  display: block;
+  margin: 10px auto;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  font-family: 'Raleway';
+  padding: 10px 20px;
+  font-size: 15px;
+}
+
+.btn-create-event:hover {
   transform: translateY(-2px);
 }
 
-.btn-event {
-  display: block;
-  margin-left: auto;
-  font-family: 'Raleway';
+.btn:hover {
+  background-color: #435420;
+  color: #FFF9F3;
+  transform: translateY(-2px);
 }
+
 
 .spinner {
   --size: 30px;
-  --first-block-clr: #f7c459;
+  --first-block-clr: #D1D3AA;
   --second-block-clr: #435420;
   --clr: #111;
   width: 100px;
@@ -227,12 +231,17 @@ p {
 
 
 @media screen and (max-width: 770px) {
-  .menu-desplegable {
-    display: block;
-    /* Mostrar el botón cuando se cumple la condición */
+
+  /* Cambia la disposición de los botones de fila a columna */
+  .nav.nav-tabs {
+    flex-direction: column;
+    width: 400px;
+    /* Establece el ancho fijo que desees */
+    margin: 5px;
+
   }
 
-  .nav.nav-tabs {
-    display: none;
-  }
+
+
+
 }

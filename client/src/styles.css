@@ -2,30 +2,23 @@
 .ng-valid[required],
 .ng-valid.required {
   border-left: 5px solid #42A948;
-  /* green */
 }
 
 .ng-invalid:not(form) {
   border-left: 5px solid #a94442;
-  /* red */
 }
 
 body{
-  background-color: #fad390;
+  background-color: #FFF9F3;
 }
 
-
 .title {
-  font-size: 24px; /* Tamaño de fuente más grande */
+  font-size: 25px; /* Tamaño de fuente más grande */
   font-family: 'Raleway';
-
-  margin-bottom: 10px; /* Añadir espacio inferior */
   color: #435420; /* Cambiar el color del texto */
   letter-spacing: 2px; /* Espaciado entre caracteres */
   text-transform: uppercase; /* Convierte el texto en mayúsculas */
 }
-
-
 
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Raleway' }

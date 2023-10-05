@@ -1,7 +1,12 @@
+nav{
+  z-index: 2;
+}
+
 img {
   max-width: 200px;
   max-height: 200px;
   padding-left: 20px;
+  z-index: 0;
 }
 
 .navbar-edit {
@@ -85,7 +90,6 @@ img {
   background-color: #D1D3AA;
 }
 
-/* Estilos para los botones datos personales y cerrar sesion*/
 .navbar .nav-link.btn.btn-sm {
   font-size: 15px;
 }
@@ -147,7 +151,7 @@ img {
 @media (max-width: 990px) {
 
   nav {
-    background: white;
+    background: #FFF9F3;
   }
 
   .nav-center {

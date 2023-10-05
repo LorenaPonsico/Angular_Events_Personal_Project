@@ -3,35 +3,37 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: #FFF9F3;
 }
 
 .form-container {
-  background-color: #435420;
   padding: 20px;
   max-width: 100%;
   font-family: 'Raleway';
 }
 
-.login-details{
-  color: white;
+.login-details {
+  color: #435420;
   font-size: 16px;
   font-family: 'Raleway';
+  font-weight: bold;
 }
 
-.title{
+.title {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
   margin-top: 20px;
   font-family: 'Raleway';
-  color: white;
-  font-size: 20px;
-  letter-spacing: 2px;
+  color: #435420;
+  font-size: 25px;
+  letter-spacing: 3px;
+  font-weight: bold;
 }
 
 .btn {
-  background-color: #e08453;
-  color: white;
+  background-color: #D1D3AA;
+  color: #435420;
   display: block;
   margin: 10px auto;
   border: none;
@@ -42,21 +44,21 @@
 }
 
 .btn:hover {
-  background-color: #d46835;
+  background-color: #D1D3AA;
   transform: translateY(-2px);
+  font-weight: bold;
 }
 
 .error-message {
-  color: #f7c459;
+  color: red;
   font-size: 16px;
   margin-top: 5px;
 }
 
-input[type="email"],
-input[type="password"] {
+input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #435420;
   border-radius: 4px;
   font-size: 16px;
 }

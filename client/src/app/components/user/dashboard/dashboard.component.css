@@ -3,22 +3,34 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  margin: 50px auto;
+  padding-top: 80px;
+  padding-bottom: 50px;
 }
 
 .user-card {
-  background-color: #435420;
+  background-color: #FFF9F3;
   padding: 20px;
   margin: 20px;
   max-width: 100%;
   font-family: 'Raleway';
-  color: white;
+  color: #435420;
   font-size: 16px;
   margin: 10px auto;
 }
 
 .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  font-family: 'Raleway';
+  font-weight: bold;
+  color: #435420;
+  font-size: 25px;
+  letter-spacing: 2px;
+}
+
+.title-modify-data {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,22 +43,9 @@
   letter-spacing: 2px;
 }
 
-.title-modify-data{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 50px;
-  margin-top: 50px;
-  font-family: 'Raleway';
-  font-weight: bold;
-  color: white;
-  font-size: 25px;
-  letter-spacing: 2px;
-}
-
 .btn {
-  background-color: #e08453;
-  color: white;
+  background-color: #D1D3AA;
+  color: #435420;
   display: block;
   margin: 10px auto;
   border: none;
@@ -57,7 +56,7 @@
 }
 
 .btn:hover {
-  background-color: #d46835;
+  background-color: #D1D3AA;
   transform: translateY(-2px);
 }
 
@@ -69,7 +68,7 @@
 
 .btn-view-event {
   background-color: #435420;
-  color: white;
+  color: #FFF9F3;
   margin: 3px auto;
   border: none;
   border-radius: 0;
@@ -79,17 +78,26 @@
 }
 
 .btn-view-event:hover {
-  /* background-color: #d46835; */
   transform: translateY(-2px);
 }
 
+.form-control {
+  color: #435420;
+}
 
 .error-message {
-  color: #f7c459;
+  color: red;
   font-size: 16px;
   margin-top: 5px;
 }
 
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #435420;
+  border-radius: 4px;
+  font-size: 16px;
+}
 
 /* Añade una media query para ajustar el diseño en tamaños de pantalla más pequeños */
 @media screen and (max-width: 768px) {
@@ -107,6 +115,5 @@
   /* Ajusta el ancho máximo de las tarjetas para pantallas más pequeñas */
   .event-card {
     max-width: 90%;
-    /* Puedes ajustar esto según tus necesidades */
   }
 }

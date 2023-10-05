@@ -39,7 +39,7 @@
   overflow: hidden;
   position: relative;
   border: none;
-  border-radius: 0;
+  border-radius: 2%;
   cursor: pointer;
 }
 
@@ -55,18 +55,18 @@
 }
 
 .card-body:hover {
-  background-color: #435420; 
+  background-color: #435420;
   transform: scale(1.10);
 }
 
 .card-title {
-  font-size: 20px;
+  font-size: 25px;
   font-family: 'Raleway';
-  color: #D1D3AA; 
+  color: #D1D3AA;
   font-weight: bold;
 }
 
-.card-text{
+.card-text {
   font-size: 16px;
   font-family: 'Raleway';
   color: #FFF9F3;
@@ -90,7 +90,6 @@
   transform: scale(1.05);
 }
 
-
 .spinner {
   --size: 30px;
   --first-block-clr: #f7c459;
@@ -99,9 +98,10 @@
   width: 100px;
   height: 100px;
   position: relative;
- }
- 
- .spinner::after,.spinner::before {
+}
+
+.spinner::after,
+.spinner::before {
   box-sizing: border-box;
   position: absolute;
   content: "";
@@ -111,61 +111,62 @@
   animation: up 2.4s cubic-bezier(0, 0, 0.24, 1.21) infinite;
   left: 50%;
   background: var(--first-block-clr);
- }
- 
- .spinner::after {
+}
+
+.spinner::after {
   background: var(--second-block-clr);
   top: calc(50% - var(--size));
   left: calc(50% - var(--size));
   animation: down 2.4s cubic-bezier(0, 0, 0.24, 1.21) infinite;
- }
- 
+}
 
- 
- @keyframes down {
-  0%, 100% {
-   transform: none;
+@keyframes down {
+
+  0%,
+  100% {
+    transform: none;
   }
- 
+
   25% {
-   transform: translateX(100%);
+    transform: translateX(100%);
   }
- 
+
   50% {
-   transform: translateX(100%) translateY(100%);
+    transform: translateX(100%) translateY(100%);
   }
- 
+
   75% {
-   transform: translateY(100%);
+    transform: translateY(100%);
   }
- }
- 
- @keyframes up {
-  0%, 100% {
-   transform: none;
+}
+
+@keyframes up {
+
+  0%,
+  100% {
+    transform: none;
   }
- 
+
   25% {
-   transform: translateX(-100%);
+    transform: translateX(-100%);
   }
- 
+
   50% {
-   transform: translateX(-100%) translateY(-100%);
+    transform: translateX(-100%) translateY(-100%);
   }
- 
+
   75% {
-   transform: translateY(-100%);
+    transform: translateY(-100%);
   }
- }
- 
+}
 
 
- /* Añade una media query para ajustar el diseño en tamaños de pantalla más pequeños */
+
+/* Añade una media query para ajustar el diseño en tamaños de pantalla más pequeños */
 @media screen and (max-width: 768px) {
 
   .card {
     width: 200px;
     height: 200px;
-   
   }
 }

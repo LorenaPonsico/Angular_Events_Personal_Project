@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
         password: ['', Validators.required]
     })
 
-
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
@@ -27,9 +26,7 @@ export class LoginComponent implements OnInit {
         private toastr: ToastrService
     ) { }
 
-    ngOnInit() {
-
-    }
+    ngOnInit() {}
 
     get email() {
         return this.loginForm.controls.email;
@@ -41,7 +38,6 @@ export class LoginComponent implements OnInit {
 
     login() {
         if (this.loginForm.valid) {
-
             const email = this.loginForm.get("email")?.value;
             const password = this.loginForm.get("password")?.value;
             this.accountService.login(email, password).subscribe({
@@ -50,7 +46,7 @@ export class LoginComponent implements OnInit {
                 },
                 error: (errorData) => {
                     console.error(errorData);
-                
+
                     if (typeof errorData.error === 'string') {
                         // Si errorData.error es una cadena de texto, es probable que sea el mensaje de error.
                         this.loginError = errorData.error;

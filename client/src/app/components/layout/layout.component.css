@@ -35,7 +35,6 @@
   margin-bottom: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
-
 }
 
 .card-body {
@@ -69,22 +68,11 @@
   margin-right: 10px;
 }
 
-.card-text p::before {
-  content: "\2022";
-  color: #e08453;
-  display: inline-block;
-  width: 1em;
-  margin-left: -1em;
-}
-
 .image-container img {
-  max-width: 500px;
-  max-height: 500px;
+  max-width: 600px;
+  max-height: 600px;
   z-index: -1;
 }
-
-
-
 
 /* Estilos para pantallas más pequeñas (ejemplo: dispositivos móviles) */
 @media (max-width: 990px) {
@@ -95,24 +83,24 @@
     min-height: 100vh;
     overflow: hidden;
     position: relative;
-    background-color: #e08453; /* Cambia el fondo a naranja */
+    background-color: #FFF9F3;
   }
-  
+
   .container-fluid::before {
-    display: none; /* Oculta el fondo adicional */
+    display: none;
+    /* Oculta el fondo adicional */
   }
-  
+
   .card {
     background: transparent;
     border: none;
-    width: 80%; /* Ajusta el ancho del div card según tu preferencia */
+    width: 80%;
     font-family: 'Raleway';
     text-align: center;
- 
-    color: white; /* Texto en blanco */
-    margin: 0 auto; /* Centra el card horizontalmente */
+    color: #435420;
+    margin: 0 auto;
   }
-  
+
   .card-title {
     font-size: 25px;
     font-weight: bold;
@@ -120,28 +108,28 @@
     text-transform: uppercase;
     margin-bottom: 10px;
     letter-spacing: 2px;
-    padding-top: 20px; /* Ajusta el espacio superior según tu preferencia */
+    padding-top: 20px;
   }
-  
+
   .card-body {
     font-size: 16px;
     text-align: center;
     margin-bottom: 10px;
     letter-spacing: 2px;
   }
-  
+
   .card-text {
     font-size: 14px;
-    color: white; /* Texto en blanco */
+    color: #435420;
     letter-spacing: 2px;
     text-align: center;
     max-width: 80%;
     margin: 0 auto;
-    padding-top: 20px; /* Ajusta el espacio superior según tu preferencia */
+    padding-top: 20px;
   }
-  
+
   .image-container {
-    display: none; /* Oculta la imagen en pantallas más pequeñas */
+    display: none;
   }
 
 }

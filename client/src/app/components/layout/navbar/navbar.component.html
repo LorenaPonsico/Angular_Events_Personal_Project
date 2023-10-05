@@ -1,74 +1,70 @@
 <nav class="navbar navbar-expand-lg fixed-top" appNavbarScroll>
 
   <a class="logo navbar-brand" href="#">
-    <img src='../../../../assets/logo_eventopia.png' alt="Imagen">
-    </a>
+    <img src='../../../../assets/eventopia1.png' alt="Imagen">
+  </a>
 
-    <div class="me-3 toggle " id="menuToggle" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" (click)="toggleNavbar()">
-      <input id="checkbox" type="checkbox">
-      <label class="toggle" for="checkbox">
-        <div class="bar bar--top"></div>
-        <div class="bar bar--middle"></div>
-        <div class="bar bar--bottom"></div>
-      </label>
-    </div>
+  <div class="me-3 toggle " id="menuToggle" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" (click)=" toggleNavbar()">
+    <input id="checkbox" type="checkbox">
+    <label class="toggle" for="checkbox">
+      <div class="bar bar--top"></div>
+      <div class="bar bar--middle"></div>
+      <div class="bar bar--bottom"></div>
+    </label>
+  </div>
 
-    <div class="navbar-collapse collapse  " [ngClass]="{'show': !isNavbarCollapsed}" id="navbarSupportedContent">
-        <ul class="navbar-nav navbar-edit ">
-        <li class="nav-item nav-center ">
-          <a class="nav-link  " aria-current="page" routerLink="/inicio" (click)="closeNavbar()"> <i
-              class="fa-solid fa-house"></i> Inicio</a>
-        </li>
+  <div class="navbar-collapse collapse  " [ngClass]="{'show': !isNavbarCollapsed}" id="navbarSupportedContent">
+    <ul class="navbar-nav navbar-edit ">
+      <li class="nav-item nav-center ">
+        <a class="nav-link  " aria-current="page" (click)="closeNavbar()" routerLink="/inicio"> <i
+            class="fa-solid fa-house"></i> Inicio</a>
+      </li>
 
-        <li class="nav-item nav-center">
-          <a class="nav-link" aria-current="page" href="#" routerLink="/comunidad" (click)="closeNavbar()"> <i
-              class="fa-solid fa-tower-broadcast"></i> Que hacemos?</a>
-        </li>
-        
-        <li class="nav-item nav-center">
-          <a class="nav-link" aria-current="page" href="#" [routerLink]="userLoginOn ? '/crear-evento' : '/registro'"
+      <li class="nav-item nav-center">
+        <a class="nav-link" aria-current="page" href="#" routerLink="/comunidad" (click)="closeNavbar()"> <i
+            class="fa-solid fa-tower-broadcast"></i> Que hacemos?</a>
+      </li>
+
+      <li class="nav-item nav-center">
+        <a class="nav-link" aria-current="page" href="#" [routerLink]="userLoginOn ? '/crear-evento' : '/registro'"
           (click)="closeNavbar()"> <i class="fa-solid fa-plus"></i>
           Crear Evento
-          </a>
-        </li>
+        </a>
+      </li>
 
-        <li class="nav-item nav-center">
-          <a class="nav-link" aria-current="page" href="#" [routerLink]="userLoginOn ? '/ver-eventos' : '/registro'"
-            (click)="closeNavbar()"> <i class="fa-solid fa-calendar-days"></i>
-            Calendario de Eventos
-          </a>
-        </li>
-      <!-- </ul> -->
-      
-      
-      <!-- <ul class="navbar-nav row   "> -->
-          <li *ngIf="userLoginOn" class="nav-item nav-center login">
-            <a class="nav-link " aria-current="page" href="#" routerLink="/panel-control"
-            (click)="closeNavbar()"> <i class="fa-solid fa-person"></i> {{ 'Hola ' +  user.user.name | titlecase }} </a>
-        </li>
-        
-        <li *ngIf="userLoginOn" class="nav-item nav-center login">
-          <a class="nav-link  " aria-current="page" (click)="openDialogCustom(logouttemplate)"> <i
+      <li class="nav-item nav-center">
+        <a class="nav-link" aria-current="page" href="#" [routerLink]="userLoginOn ? '/ver-eventos' : '/registro'"
+          (click)="closeNavbar()"> <i class="fa-solid fa-calendar-days"></i>
+          Calendario de Eventos
+        </a>
+      </li>
+
+      <li *ngIf="userLoginOn" class="nav-item nav-center login">
+        <a class="nav-link " aria-current="page" href="#" routerLink="/panel-control" (click)="closeNavbar()"> <i
+            class="fa-solid fa-person"></i> {{ 'Hola ' + user.user.name | titlecase }} </a>
+      </li>
+
+      <li *ngIf="userLoginOn" class="nav-item nav-center login">
+        <a class="nav-link  " aria-current="page" (click)="openDialogCustom(logouttemplate)"> <i
             class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar sesión </a>
-            
-        </li>
-    
-        <li *ngIf="!userLoginOn" class="nav-item nav-center login">
-          <a class="nav-link " aria-current="page" routerLink="/iniciar-sesion" (click)="closeNavbar()"> <i
-              class="fa-solid fa-arrow-right-from-bracket"></i> Iniciar Sesion</a>
-        </li>
 
-        <li *ngIf="!userLoginOn" class="nav-item nav-center login">
-          <a class="nav-link " aria-current="page" routerLink="/registro" (click)="closeNavbar()"> <i
+      </li>
+
+      <li *ngIf="!userLoginOn" class="nav-item nav-center login">
+        <a class="nav-link " aria-current="page" routerLink="/iniciar-sesion" (click)="closeNavbar()"> <i
+            class="fa-solid fa-arrow-right-from-bracket"></i> Iniciar Sesion</a>
+      </li>
+
+      <li *ngIf="!userLoginOn" class="nav-item nav-center login">
+        <a class="nav-link " aria-current="page" routerLink="/registro" (click)="closeNavbar()"> <i
             class="fa-solid fa-user-plus"></i> Regístrate</a>
-          </li>
-        </ul>
-        
-      </div>
-      
-    </nav>
-    
+      </li>
+    </ul>
+
+  </div>
+</nav>
+
 <!-- DIALOG / MODAL  -->
 <ng-template #logouttemplate>
   <div mat-dialog-content>Estas seguro/a que deseas cerrar sesión?

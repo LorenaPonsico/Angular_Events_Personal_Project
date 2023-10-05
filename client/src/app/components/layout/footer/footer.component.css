@@ -1,48 +1,47 @@
-footer{
+footer {
   background-color: #D1D3AA;
   font-family: 'Raleway';
   padding-top: 30px;
   padding-bottom: 30px;
 }
-h4{
-  color: #435420;
 
+h4 {
+  color: #435420;
 }
-p{
-  color: #435420;
 
+p {
+  color: #435420;
 }
 
 .social-icons {
   display: flex;
-  gap: 10px; /* Espacio entre los íconos */
+  gap: 10px;
   color: #435420;
 }
 
 .social-icons a {
   text-decoration: none;
-  color: inherit; /* Utiliza el color del texto heredado */
-  cursor: pointer; /* Muestra el cursor como un puntero al pasar sobre los íconos */
+  color: inherit;
+  cursor: pointer;
   color: #435420;
-
 }
 
 .social-icons i {
-  font-size: 20px; /* Tamaño del ícono */
+  font-size: 20px;
   color: #435420;
-
 }
 
-.social-icons i:hover{
+.social-icons i:hover {
   transform: scale(1.1);
 }
 
 /* Media query para dispositivos móviles */
 @media (max-width: 768px) {
   footer {
-    padding-left: 30%; /* Cambia el valor del padding para dispositivos móviles */
+    padding-left: 30%;
   }
-  .section-title{
+
+  .section-title {
     padding: 10px;
     margin: 10px;
   }
@@ -51,13 +50,13 @@ p{
 /* Media query para pantallas de tamaño intermedio (ejemplo: entre 768px y 1200px) */
 @media (min-width: 769px) and (max-width: 1199px) {
   footer {
-    padding-left: 25%; /* Cambia el valor del padding para pantallas de tamaño intermedio */
+    padding-left: 25%;
   }
 }
 
 /* Media query para pantallas grandes (ejemplo: ancho mínimo de 1200px) */
 @media (min-width: 1200px) {
   footer {
-    padding-left: 20%; /* Cambia el valor del padding para pantallas grandes */
+    padding-left: 20%;
   }
 }

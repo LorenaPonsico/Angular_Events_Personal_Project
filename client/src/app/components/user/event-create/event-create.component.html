@@ -14,7 +14,7 @@
         <form class="mt-3" [formGroup]="eventForm">
 
           <div class="mb-3">
-            <label class="event-details" for="title">Título del Evento</label>
+            <label class="event-details" for="title"><strong>Título del Evento</strong></label>
             <input type="text" id="title" formControlName="title" class="form-control">
             <div class="error-message"
               *ngIf="eventForm.get('title')?.hasError('required') && eventForm.get('title')?.touched">
@@ -26,7 +26,7 @@
           </div>
 
           <div class="mb-3">
-            <label class="event-details">Fecha </label>
+            <label class="event-details"><strong>Fecha</strong></label>
             <input type="date" formControlName="date" class="form-control">
             <div class="error-message"
               *ngIf="eventForm.get('date')?.hasError('required') && eventForm.get('date')?.touched">
@@ -39,7 +39,7 @@
           </div>
 
           <div class="mb-3">
-            <label class="event-details">Hora Inicio</label>
+            <label class="event-details"> <strong>Hora Inicio</strong></label>
             <input type="time" formControlName="startTime" class="form-control">
             <div class="error-message"
               *ngIf="eventForm.get('date')?.hasError('required') && eventForm.get('date')?.touched">
@@ -48,7 +48,7 @@
           </div>
 
           <div class="mb-3">
-            <label class="event-details">Hora fin</label>
+            <label class="event-details"><strong>Hora fin</strong></label>
             <input type="time" formControlName="endTime" class="form-control">
             <div class="error-message"
               *ngIf="eventForm.get('endTime')?.hasError('required') && eventForm.get('endTime')?.touched">
@@ -62,7 +62,7 @@
           </div>
 
           <div class="mb-3">
-            <label class="event-details">Aforo máximo</label>
+            <label class="event-details"><strong>Aforo máximo</strong></label>
             <input type="number" formControlName="capacity" class="form-control" placeholder="">
             <div class="error-message"
               *ngIf="eventForm.get('capacity')?.hasError('required') && eventForm.get('capacity')?.touched">
@@ -75,7 +75,7 @@
           </div>
 
           <div class="mb-3">
-            <label class="event-details">Categoría</label>
+            <label class="event-details"><strong>Categoría</strong></label>
             <select formControlName="type" class="form-control">
               <option></option>
               <option>Artes escenicas y visuales</option>
@@ -92,7 +92,7 @@
           </div>
 
           <div class="mb-3">
-            <label class="event-details">Localización</label>
+            <label class="event-details"><strong>Localización</strong></label>
             <input type="text" formControlName="location" class="form-control" placeholder="">
             <div class="error-message"
               *ngIf="eventForm.get('location')?.hasError('required') && eventForm.get('location')?.touched">
@@ -104,7 +104,7 @@
           </div>
 
           <div class="mb-3">
-            <label class="event-details">Descripción</label>
+            <label class="event-details"><strong>Descripción</strong></label>
             <textarea formControlName="description" class="form-control" rows="3"></textarea>
             <div class="error-message"
               *ngIf="eventForm.get('description')?.hasError('required') && eventForm.get('description')?.touched">

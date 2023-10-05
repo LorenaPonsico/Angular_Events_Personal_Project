@@ -1,24 +1,21 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, TemplateRef } from '@angular/core';
 import { AccountService } from '../../../services/auth-users.service';
 import { User } from 'src/app/models/user';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DialogService } from 'src/app/services/dialog.service';
-import { Event } from 'src/app/models/event';
 import { ValidationsService } from 'src/app/services/validations.service';
-import { EventsService } from 'src/app/services/events.service';
 import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
 export class DashboardComponent {
   userData: any | null;
   userDetails!: User; // Declarar una variable para almacenar userDetails
-  updatedUser!: User;
   showUserForm: boolean = false;
   userForm: FormGroup;
 
@@ -28,7 +25,6 @@ export class DashboardComponent {
     private dialogService: DialogService,
     private validationsService: ValidationsService,
     private fb: FormBuilder,
-    private eventsService: EventsService,
     private router: Router) {
 
     this.userForm = this.fb.group({
@@ -37,7 +33,6 @@ export class DashboardComponent {
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required, Validators.pattern(/^[0-9]{8,15}$/)]],
       birthDate: ['', [Validators.required, this.validationsService.adult]]
-
     });
   }
 
@@ -50,7 +45,6 @@ export class DashboardComponent {
       template
     }).afterClosed().subscribe(res => console.log('Dialog close', res))
   }
-
 
   getUsers(): void {
     this.userData = JSON.parse(localStorage.getItem('user')!);
@@ -69,7 +63,6 @@ export class DashboardComponent {
     this.userForm.get('phone')?.setValue(user.phone);
     this.userForm.get('birthDate')?.setValue(user.birthDate);
   }
-
 
   updateUser(): void {
     const name = this.userForm.get('name')?.value;

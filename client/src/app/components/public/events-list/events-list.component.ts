@@ -18,22 +18,21 @@ export class EventsListComponent implements OnInit {
   user?: User | null;
   eventsLoaded: boolean = false;
 
-  constructor( 
-    private eventsService: EventsService, 
-    private accountService: AccountService, 
+  constructor(
+    private eventsService: EventsService,
+    private accountService: AccountService,
     private router: Router,
-    private toastr: ToastrService){}
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getEvents();
     this.accountService.user.subscribe((user) => {
-          this.user = user;
-          this.userLoginOn = !!user; // Convertimos el objeto user en un valor booleano
-        });
+      this.user = user;
+      this.userLoginOn = !!user; // Convertimos el objeto user en un valor booleano
+    });
   }
 
-  getEvents(){
-    // this.eventsLoaded = true;      
+  getEvents() {
     this.eventsService.getEvents().subscribe((data: Event[]) => {
       // Ordenar los eventos por fecha en orden descendente (eventos más recientes primero)
       data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -48,7 +47,7 @@ export class EventsListComponent implements OnInit {
 
   redirectToEvent(index: number) {
     const event = this.listEvents[index];
-  
+
     if (this.userLoginOn) {
       // Usuario registrado, redirecciona al evento
       this.router.navigate(['/event', event._id]);

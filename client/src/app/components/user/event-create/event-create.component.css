@@ -2,29 +2,25 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  /* margin: 50px auto; */
-  max-width: 100%; 
-background-color: #FFF9F3;
+  padding-top: 80px;
+  max-width: 100%;
+  background-color: #FFF9F3;
 }
 
 .form-container {
   padding: 20px;
-  width: 100%; /* Ocupa todo el ancho disponible */
-  max-width: 900px; 
+  width: 100%;
+  max-width: 900px;
 }
-
-
 
 .event-card {
   background-color: #FFF9F3;
-
   padding: 20px;
-  max-width: 100%; /* Ajusta el ancho máximo de la tarjeta */
+  max-width: 100%;
   font-family: 'Raleway';
   color: #435420;
   font-size: 16px;
-  margin: 10px auto; /* Ajusta el margen vertical */
+  margin: 10px auto;
 }
 
 .title {
@@ -42,7 +38,6 @@ background-color: #FFF9F3;
 
 .btn {
   background-color: #D1D3AA;
-  color: #435420;
   display: block;
   margin: 10px auto;
   border: none;
@@ -74,10 +69,7 @@ background-color: #FFF9F3;
   margin-top: 5px;
 }
 
-input[type="text"],
-input[type="date"],
-input[type="time"],
-input[type="number"],
+input,
 textarea,
 select {
   width: 100%;

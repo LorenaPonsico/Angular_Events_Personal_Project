@@ -21,8 +21,6 @@ export class RegisterComponent {
     password: ['', [Validators.required, Validators.minLength(8)]],
     phone: ['', [Validators.required, Validators.pattern(/^[0-9]{8,15}$/)]],
     birthday: ['', [Validators.required, this.validationsService.adult]]
-
-    // img: ['', Validators.required]
   });
 
   constructor(
@@ -89,7 +87,6 @@ export class RegisterComponent {
             complete: () => {
               this.router.navigateByUrl('/panel-control')
               this.toastr.info('Sesion iniciada', 'Te has registrado correctamente');
-
             }
           });
           this.registerForm.reset()
