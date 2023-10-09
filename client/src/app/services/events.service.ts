@@ -7,7 +7,7 @@ import { Event } from "../models/event";
     providedIn: 'root'
 })
 export class EventsService {
-    url = 'http://localhost:4000/api/events/'
+    url = 'https://angular-back-three.vercel.app/api/events'
     events: Event[] = []; 
 
     constructor(private http: HttpClient) { }
