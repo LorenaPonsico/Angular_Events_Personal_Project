@@ -98,6 +98,7 @@ p {
 
 .btn-create-event {
   background-color: #D1D3AA;
+  color: #435420;
   display: block;
   margin: 10px auto;
   border: none;
@@ -106,7 +107,7 @@ p {
   transition: background-color 0.3s, transform 0.3s;
   font-family: 'Raleway';
   padding: 10px 20px;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .btn-create-event:hover {
@@ -198,12 +199,12 @@ p {
   }
 
   .event-details {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   /* Ajusta el ancho máximo de las tarjetas para pantallas más pequeñas */
   .event-card {
-    max-width: 90%;
+    max-width: 80%;
   }
 
   .nav.nav-tabs {
@@ -218,6 +219,8 @@ p {
     margin: 5px;
     /* Agrega margen entre los títulos */
   }
+
+
 }
 
 
@@ -226,13 +229,27 @@ p {
   /* Cambia la disposición de los botones de fila a columna */
   .nav.nav-tabs {
     flex-direction: column;
-    width: 400px;
-    /* Establece el ancho fijo que desees */
     margin: 5px;
-
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
   }
 
+  .tab-pane {
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    text-align: start;
+    padding: 20px;
+  }
 
+  .event-card {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 400px;
+  }
 
 
 }

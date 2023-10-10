@@ -36,7 +36,7 @@ img {
 }
 
 .btn-sm {
-  font-size: 14px;
+  font-size: 16px;
   width: 80px;
   height: 25px;
   padding: 0;
@@ -47,7 +47,7 @@ img {
   color: #435420;
   font-family: 'Raleway';
   cursor: pointer;
-  font-size: 17px;
+  font-size: 16px;
   transition: transform 0.3s ease;
 }
 
@@ -86,12 +86,12 @@ img {
 }
 
 .login {
-  font-size: 14px;
+  font-size: 16px;
   background-color: #D1D3AA;
 }
 
 .navbar .nav-link.btn.btn-sm {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .navbar-white-bg {

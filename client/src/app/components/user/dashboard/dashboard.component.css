@@ -109,7 +109,7 @@ input {
 
   /* Modifica el tamaño de los detalles del evento para pantallas más pequeñas */
   .event-details {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   /* Ajusta el ancho máximo de las tarjetas para pantallas más pequeñas */
